@@ -1,0 +1,220 @@
+{
+  "caseId": "d4",
+  "reference": {
+    "outcome": "fail",
+    "criteria": {
+      "grounding": "fail"
+    },
+    "reason": "No supplied source establishes a bridge capability or guarantee.",
+    "author": "Codex-authored provisional reference; not independent human ground truth"
+  },
+  "review": {
+    "id": "c6fa1d4a-affb-46b3-b8ba-372c2eb1a073",
+    "runId": "d4",
+    "originalHash": "db72ca16d3fe09d0da3272b6f530ab7d2e3c1e202a73077129c3f7d18a069682",
+    "inputHash": "0fcb0c8a47815904f5337580b99a6913c33d040966f4677b81f7074821c5dd4b",
+    "version": "evidence-review-1",
+    "judgeHash": "e879bab2246ce4fdbdd36180e5173ff0084c94dcdd52b030d327b247272def03",
+    "createdAt": "2026-09-10T01:12:55.937Z",
+    "kind": "AI semantic review; separate from original grade",
+    "status": "completed",
+    "evaluation": {
+      "outcome": "fail",
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "uncertain",
+          "claim": "A third-party wireless bridge is guaranteed to make this printer wireless.",
+          "reason": "The wired instructions apply to Sam’s owned model. However, the evidence does not establish whether a third-party wireless bridge works with it; the USB Wi-Fi adapter restriction does not resolve compatibility with a distinct bridge.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "A USB Wi-Fi adapter does not add wireless printing."
+            }
+          ],
+          "title": "Advice for the owned product"
+        },
+        {
+          "id": "grounding",
+          "outcome": "fail",
+          "claim": "A third-party wireless bridge is guaranteed to make this printer wireless.",
+          "reason": "No evidence supports bridge compatibility or guarantees wireless operation. The supported wired guidance, eligibility qualification, and recorded handoff do not substantiate this additional promise.",
+          "evidence": [
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            }
+          ],
+          "title": "Claims supported by evidence"
+        },
+        {
+          "id": "consistency",
+          "outcome": "pass",
+          "claim": "Return or exchange eligibility needs checking.",
+          "reason": "The prose identifies the owned L4 USB and its USB connection and makes no return or exchange commitment, agreeing with the fields. The unsupported external bridge guarantee does not itself change the printer’s native connection or promise a policy remedy.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            }
+          ],
+          "title": "Reply agrees with structured fields"
+        },
+        {
+          "id": "actions",
+          "outcome": "pass",
+          "claim": "I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The successful record_escalation result matches the claimed handoff in this fictional setting. No approval, refund, or dispatch is claimed.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-d4\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ],
+          "title": "Claims about completed actions"
+        },
+        {
+          "id": "completeness",
+          "outcome": "pass",
+          "claim": "Use the included USB cable and the L4 USB driver guide for your laptop’s operating system for wired printing. I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The reply explains the model’s wireless limitations, provides its supported wired option, qualifies eligibility, and fulfills the requested handoff. No required advice or action is omitted; the added unsupported guarantee is a grounding defect.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "\"tool\":\"record_escalation\",\"ok\":true"
+            }
+          ],
+          "title": "Required advice and next steps"
+        }
+      ]
+    },
+    "execution": {
+      "protocolVersion": "evidence-review-1",
+      "cliVersion": "codex-cli 0.153.4",
+      "requestedModel": "gpt-6-astra",
+      "providerReportedModel": null,
+      "configuration": "user config ignored; no plugins, apps, native shell, browsing, or multi-agent tools; read-only ephemeral scratch directory",
+      "reasoningEffort": "low"
+    },
+    "usage": {
+      "input_tokens": 12557,
+      "output_tokens": 796,
+      "cached_input_tokens": 0,
+      "reported_turns": 1
+    },
+    "elapsedMs": 27464,
+    "cost": null,
+    "raw": {
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "uncertain",
+          "claim": "A third-party wireless bridge is guaranteed to make this printer wireless.",
+          "reason": "The wired instructions apply to Sam’s owned model. However, the evidence does not establish whether a third-party wireless bridge works with it; the USB Wi-Fi adapter restriction does not resolve compatibility with a distinct bridge.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "A USB Wi-Fi adapter does not add wireless printing."
+            }
+          ]
+        },
+        {
+          "id": "grounding",
+          "outcome": "fail",
+          "claim": "A third-party wireless bridge is guaranteed to make this printer wireless.",
+          "reason": "No evidence supports bridge compatibility or guarantees wireless operation. The supported wired guidance, eligibility qualification, and recorded handoff do not substantiate this additional promise.",
+          "evidence": [
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            }
+          ]
+        },
+        {
+          "id": "consistency",
+          "outcome": "pass",
+          "claim": "Return or exchange eligibility needs checking.",
+          "reason": "The prose identifies the owned L4 USB and its USB connection and makes no return or exchange commitment, agreeing with the fields. The unsupported external bridge guarantee does not itself change the printer’s native connection or promise a policy remedy.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            }
+          ]
+        },
+        {
+          "id": "actions",
+          "outcome": "pass",
+          "claim": "I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The successful record_escalation result matches the claimed handoff in this fictional setting. No approval, refund, or dispatch is claimed.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-d4\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "outcome": "pass",
+          "claim": "Use the included USB cable and the L4 USB driver guide for your laptop’s operating system for wired printing. I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The reply explains the model’s wireless limitations, provides its supported wired option, qualifies eligibility, and fulfills the requested handoff. No required advice or action is omitted; the added unsupported guarantee is a grounding defect.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "\"tool\":\"record_escalation\",\"ok\":true"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

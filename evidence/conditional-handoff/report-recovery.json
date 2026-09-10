@@ -1,0 +1,6 @@
+{
+  "phase": "Revision support batch, before its first reply review",
+  "error": "Windows EPERM on atomic replacement of report.json",
+  "effect": "Coordinator stopped. Server-owned support runs and previous first reviews remained persisted. No prompt, source, grading control, or result was changed.",
+  "recovery": "Added the same bounded Windows sharing-lock retry pattern used by run persistence. Resumed existing experiment IDs and run IDs from saved receipts. Reused the twelve saved first reviews; no support trial or completed review was repeated."
+}

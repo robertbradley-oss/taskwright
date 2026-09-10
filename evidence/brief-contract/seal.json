@@ -1,0 +1,9 @@
+{
+  "sealedAt": "2026-09-10T23:23:57.498Z",
+  "planHash": "b64d6e7260bb39d9fd79876268f7e395f0f84463fde58f3921b3788117d419cb",
+  "contractHash": "af0abbadc17f8872507172d8f646adac45a742f87cf264d14d34377b5bdce11c",
+  "reportHash": "e231bbae77b74dd434d926e97812a10a27b62c875b9276c0d99e97d8e151da24",
+  "decision": "tie",
+  "attempts": 16,
+  "firstReviews": 16
+}

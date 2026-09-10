@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taskwright — Verify an AI answer</title>
+  <link rel="stylesheet" href="style.css"><script type="module" src="app.js"></script>
+</head>
+<body data-scenario="reset">
+  <a class="skip" href="#main">Skip to practice</a>
+  <header><a class="brand" href="/" aria-label="Taskwright home"><span class="mark" aria-hidden="true">t.</span> Taskwright</a><span class="header-note">A little practice. Better judgment.</span></header>
+  <main id="main">
+    <nav aria-label="Practice selection"><a href="/index.html" aria-current="page">01 · Check the instruction</a> <a href="/model.html">02 · Check the source</a></nav>
+    <div class="eyebrow">CUSTOMER SUPPORT · PRACTICE 01</div>
+    <h1>A confident answer.<br>A detail worth checking.</h1>
+    <p class="intro">Learn to check an AI answer against its source before you send it to a customer.</p>
+    <ol class="steps" aria-label="Practice progress"><li id="step-lesson" aria-current="step">01 <span>Learn</span></li><li id="step-practice">02 <span>Investigate & respond</span></li><li id="step-feedback">03 <span>Review</span></li></ol>
+
+    <section id="lesson" aria-labelledby="lesson-title">
+      <div class="lesson-grid"><div><div class="eyebrow">THE HABIT</div><h2 id="lesson-title" tabindex="-1">Treat an answer as a draft.</h2><p>AI can combine accurate details with one unsupported instruction. A fluent answer is a starting point, not evidence that every step is correct.</p></div>
+      <div class="habits"><div><b>1. Isolate the claim</b><p>Look closely at numbers, conditions, and instructions. What is the answer asking the customer to do?</p></div><div><b>2. Find the exact evidence</b><p>Check the source for this model and situation. A nearby instruction may apply to a different task.</p></div><div><b>3. Correct, then set a boundary</b><p>Write what the source supports. Say when to contact support instead of inventing another step.</p></div></div></div>
+      <div class="lesson-bottom"><p>Next: compare a fictional manual with a prepared AI draft.<br><span class="muted">No real customer information or live AI is used.</span></p><button id="start">Try the scenario <span aria-hidden="true">→</span></button></div>
+    </section>
+
+    <section id="practice" hidden aria-labelledby="practice-title">
+      <div class="section-top"><h2 id="practice-title" tabindex="-1">Check before you send.</h2><button class="text-button" id="back">Revisit the lesson</button></div>
+      <div class="workspace">
+        <aside aria-label="Source material">
+          <article class="ticket"><div class="eyebrow">CUSTOMER TICKET · FICTIONAL</div><h3>“The light is still amber.”</h3><p>Hi, I replaced the cartridge in my Morrow Desk Filter D2. The indicator is still amber. I haven’t pressed the indicator button since replacing the cartridge. Do I need another cartridge, or is there a step I missed?</p><p class="signature">— Alex</p></article>
+          <article class="manual"><div class="eyebrow">YOUR SOURCE</div><h3>Morrow D2 · Manual excerpt</h3><p class="muted">Fictional training material · Revision 1</p><dl><dt>§1 · After replacing a cartridge</dt><dd>With the unit powered on and the new cartridge installed, hold the indicator button for <strong>8 seconds</strong> to reset the cartridge timer. The indicator turns green when the reset succeeds.</dd><dt>§2 · Quick indicator check</dt><dd>Hold the indicator button for <strong>3 seconds</strong> to check the current cartridge status. This check does not reset the timer.</dd><dt>§3 · If the light stays amber</dt><dd>If the indicator remains amber after one 8-second reset attempt, contact support. Do not recommend another cartridge replacement based on the light alone.</dd></dl></article>
+        </aside>
+        <div>
+          <article class="draft"><div class="eyebrow">PREPARED AI DRAFT · VERIFY THIS</div><blockquote>“Thanks for replacing the cartridge. With the unit powered on and the new cartridge installed, hold the indicator button for 3 seconds to reset the timer. The light should turn green. If it stays amber after that reset attempt, contact support. You do not need to buy another cartridge based on the light alone.”</blockquote></article>
+          <form id="response-form">
+            <fieldset><legend>1. Which claim needs correcting?</legend><label><input type="radio" name="claim" value="power" required> The unit must be powered on.</label><label><input type="radio" name="claim" value="duration"> Holding for 3 seconds resets the timer.</label><label><input type="radio" name="claim" value="replacement"> The light alone does not mean another cartridge is needed.</label></fieldset>
+            <fieldset><legend>2. Which section gives the correct reset procedure?</legend><label><input type="radio" name="source" value="reset" required> §1 · After replacing a cartridge</label><label><input type="radio" name="source" value="check"> §2 · Quick indicator check</label><label><input type="radio" name="source" value="escalate"> §3 · If the light stays amber</label></fieldset>
+            <fieldset><legend>3. What if one correct reset attempt fails?</legend><label><input type="radio" name="boundary" value="repeat" required> Keep trying the reset until the light changes.</label><label><input type="radio" name="boundary" value="support"> Contact support; don’t infer that another cartridge is needed.</label><label><input type="radio" name="boundary" value="buy"> Recommend another cartridge.</label></fieldset>
+            <label class="reply-label" for="reply">4. Write your corrected customer reply</label><p class="help" id="reply-help">Use your own words. Include the supported instruction and what to do if it fails. Your writing will be reviewed with a checklist, not automatically graded.</p>
+            <textarea id="reply" name="reply" rows="7" maxlength="3000" required aria-describedby="reply-help" placeholder="Hi Alex, …"></textarea>
+            <p class="help">Your work stays in this page. Refreshing, closing, or switching practices clears your progress. You can download your review at the end.</p>
+            <button type="submit">Review my response <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback" hidden aria-labelledby="feedback-title">
+      <div class="section-top"><div><div class="eyebrow">YOUR REVIEW</div><h2 id="feedback-title" tabindex="-1">Follow the evidence.</h2></div><button class="text-button" id="revise">Revise my response</button></div>
+      <div class="score-banner"><strong id="score"></strong><p><b>Written reply: not assessed.</b> Correct choices can still accompany an incorrect reply. Compare your wording with the manual using the checklist below; self-checks do not verify reply quality.</p><p>This practice score does not establish learning gains.</p></div>
+      <div id="criteria" class="criteria"></div>
+      <div class="review-grid"><article><h3>Your customer reply</h3><p id="saved-reply" class="preserve"></p><h3>Review your writing</h3><p>Compare your reply with the source and example. Tick only what your reply actually includes. These self-checks do not change your score.</p><div class="self-checks"><label><input type="checkbox" value="conditions"> Power on, new cartridge installed, hold for 8 seconds.</label><label><input type="checkbox" value="boundary"> Contact support if one reset fails; no unsupported replacement advice.</label><label><input type="checkbox" value="clarity"> A clear, considerate reply without a guaranteed fix.</label></div></article>
+      <article class="example"><div class="eyebrow">ONE SUPPORTED RESPONSE</div><h3>Clear steps. A sensible stopping point.</h3><p>Hi Alex, the amber light alone doesn’t mean you need another cartridge. With the unit powered on and your new cartridge installed, hold the indicator button for 8 seconds to reset the timer. It turns green if the reset succeeds. A 3-second hold only checks the status. If the light stays amber after one 8-second attempt, please contact support so we can help with the next step.</p><p class="help">Evidence: §1 gives the reset conditions and duration; §2 explains the mistake; §3 sets the escalation boundary.</p></article></div>
+      <details><summary>How this review works</summary><p>Each of the three evidence choices earns 1 point for the supported answer, otherwise 0. All three have equal weight. The app checks selected choices only: it cannot judge reasoning, tone, contradictory prose, or whether you guessed. Written replies need human review. Revisions use the same scenario and are practice, not an independent assessment.</p></details>
+      <label class="reply-label" for="reflection">What would you check next time? <span class="muted">(optional)</span></label><textarea id="reflection" rows="3" maxlength="2000" placeholder="A detail I’ll pay more attention to…"></textarea>
+      <div class="actions"><button id="download">Download my review</button><button id="show-export" class="text-button">View copyable review</button><span id="download-status" role="status"></span></div>
+      <div id="export-panel" hidden><label class="reply-label" for="export-text">Your review as plain text</label><p class="help">Select the text and copy it to keep a record if downloads are unavailable.</p><textarea id="export-text" rows="12" readonly></textarea></div>
+    </section>
+    <footer>Taskwright · Learning prototype <span>Fictional scenarios. Real practice in judgment.</span> · Formerly Trywise; historical evidence retains its original name.</footer>
+  </main>
+</body>
+</html>

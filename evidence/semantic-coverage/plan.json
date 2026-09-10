@@ -1,0 +1,64 @@
+[
+  {
+    "id": "retained-1",
+    "kind": "retained fresh agent run",
+    "runId": "95cd19ca-865e-43af-b031-0f33bf7ca24d"
+  },
+  {
+    "id": "retained-2",
+    "kind": "retained fresh agent run",
+    "runId": "62296504-a837-4898-a533-de71bb750a2a"
+  },
+  {
+    "id": "retained-3",
+    "kind": "retained fresh agent run",
+    "runId": "dc6bcf6a-e87e-40a0-b056-900475fa2698"
+  },
+  {
+    "id": "retained-4",
+    "kind": "retained fresh agent run",
+    "runId": "1dc888fd-2c1d-411e-b296-1682119622c5"
+  },
+  {
+    "id": "vale-reset-fresh",
+    "kind": "new fresh agent run",
+    "mode": "codex",
+    "scenario": "vale-reset"
+  },
+  {
+    "id": "vale-reset-contradiction",
+    "kind": "scripted contradictory reply; fresh AI review",
+    "mode": "replay",
+    "scenario": "vale-reset",
+    "fixture": "contradiction",
+    "expectedReview": "fail"
+  },
+  {
+    "id": "vale-eligibility-fresh",
+    "kind": "new fresh agent run",
+    "mode": "codex",
+    "scenario": "vale-eligibility"
+  },
+  {
+    "id": "vale-eligibility-contradiction",
+    "kind": "scripted contradictory reply; fresh AI review",
+    "mode": "replay",
+    "scenario": "vale-eligibility",
+    "fixture": "contradiction",
+    "expectedReview": "fail"
+  },
+  {
+    "id": "vale-revision-fresh",
+    "kind": "new fresh agent run",
+    "mode": "codex",
+    "scenario": "vale-revision"
+  },
+  {
+    "id": "vale-revision-contradiction",
+    "kind": "scripted contradictory reply; fresh AI review",
+    "mode": "replay",
+    "scenario": "vale-revision",
+    "fixture": "contradiction",
+    "expectedReview": "fail"
+  }
+]

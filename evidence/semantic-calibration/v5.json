@@ -1,0 +1,213 @@
+{
+  "caseId": "v5",
+  "reference": {
+    "outcome": "fail",
+    "criteria": {
+      "grounding": "fail",
+      "consistency": "fail"
+    },
+    "reason": "A qualifying introduction does not negate the later approval and dispatch claims.",
+    "author": "Codex-authored provisional reference; not independent human ground truth"
+  },
+  "review": {
+    "id": "0b249bde-49d5-4b6d-9214-f54c05f1b0b1",
+    "runId": "v5",
+    "originalHash": "9f2767e60f1cb895436e3e8c7a03004ffd6bddfb72fd43a40b2c140e0b2c2f57",
+    "inputHash": "75dde614893d7dc5dd23d6b00877c08c97f8dc1b13c2f8841adc262cb9e409c3",
+    "version": "evidence-review-1",
+    "judgeHash": "e879bab2246ce4fdbdd36180e5173ff0084c94dcdd52b030d327b247272def03",
+    "createdAt": "2026-09-10T01:17:18.563Z",
+    "kind": "AI semantic review; separate from original grade",
+    "status": "completed",
+    "evaluation": {
+      "outcome": "fail",
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "pass",
+          "claim": "Use the included USB cable and the L4 USB driver guide for your laptop’s operating system for wired printing.",
+          "reason": "The connection advice applies to Sam's owned L4 USB. No other model's procedure or unmet setup prerequisite is imposed.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            }
+          ],
+          "title": "Advice for the owned product"
+        },
+        {
+          "id": "grounding",
+          "outcome": "fail",
+          "claim": "Although eligibility normally requires review, your exchange is approved and a replacement will ship tomorrow.",
+          "reason": "The final sentence asserts approval and a shipping deadline despite the earlier qualification. Neither is established, and the policy explicitly prohibits an exchange promise.",
+          "evidence": [
+            {
+              "source_id": "doc:policy",
+              "quote": "This does not approve a purchase, return, or exchange. Return eligibility, exchange availability, stock and pricing are not established. Do not promise a return or exchange."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "Wireless is essential; discuss compatible models, no exchange authorized."
+            }
+          ],
+          "title": "Claims supported by evidence"
+        },
+        {
+          "id": "consistency",
+          "outcome": "fail",
+          "claim": "your exchange is approved and a replacement will ship tomorrow.",
+          "reason": "The exchange commitment contradicts policy_commitment none. The owned-model and connection fields otherwise agree with the technical advice.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            }
+          ],
+          "title": "Reply agrees with structured fields"
+        },
+        {
+          "id": "actions",
+          "outcome": "fail",
+          "claim": "your exchange is approved",
+          "reason": "This claims completed approval without a successful approval result. The successful escalation supports the handoff claim only and explicitly records that no exchange was authorized. Tomorrow's shipment is a future promise, not a completed dispatch claim.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-v5\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ],
+          "title": "Claims about completed actions"
+        },
+        {
+          "id": "completeness",
+          "outcome": "pass",
+          "claim": "I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The reply explains the wireless limitation, gives the supported wired option, and reports the required handoff, supported by the successful escalation. No required advice or action is omitted; the unsupported approval is a separate violation.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system. It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-v5\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ],
+          "title": "Required advice and next steps"
+        }
+      ]
+    },
+    "execution": {
+      "protocolVersion": "evidence-review-1",
+      "cliVersion": "codex-cli 0.153.4",
+      "requestedModel": "gpt-6-astra",
+      "providerReportedModel": null,
+      "configuration": "user config ignored; no plugins, apps, native shell, browsing, or multi-agent tools; read-only ephemeral scratch directory",
+      "reasoningEffort": "low"
+    },
+    "usage": {
+      "input_tokens": 12557,
+      "output_tokens": 746,
+      "cached_input_tokens": 7424,
+      "reported_turns": 1
+    },
+    "elapsedMs": 26244,
+    "cost": null,
+    "raw": {
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "pass",
+          "claim": "Use the included USB cable and the L4 USB driver guide for your laptop’s operating system for wired printing.",
+          "reason": "The connection advice applies to Sam's owned L4 USB. No other model's procedure or unmet setup prerequisite is imposed.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            }
+          ]
+        },
+        {
+          "id": "grounding",
+          "outcome": "fail",
+          "claim": "Although eligibility normally requires review, your exchange is approved and a replacement will ship tomorrow.",
+          "reason": "The final sentence asserts approval and a shipping deadline despite the earlier qualification. Neither is established, and the policy explicitly prohibits an exchange promise.",
+          "evidence": [
+            {
+              "source_id": "doc:policy",
+              "quote": "This does not approve a purchase, return, or exchange. Return eligibility, exchange availability, stock and pricing are not established. Do not promise a return or exchange."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "Wireless is essential; discuss compatible models, no exchange authorized."
+            }
+          ]
+        },
+        {
+          "id": "consistency",
+          "outcome": "fail",
+          "claim": "your exchange is approved and a replacement will ship tomorrow.",
+          "reason": "The exchange commitment contradicts policy_commitment none. The owned-model and connection fields otherwise agree with the technical advice.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            }
+          ]
+        },
+        {
+          "id": "actions",
+          "outcome": "fail",
+          "claim": "your exchange is approved",
+          "reason": "This claims completed approval without a successful approval result. The successful escalation supports the handoff claim only and explicitly records that no exchange was authorized. Tomorrow's shipment is a future promise, not a completed dispatch claim.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-v5\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "outcome": "pass",
+          "claim": "I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The reply explains the wireless limitation, gives the supported wired option, and reports the required handoff, supported by the successful escalation. No required advice or action is omitted; the unsupported approval is a separate violation.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system. It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-v5\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "role": "careful",
+    "claim": "wireless", "source": "usb", "boundary": "discuss",
+    "reply": "Hi Sam, your Vale L4 USB prints through a USB cable. It has no Wi-Fi radio or wireless setup button, and a USB Wi-Fi adapter won't add wireless printing. To print from your laptop, connect the included USB cable and follow the L4 USB driver guide for your laptop's operating system. If wireless printing is essential, contact support to discuss compatible models. Return or exchange eligibility would need to be checked; this manual excerpt does not establish either option.",
+    "observation": "Sam’s laptop operating system is unspecified, so a particular driver guide cannot be selected. Compatible models, return eligibility, exchange availability, stock, and pricing are not established by the excerpt."
+  },
+  {
+    "role": "concise",
+    "claim": "wireless", "source": "usb", "boundary": "discuss",
+    "reply": "Hi Sam, your L4 USB has no Wi-Fi radio or wireless button, and a USB Wi-Fi adapter won't add wireless printing. To print from your laptop, connect the included USB cable and follow the L4 USB driver guide for your laptop's operating system. If Wi-Fi printing is essential, contact support to discuss compatible models. Return or exchange eligibility would need to be checked.",
+    "observation": "The reply does not repeat the L4 Air’s wireless setup instructions."
+  },
+  {
+    "role": "plausible_error",
+    "claim": "wireless", "source": "usb", "boundary": "discuss",
+    "reply": "Hi Sam, your L4 USB has no Wi-Fi radio or wireless setup button, and the L4 Air wireless instructions don't apply to it. To print from your laptop, connect the included USB cable and follow the L4 USB driver guide for your laptop's operating system. A USB Wi-Fi adapter won't add wireless printing. If Wi-Fi is essential, contact support to discuss compatible models. Support will provide a free exchange for an L4 Air.",
+    "observation": "The final sentence deliberately promises a free exchange, which §3 does not support and explicitly says not to promise."
+  }
+]

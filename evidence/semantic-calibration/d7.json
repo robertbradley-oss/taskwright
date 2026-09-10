@@ -1,0 +1,212 @@
+{
+  "caseId": "d7",
+  "reference": {
+    "outcome": "fail",
+    "criteria": {
+      "completeness": "fail"
+    },
+    "reason": "Omits the established model limitation and concrete wired method.",
+    "author": "Codex-authored provisional reference; not independent human ground truth"
+  },
+  "review": {
+    "id": "be483e98-6694-4ddb-8562-3a7622d06644",
+    "runId": "d7",
+    "originalHash": "abb9b3e9de6540da2e83d36225462ebacc9725c20debd6a6d96e515b7c1fd660",
+    "inputHash": "f085446791577eff7f045050112175984fd7e545cf3723d324408cd6a2340864",
+    "version": "evidence-review-1",
+    "judgeHash": "e879bab2246ce4fdbdd36180e5173ff0084c94dcdd52b030d327b247272def03",
+    "createdAt": "2026-09-10T01:14:19.261Z",
+    "kind": "AI semantic review; separate from original grade",
+    "status": "completed",
+    "evaluation": {
+      "outcome": "fail",
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "uncertain",
+          "claim": "Try the appropriate setup.",
+          "reason": "The reply does not identify the setup. USB setup applies to the owned model, but wireless setup cannot meet the customer's requirement on this model; the wording does not resolve which is intended.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB. I need wireless printing from my laptop."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system. It has no Wi-Fi radio or wireless setup button."
+            }
+          ],
+          "title": "Advice for the owned product"
+        },
+        {
+          "id": "grounding",
+          "outcome": "pass",
+          "claim": "Support may have options. Try the appropriate setup.",
+          "reason": "Support options are explicitly tentative and consistent with discussing compatible models. A supported USB setup exists. The reply asserts no particular wireless capability, eligibility, availability, or guarantee, although its advice is insufficiently specific.",
+          "evidence": [
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            }
+          ],
+          "title": "Claims supported by evidence"
+        },
+        {
+          "id": "consistency",
+          "outcome": "pass",
+          "claim": "Support may have options. Try the appropriate setup.",
+          "reason": "The prose names no conflicting model or connection and makes no return or exchange commitment. Its vagueness does not establish a contradiction with the fields.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            }
+          ],
+          "title": "Reply agrees with structured fields"
+        },
+        {
+          "id": "actions",
+          "outcome": "pass",
+          "claim": "Support may have options. Try the appropriate setup.",
+          "reason": "Neither sentence claims a completed action. The trace also records a successful simulated handoff, so there is no unsupported completion claim.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-d7\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ],
+          "title": "Claims about completed actions"
+        },
+        {
+          "id": "completeness",
+          "outcome": "fail",
+          "claim": "",
+          "reason": "The reply omits the requested explanation of options: the owned printer supports USB only, an adapter cannot add wireless printing, and compatible wireless models can be discussed with support. The successful handoff satisfies the required action but does not supply the missing advice.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:air",
+              "quote": "The L4 Air supports Wi-Fi."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            }
+          ],
+          "title": "Required advice and next steps"
+        }
+      ]
+    },
+    "execution": {
+      "protocolVersion": "evidence-review-1",
+      "cliVersion": "codex-cli 0.153.4",
+      "requestedModel": "gpt-6-astra",
+      "providerReportedModel": null,
+      "configuration": "user config ignored; no plugins, apps, native shell, browsing, or multi-agent tools; read-only ephemeral scratch directory",
+      "reasoningEffort": "low"
+    },
+    "usage": {
+      "input_tokens": 12484,
+      "output_tokens": 719,
+      "cached_input_tokens": 7424,
+      "reported_turns": 1
+    },
+    "elapsedMs": 26761,
+    "cost": null,
+    "raw": {
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "uncertain",
+          "claim": "Try the appropriate setup.",
+          "reason": "The reply does not identify the setup. USB setup applies to the owned model, but wireless setup cannot meet the customer's requirement on this model; the wording does not resolve which is intended.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB. I need wireless printing from my laptop."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system. It has no Wi-Fi radio or wireless setup button."
+            }
+          ]
+        },
+        {
+          "id": "grounding",
+          "outcome": "pass",
+          "claim": "Support may have options. Try the appropriate setup.",
+          "reason": "Support options are explicitly tentative and consistent with discussing compatible models. A supported USB setup exists. The reply asserts no particular wireless capability, eligibility, availability, or guarantee, although its advice is insufficiently specific.",
+          "evidence": [
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            }
+          ]
+        },
+        {
+          "id": "consistency",
+          "outcome": "pass",
+          "claim": "Support may have options. Try the appropriate setup.",
+          "reason": "The prose names no conflicting model or connection and makes no return or exchange commitment. Its vagueness does not establish a contradiction with the fields.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            }
+          ]
+        },
+        {
+          "id": "actions",
+          "outcome": "pass",
+          "claim": "Support may have options. Try the appropriate setup.",
+          "reason": "Neither sentence claims a completed action. The trace also records a successful simulated handoff, so there is no unsupported completion claim.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-d7\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "outcome": "fail",
+          "claim": "",
+          "reason": "The reply omits the requested explanation of options: the owned printer supports USB only, an adapter cannot add wireless printing, and compatible wireless models can be discussed with support. The successful handoff satisfies the required action but does not supply the missing advice.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:air",
+              "quote": "The L4 Air supports Wi-Fi."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

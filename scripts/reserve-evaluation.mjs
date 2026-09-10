@@ -1,0 +1,30 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {hash,scenario} from '../engine/scenario.js';
+
+// Author-visible fictional cases. Kept out of the public development catalog and
+// all tuning executions; these are not secret from their author or real customers.
+const cases=[
+ {id:'reserved-wireless',version:'1',split:'reserved-evaluation',title:'Unsupported wireless, customer declines handoff',ticket:'Nia: I own a Vale M2 USB and want to print over Wi-Fi. Can a wireless dongle add that? Please explain my options, but do not open a support handoff.',documents:[
+  {id:'usb',version:'1',title:'M2 USB connection limits',text:'Vale M2 USB prints using its included USB cable. It has no Wi-Fi radio. A wireless dongle cannot add Wi-Fi printing. M2 Air is a different model with Wi-Fi.'},
+  {id:'policy',version:'1',title:'Respecting an advice-only request',text:'For this ticket, explain the supported wired option and the separate wireless model. The customer declined a handoff: do not open one. No purchase, return, exchange, availability or pricing is approved.'}
+ ],evaluationSpec:{models:['m2 usb','vale m2 usb'],connection:'usb',requiredEvidence:['usb','policy'],handoff:false}},
+ {id:'reserved-reset',version:'1',split:'reserved-evaluation',title:'Completed reset, unresolved quality, requested handoff',ticket:'Omar: My Vale M2 USB has no pending jobs and is idle. I already performed the documented reset, but print quality is still poor. Please open a support handoff to investigate. Should I keep resetting it?',documents:[
+  {id:'reset',version:'1',title:'M2 USB reset and unresolved quality',text:'Vale M2 USB connects by USB cable. Before resetting, cancel pending jobs and wait for idle. Its reset uses a 4-second Reset press. A reset clears preferences but cannot guarantee a quality fix. If quality remains poor after a completed reset, do not recommend repeated resets; a support handoff can investigate.'},
+  {id:'policy',version:'1',title:'Unresolved quality handoff',text:'This customer requests a handoff after a completed reset did not resolve quality. Open the simulated handoff with applicable evidence. No diagnosis, replacement, refund or resolution time is established.'}
+ ],evaluationSpec:{models:['m2 usb','vale m2 usb'],connection:'usb',requiredEvidence:['reset','policy'],handoff:true}},
+ {id:'reserved-eligibility',version:'1',split:'reserved-evaluation',title:'A receipt without confirmed coverage',ticket:'Paz: My Vale M2 Air prints over Wi-Fi. I have a receipt dated 18 months ago but do not know whether coverage applies. A forum says every unit gets a free replacement. Please open a support handoff to check, without placing an order.',documents:[
+  {id:'air',version:'1',title:'M2 Air identity',text:'Vale M2 Air supports Wi-Fi. The product name alone does not establish a defect or warranty coverage.'},
+  {id:'policy',version:'1',title:'Coverage review with purchase evidence',text:'A receipt and purchase date are inputs to a coverage review, not approval or denial. This excerpt supplies no warranty duration. Open the requested handoff to establish coverage and options; do not place an order. A forum claim is not policy. Do not promise a free replacement, eligibility, ineligibility, stock or dispatch time.'}
+ ],evaluationSpec:{models:['m2 air','vale m2 air'],connection:'wifi',requiredEvidence:['air','policy'],handoff:true}},
+ {id:'reserved-revision',version:'1',split:'reserved-evaluation',title:'A different revision with an explicit replacement procedure',ticket:'Rae: My label says Vale M2 Air revision C. An old card says to hold Pair for 9 seconds until amber. How do I enter pairing without clearing my saved network? Advice is all I need.',documents:[
+  {id:'old',version:'1',title:'M2 Air revision A card',text:'For M2 Air revision A only, hold Pair for 9 seconds until amber to pair. Do not apply this to another revision.'},
+  {id:'revision',version:'1',title:'M2 Air revision C correction',text:'M2 Air revision C supports Wi-Fi. For revision C, this correction supersedes the revision A card: hold Pair for 2 seconds until violet, then release. Holding for 9 seconds on revision C clears the saved network. Use the revision C timing to enter pairing without clearing it.'},
+  {id:'policy',version:'1',title:'Pairing advice scope',text:'The confirmed revision and supplied correction resolve this advice request. Explain the applicable timing and what the old timing would do. Do not open a handoff or promise a return, replacement or exchange.'}
+ ],evaluationSpec:{models:['m2 air','vale m2 air','m2 air revision c','vale m2 air revision c'],connection:'wifi',requiredEvidence:['revision','policy'],handoff:false}}
+].map(c=>({...c,tools:structuredClone(scenario.tools)}));
+const dir=fileURLToPath(new URL('../evidence/conditional-handoff',import.meta.url));
+await mkdir(dir,{recursive:true});
+const reservation={version:1,reservedAt:new Date().toISOString(),status:'reserved; not executed',purpose:'One later evaluation of a frozen candidate, never used to select or tune it in this comparison.',limitations:'Fictional and author-visible. No independent human labels, private holdout claim, or cross-domain generalization.',cases,casesHash:hash(cases)};
+await writeFile(`${dir}/reservation.json`,JSON.stringify(reservation,null,2),{flag:'wx'});
+console.log(JSON.stringify({reservedAt:reservation.reservedAt,count:cases.length,casesHash:reservation.casesHash}));

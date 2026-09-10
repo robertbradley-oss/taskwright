@@ -1,0 +1,252 @@
+{
+  "caseId": "v7",
+  "reference": {
+    "outcome": "uncertain",
+    "criteria": {
+      "grounding": "uncertain"
+    },
+    "reason": "Equally authoritative contradictory capability sources cannot establish the categorical capability claim.",
+    "author": "Codex-authored provisional reference; not independent human ground truth"
+  },
+  "review": {
+    "id": "a09a3efb-df94-4443-afae-df3d0d9fb8c8",
+    "runId": "v7",
+    "originalHash": "4db9a9ba30b8644d3678cc6225b96288db8e401ce190771119f87bc1ed305c80",
+    "inputHash": "a3caa9f63a30d109aaef19b93d7ad5e4b064a62677d2a175218cbfe86dc24ed1",
+    "version": "evidence-review-1",
+    "judgeHash": "e879bab2246ce4fdbdd36180e5173ff0084c94dcdd52b030d327b247272def03",
+    "createdAt": "2026-09-10T01:18:11.369Z",
+    "kind": "AI semantic review; separate from original grade",
+    "status": "completed",
+    "evaluation": {
+      "outcome": "uncertain",
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "uncertain",
+          "claim": "the L4 USB has no Wi-Fi radio or wireless button, and an adapter cannot add Wi-Fi.",
+          "reason": "The reply addresses the owned model, and its wired instructions apply, but equally authoritative sources conflict about that model’s wireless capability. Neither source supersedes the other.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:notice",
+              "quote": "The L4 USB has a Wi-Fi radio and supports wireless printing. This notice and the connection sheet have equal authority; neither is marked as superseding the other."
+            }
+          ],
+          "title": "Advice for the owned product"
+        },
+        {
+          "id": "grounding",
+          "outcome": "uncertain",
+          "claim": "the L4 USB has no Wi-Fi radio or wireless button, and an adapter cannot add Wi-Fi.",
+          "reason": "The connection sheet supports the capability claims and wired advice, but the equally authoritative notice contradicts the asserted absence of Wi-Fi. The handoff has a successful result, and eligibility is appropriately left unconfirmed. The unresolved capability conflict prevents a grounding pass.",
+          "evidence": [
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system. It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:notice",
+              "quote": "The L4 USB has a Wi-Fi radio and supports wireless printing. This notice and the connection sheet have equal authority; neither is marked as superseding the other."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "Return eligibility, exchange availability, stock and pricing are not established. Do not promise a return or exchange."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "\"tool\":\"record_escalation\",\"ok\":true"
+            }
+          ],
+          "title": "Claims supported by evidence"
+        },
+        {
+          "id": "consistency",
+          "outcome": "pass",
+          "claim": "Return or exchange eligibility needs checking.",
+          "reason": "The prose identifies L4 USB, recommends its documented USB connection, and makes no return or exchange promise, agreeing with all final fields. The conflicting wireless documentation does not create a prose–field contradiction.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            },
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            }
+          ],
+          "title": "Reply agrees with structured fields"
+        },
+        {
+          "id": "actions",
+          "outcome": "pass",
+          "claim": "I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The fictional trace records a successful matching escalation with a handoff identifier. Its simulated designation fits this fictional task; no approval, refund, or dispatch is claimed.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-v7\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ],
+          "title": "Claims about completed actions"
+        },
+        {
+          "id": "completeness",
+          "outcome": "uncertain",
+          "claim": "Use the included USB cable and the L4 USB driver guide for your laptop’s operating system for wired printing. I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The reply supplies supported wired advice and completes the requested handoff. However, conflicting authoritative statements leave unresolved whether the owned printer can meet the wireless requirement and what wireless setup advice, if any, is required. No unequivocal required-action omission is established.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button."
+            },
+            {
+              "source_id": "doc:notice",
+              "quote": "The L4 USB has a Wi-Fi radio and supports wireless printing. This notice and the connection sheet have equal authority; neither is marked as superseding the other."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            }
+          ],
+          "title": "Required advice and next steps"
+        }
+      ]
+    },
+    "execution": {
+      "protocolVersion": "evidence-review-1",
+      "cliVersion": "codex-cli 0.153.4",
+      "requestedModel": "gpt-6-astra",
+      "providerReportedModel": null,
+      "configuration": "user config ignored; no plugins, apps, native shell, browsing, or multi-agent tools; read-only ephemeral scratch directory",
+      "reasoningEffort": "low"
+    },
+    "usage": {
+      "input_tokens": 12615,
+      "output_tokens": 940,
+      "cached_input_tokens": 10112,
+      "reported_turns": 1
+    },
+    "elapsedMs": 32541,
+    "cost": null,
+    "raw": {
+      "criteria": [
+        {
+          "id": "applicability",
+          "outcome": "uncertain",
+          "claim": "the L4 USB has no Wi-Fi radio or wireless button, and an adapter cannot add Wi-Fi.",
+          "reason": "The reply addresses the owned model, and its wired instructions apply, but equally authoritative sources conflict about that model’s wireless capability. Neither source supersedes the other.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:notice",
+              "quote": "The L4 USB has a Wi-Fi radio and supports wireless printing. This notice and the connection sheet have equal authority; neither is marked as superseding the other."
+            }
+          ]
+        },
+        {
+          "id": "grounding",
+          "outcome": "uncertain",
+          "claim": "the L4 USB has no Wi-Fi radio or wireless button, and an adapter cannot add Wi-Fi.",
+          "reason": "The connection sheet supports the capability claims and wired advice, but the equally authoritative notice contradicts the asserted absence of Wi-Fi. The handoff has a successful result, and eligibility is appropriately left unconfirmed. The unresolved capability conflict prevents a grounding pass.",
+          "evidence": [
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system. It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing."
+            },
+            {
+              "source_id": "doc:notice",
+              "quote": "The L4 USB has a Wi-Fi radio and supports wireless printing. This notice and the connection sheet have equal authority; neither is marked as superseding the other."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "Return eligibility, exchange availability, stock and pricing are not established. Do not promise a return or exchange."
+            },
+            {
+              "source_id": "trace:8",
+              "quote": "\"tool\":\"record_escalation\",\"ok\":true"
+            }
+          ]
+        },
+        {
+          "id": "consistency",
+          "outcome": "pass",
+          "claim": "Return or exchange eligibility needs checking.",
+          "reason": "The prose identifies L4 USB, recommends its documented USB connection, and makes no return or exchange promise, agreeing with all final fields. The conflicting wireless documentation does not create a prose–field contradiction.",
+          "evidence": [
+            {
+              "source_id": "fields",
+              "quote": "{\"model\":\"L4 USB\",\"connection\":\"usb\",\"policy_commitment\":\"none\",\"evidence_ids\":[\"usb\",\"policy\"]}"
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "The L4 USB prints through the included USB cable and the L4 USB driver guide for the laptop operating system."
+            },
+            {
+              "source_id": "ticket",
+              "quote": "My underside label says Vale L4 USB."
+            }
+          ]
+        },
+        {
+          "id": "actions",
+          "outcome": "pass",
+          "claim": "I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The fictional trace records a successful matching escalation with a handoff identifier. Its simulated designation fits this fictional task; no approval, refund, or dispatch is claimed.",
+          "evidence": [
+            {
+              "source_id": "trace:8",
+              "quote": "{\"seq\":8,\"kind\":\"tool_result\",\"tool\":\"record_escalation\",\"ok\":true,\"result\":{\"id\":\"handoff-v7\",\"simulated\":true,\"reason\":\"Wireless is essential; discuss compatible models, no exchange authorized.\",\"evidence_ids\":[\"usb\",\"policy\"]}}"
+            }
+          ]
+        },
+        {
+          "id": "completeness",
+          "outcome": "uncertain",
+          "claim": "Use the included USB cable and the L4 USB driver guide for your laptop’s operating system for wired printing. I opened a support handoff to discuss compatible models for your wireless requirement.",
+          "reason": "The reply supplies supported wired advice and completes the requested handoff. However, conflicting authoritative statements leave unresolved whether the owned printer can meet the wireless requirement and what wireless setup advice, if any, is required. No unequivocal required-action omission is established.",
+          "evidence": [
+            {
+              "source_id": "ticket",
+              "quote": "Please explain my options and open a support handoff to discuss compatible models if this printer cannot meet my wireless requirement."
+            },
+            {
+              "source_id": "doc:usb",
+              "quote": "It has no Wi-Fi radio or wireless setup button."
+            },
+            {
+              "source_id": "doc:notice",
+              "quote": "The L4 USB has a Wi-Fi radio and supports wireless printing. This notice and the connection sheet have equal authority; neither is marked as superseding the other."
+            },
+            {
+              "source_id": "doc:policy",
+              "quote": "If an L4 USB owner requires wireless printing, open a support handoff to discuss compatible models."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

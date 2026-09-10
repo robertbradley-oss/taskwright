@@ -1,0 +1,47 @@
+{
+  "runId": "78b4a688-7ce9-4d94-8984-80de8086c277",
+  "originalHash": "f739c0167954f7608a73ac80e44a3b8aac91ad5df65ac9a22771da8beee0881a",
+  "createdAt": "2026-09-10T00:25:50.027Z",
+  "evaluation": {
+    "version": "structural-3",
+    "outcome": "uncertain",
+    "criteria": [
+      {
+        "id": "model",
+        "title": "Current model and supported connection",
+        "outcome": "pass",
+        "evidence": "Final declared Vale L4 USB / usb; ticket requires L4 USB / usb. Known full-name aliases are accepted. This checks structured fields, not prose.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "policy",
+        "title": "Declared policy commitment",
+        "outcome": "pass",
+        "evidence": "Final declared policy commitment: none. Source policy permits no commitment. Prose may contradict this declaration.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "sources",
+        "title": "Valid, retrieved evidence",
+        "outcome": "pass",
+        "evidence": "Read documents: usb, policy. Final references: usb, policy. Citation validity does not establish entailment.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "handoff",
+        "title": "Required simulated handoff",
+        "outcome": "pass",
+        "evidence": "Trace event 6: handoff-78b4a688-7ce9-4d94-8984-80de8086c277; simulated only.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "writing",
+        "title": "Meaning of the customer reply",
+        "outcome": "uncertain",
+        "evidence": "No calibrated semantic evaluator is installed. Inspect model applicability, practical advice, unsupported promises, and contradictions against the source documents. Structured passes cannot verify prose.",
+        "scope": "review needed"
+      }
+    ]
+  },
+  "kind": "reassessment of recorded output; no new model execution"
+}

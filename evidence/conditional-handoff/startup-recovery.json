@@ -1,0 +1,4 @@
+{
+  "at": "2026-09-10T03:05:38.931Z",
+  "reason": "First start failed with ECONNREFUSED before HTTP dispatch: local server was stopped. Server restarted; experiment inventory confirms no candidate-v2 experiment. No model attempt occurred. Recover by creating the originally scheduled first experiment exactly once."
+}

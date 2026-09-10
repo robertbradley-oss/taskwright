@@ -1,0 +1,2 @@
+# Frozen evidence and evaluator hashes require identical bytes across checkouts.
+* -text

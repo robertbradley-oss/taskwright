@@ -1,0 +1,48 @@
+{
+  "runId": "0968da6d-f771-4722-ab4a-7fd5c01c2d1e",
+  "originalHash": "ae07b7e1affe361acb69ffea7283be635d04800b420264d571cf4f7dcceade37",
+  "createdAt": "2026-09-10T01:27:30.412Z",
+  "evaluation": {
+    "version": "structural-5",
+    "sourceHash": "5ff058125b4efd1c02202e94d71dd66b10e272c1ee28fa7e8a5274118fde6612",
+    "outcome": "fail",
+    "criteria": [
+      {
+        "id": "model",
+        "title": "Current model and supported connection",
+        "outcome": "pass",
+        "evidence": "Final declared Vale L4 Air revision B / wifi; contract requires l4 air / wifi. Documented full-name aliases are accepted. This checks structured fields, not prose.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "policy",
+        "title": "Declared policy commitment",
+        "outcome": "pass",
+        "evidence": "Final declared policy commitment: none. Source policy permits no commitment. Prose may contradict this declaration.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "sources",
+        "title": "Valid, retrieved evidence",
+        "outcome": "pass",
+        "evidence": "Required: revision, policy. Read documents: revision, policy. Final references: revision, policy. Citation validity does not establish entailment.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "handoff",
+        "title": "Simulated action requirement",
+        "outcome": "fail",
+        "evidence": "A handoff occurred although this advice-only contract disallows it.",
+        "scope": "deterministic"
+      },
+      {
+        "id": "writing",
+        "title": "Meaning of the customer reply",
+        "outcome": "uncertain",
+        "evidence": "Structural checks do not grade prose. A separate AI evidence review can inspect claims, contradictions, and actual action evidence; it never replaces this original grade.",
+        "scope": "review separately"
+      }
+    ]
+  },
+  "kind": "reassessment of recorded output; no new model execution"
+}

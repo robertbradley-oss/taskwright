@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taskwright — Check the source</title>
+  <link rel="stylesheet" href="style.css"><script type="module" src="app.js"></script>
+</head>
+<body data-scenario="model">
+  <a class="skip" href="#main">Skip to practice</a>
+  <header><a class="brand" href="/" aria-label="Taskwright home"><span class="mark" aria-hidden="true">t.</span> Taskwright</a><span class="header-note">A little practice. Better judgment.</span></header>
+  <main id="main">
+    <nav aria-label="Practice selection"><a href="/index.html">01 · Check the instruction</a> <a href="/model.html" aria-current="page">02 · Check the source</a></nav>
+    <div class="eyebrow">CUSTOMER SUPPORT · PRACTICE 02</div>
+    <h1>A familiar instruction.<br>Does it belong here?</h1>
+    <p class="intro">Check that the source applies to this customer before recommending its instructions.</p>
+    <ol class="steps" aria-label="Practice progress"><li id="step-lesson" aria-current="step">01 <span>Learn</span></li><li id="step-practice">02 <span>Investigate & respond</span></li><li id="step-feedback">03 <span>Review</span></li></ol>
+
+    <section id="lesson" aria-labelledby="lesson-title">
+      <div class="lesson-grid"><div><div class="eyebrow">THE HABIT</div><h2 id="lesson-title" tabindex="-1">Check who the source is for.</h2><p>An instruction can be accurately quoted and still be wrong for the customer. Similar model names do not make instructions interchangeable.</p></div>
+      <div class="habits"><div><b>1. Identify the exact model</b><p>Start with the model the customer actually owns. Check the full name, including any suffix.</p></div><div><b>2. Match the source</b><p>Find the section for that model. A nearby instruction for another version may not apply.</p></div><div><b>3. Offer supported help</b><p>Offer what the source supports. Do not invent workarounds or promises when it cannot meet the request.</p></div></div></div>
+      <div class="lesson-bottom"><p>Next: compare a fictional manual with a prepared AI draft.<br><span class="muted">No real customer information or live AI is used.</span></p><button id="start">Try the scenario <span aria-hidden="true">→</span></button></div>
+    </section>
+
+    <section id="practice" hidden aria-labelledby="practice-title">
+      <div class="section-top"><h2 id="practice-title" tabindex="-1">Check before you send.</h2><button class="text-button" id="back">Revisit the lesson</button></div>
+      <div class="workspace">
+        <aside aria-label="Source material">
+          <article class="ticket"><div class="eyebrow">CUSTOMER TICKET · FICTIONAL</div><h3>“Where is the wireless button?”</h3><p>I have a Vale Label Printer L4 USB. That exact model name is on the underside label. I want to print from my laptop over Wi-Fi. I haven't bought an adapter or tried any setup steps yet. How do I connect it?</p><p class="signature">— Sam</p></article>
+          <article class="manual"><div class="eyebrow">YOUR SOURCE</div><h3>Vale L4 series · Manual excerpt</h3><p class="muted">Fictional training material · Revision 1</p><dl><dt>§1 · L4 USB connection</dt><dd>The L4 USB prints from a computer through a USB cable. It has no Wi-Fi radio or wireless setup button. A USB Wi-Fi adapter does not add wireless printing to this model. For printing from a laptop, connect the included USB cable and follow the L4 USB driver guide for that laptop's operating system.</dd><dt>§2 · L4 Air wireless connection</dt><dd>The L4 Air supports Wi-Fi. Hold its wireless button until the blue light flashes, then follow the L4 Air setup guide. These wireless instructions apply only to the L4 Air.</dd><dt>§3 · When wireless printing is required</dt><dd>If an L4 USB owner needs wireless printing, contact support to discuss compatible models. This excerpt does not establish return eligibility, exchange availability, stock, or pricing. Do not promise a return or exchange based on this excerpt.</dd></dl></article>
+        </aside>
+        <div>
+          <article class="draft"><div class="eyebrow">PREPARED AI DRAFT · VERIFY THIS</div><blockquote>“Hi Sam, to connect your L4 USB over Wi-Fi, hold the wireless button until the blue light flashes, then follow the L4 Air setup guide. If wireless printing is essential and this doesn't work for you, contact support to discuss compatible models. Return or exchange eligibility would need to be checked.”</blockquote></article>
+          <form id="response-form">
+            <fieldset><legend>1. Which claim needs correcting?</legend><label><input type="radio" name="claim" value="wireless" required> The L4 USB can join Wi-Fi using the wireless button and L4 Air guide.</label><label><input type="radio" name="claim" value="options"> Support can discuss compatible models.</label><label><input type="radio" name="claim" value="eligibility"> Return or exchange eligibility needs checking.</label></fieldset>
+            <fieldset><legend>2. Which source section establishes the connection method for Sam’s exact model?</legend><label><input type="radio" name="source" value="air" required> §2 · L4 Air wireless connection</label><label><input type="radio" name="source" value="usb"> §1 · L4 USB connection</label><label><input type="radio" name="source" value="policy"> §3 · When wireless printing is required</label></fieldset>
+            <fieldset><legend>3. Sam says wireless printing is essential. What is the supported next step?</legend><label><input type="radio" name="boundary" value="adapter" required> Recommend a USB Wi-Fi adapter.</label><label><input type="radio" name="boundary" value="exchange"> Promise a free exchange for an L4 Air.</label><label><input type="radio" name="boundary" value="discuss"> Contact support to discuss compatible models without promising a return or exchange.</label></fieldset>
+            <label class="reply-label" for="reply">4. Write your corrected customer reply</label><p class="help" id="reply-help">Use your own words. Explain what Sam’s model supports, offer the documented way to print from the laptop, and explain what to do if wireless printing is essential. Don’t invent driver steps or policy terms. Your writing is not automatically graded.</p>
+            <textarea id="reply" name="reply" rows="7" maxlength="3000" required aria-describedby="reply-help" placeholder="Hi Sam, …"></textarea>
+            <p class="help">Your work stays in this page. Refreshing, closing, or switching practices clears your progress. You can download your review at the end.</p>
+            <button type="submit">Review my response <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback" hidden aria-labelledby="feedback-title">
+      <div class="section-top"><div><div class="eyebrow">YOUR REVIEW</div><h2 id="feedback-title" tabindex="-1">Follow the evidence.</h2></div><button class="text-button" id="revise">Revise my response</button></div>
+      <div class="score-banner"><strong id="score"></strong><p><b>Written reply: not assessed.</b> Correct choices can still accompany an incorrect reply. Compare your wording with the manual using the checklist below; self-checks do not verify reply quality.</p><p>This practice score does not establish learning gains.</p></div>
+      <div id="criteria" class="criteria"></div>
+      <div class="review-grid"><article><h3>Your customer reply</h3><p id="saved-reply" class="preserve"></p><h3>Review your writing</h3><p>Compare your reply with the source and example. Tick only what your reply actually includes. These self-checks do not change your score.</p><div class="self-checks"><label><input type="checkbox" value="conditions"> Correct model: L4 USB has no Wi-Fi; no Air instructions or adapter workaround.</label><label><input type="checkbox" value="boundary"> Practical help: included USB cable and L4 USB driver guide for the laptop’s operating system.</label><label><input type="checkbox" value="clarity"> If wireless is essential, discuss compatible models with support; no policy promises.</label></div></article>
+      <article class="example"><div class="eyebrow">ONE SUPPORTED RESPONSE</div><h3>The right model. An honest next step.</h3><p>Hi Sam, your L4 USB has no Wi-Fi radio or wireless setup button. The button instructions apply to the L4 Air, and a USB Wi-Fi adapter won’t add wireless printing to your model. To print from your laptop, connect the included USB cable and follow the L4 USB driver guide for your laptop’s operating system. If wireless printing is essential, contact support to discuss compatible models. Return or exchange eligibility would need to be checked.</p><p class="help">Evidence: §1 establishes your model’s connection method, §2 identifies the Air-only instructions, and §3 sets the boundary on support and policy advice.</p></article></div>
+      <details><summary>How this review works</summary><p>Each of the three evidence choices earns 1 point for the supported answer, otherwise 0. All three have equal weight. The app checks selected choices only: it cannot judge reasoning, tone, contradictory prose, or whether you guessed. Written replies need human review. Revisions use the same scenario and are practice, not an independent assessment.</p></details>
+      <label class="reply-label" for="reflection">What would you check next time? <span class="muted">(optional)</span></label><textarea id="reflection" rows="3" maxlength="2000" placeholder="A detail I’ll pay more attention to…"></textarea>
+      <div class="actions"><button id="download">Download my review</button><button id="show-export" class="text-button">View copyable review</button><span id="download-status" role="status"></span></div>
+      <div id="export-panel" hidden><label class="reply-label" for="export-text">Your review as plain text</label><p class="help">Select the text and copy it to keep a record if downloads are unavailable.</p><textarea id="export-text" rows="12" readonly></textarea></div>
+    </section>
+    <footer>Taskwright · Learning prototype <span>Fictional scenarios. Real practice in judgment.</span> · Formerly Trywise; historical evidence retains its original name.</footer>
+  </main>
+</body>
+</html>

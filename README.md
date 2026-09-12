@@ -2,8 +2,6 @@
 
 [![Verify on Windows and Linux](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml/badge.svg)](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml)
 
-**Shape your agent. Test its work.**
-
 A local lab for testing whether a customer-support AI agent follows explicit requirements. Define a brief, inspect its actual replies and simulated actions, and compare configurations under the same frozen contract. Every result keeps the evidence behind it, including failures and uncertainty.
 
 This portfolio project uses fictional products, customers and policies. “Training” means iterating on agent configuration; the application does not update model weights. Formerly **Trywise**; [historical records retain that name](RENAMING.md).
@@ -12,7 +10,7 @@ This portfolio project uses fictional products, customers and policies. “Train
 
 ![Taskwright's current purple-and-white evidence view with separate source documents, customer reply and contract checks](docs/images/taskwright-interface-v2.png)
 
-**See the point in 30 seconds:** an agent opens the right support handoff and passes its AI reply review, but puts the handoff receipt in a document-only citation field. Taskwright retains the failed contract check. The original experiment remains **9/12**, not 12/12.
+In the saved example, an agent opens the right support handoff and passes its AI reply review, but puts the handoff receipt in a document-only citation field. Taskwright retains the failed contract check. The experiment passed the full contract on **9/12** attempts.
 
 <details>
 <summary>Watch the 27-second evidence walkthrough (animated browser captures)</summary>
@@ -89,7 +87,7 @@ The two `error` statuses are deliberate demo cases: malformed JSON and an unauth
 
 This runs an independent program through a versioned JSON process contract, using real child processes with deterministic behavior and injected faults; it makes no model calls. An optional model-backed example is tested against a mock HTTP provider, with live-provider validation still pending. [Contract, walkthrough and integration guide](docs/EXTERNAL_AGENTS.md).
 
-## What the evidence establishes
+## Recorded results
 
 | Experiment | Recorded result | Interpretation |
 | --- | --- | --- |

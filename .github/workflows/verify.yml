@@ -34,5 +34,7 @@ jobs:
         run: npm test
       - name: Rehearse a complete failed comparison without a provider
         run: npm run demo:failures
+      - name: Exercise external processes and tool permissions
+        run: npm run demo:external
       - name: Verify evidence again after execution
         run: npm run check:preservation

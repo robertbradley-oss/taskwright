@@ -39,7 +39,7 @@ Run the automated checks in another terminal:
 npm test
 ```
 
-The current suite has 145 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses a complete failed comparison without a provider. Both operating-system jobs passed when this workflow was introduced; the badge links to current results. See [CI scope and local commands](docs/VERIFICATION.md). Browser rehearsal was performed locally on Windows; Linux CI does not establish Linux browser compatibility. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
+The current suite has 157 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses a complete failed comparison without a provider. Both operating-system jobs passed when this workflow was introduced; the badge links to current results. See [CI scope and local commands](docs/VERIFICATION.md). Browser rehearsal was performed locally on Windows; Linux CI does not establish Linux browser compatibility. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
 
 ## Start with the saved example
 
@@ -54,6 +54,10 @@ The home page guides you through **brief → run → evidence → compare → ex
 The evidence library includes a separate **9/12 continuation result**. All handoff decisions and AI reply reviews passed, but three appropriate handoffs failed a document-citation field requirement. The full failed checks, replies and trace evidence remain inspectable.
 
 The saved views read repository evidence directly and verify report hashes against their recorded seals. Viewing them creates no agent runs. **Saved evidence** means previously executed results; **offline replay** runs a scripted fixture; **fresh execution** invokes a model. These are distinct modes.
+
+## Evaluate an external agent
+
+`npm run demo:external` runs an independent program through a versioned JSON process contract. Inspect a successful document-reading loop, retained invalid output, and a denied handoff after valid retrieval. The demo uses real child processes with deterministic behavior and injected faults; it makes no model calls. An optional model-backed example is tested against a mock HTTP provider, with live-provider validation still pending. [Contract, walkthrough and integration guide](docs/EXTERNAL_AGENTS.md).
 
 ## What the evidence establishes
 
@@ -90,7 +94,7 @@ Use the [run inspector](http://127.0.0.1:4173/lab.html) for individual runs and 
 
 ## Development and project boundary
 
-Taskwright uses its local Codex adapter, not the OpenAI Agents API. OpenAI's managed execution and evaluation tools overlap with this project; the [case study discusses that overlap](AGENT_CASE_STUDY.md#platform-overlap-and-the-finish-line). No unique market advantage or commercial validation is claimed.
+Existing browser comparisons use the local Codex adapter. A separate process adapter now evaluates standalone agents, with an optional Chat Completions example; neither path uses the OpenAI Agents API. OpenAI's managed execution and evaluation tools overlap with this project; the [case study discusses that overlap](AGENT_CASE_STUDY.md#platform-overlap-and-the-finish-line). No unique market advantage or commercial validation is claimed.
 
 The [source repository](https://github.com/robertbradley-oss/taskwright) is published under the [MIT license](LICENSE). MIT permits reuse and modification while requiring the copyright and license notice to be retained. This release provides a local demonstration; it does not deploy a hosted service. The package remains marked private to prevent accidental npm publication. Frozen contracts, configurations, scenario IDs, grades, hashes and archives remain unchanged. The four reserved cases remain unexecuted; their inclusion in the public source does not make them a secret benchmark.
 

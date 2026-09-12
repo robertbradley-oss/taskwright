@@ -6,10 +6,11 @@
 npm run check:preservation
 npm test
 npm run demo:failures
+npm run demo:external
 npm run check:preservation
 ```
 
-There is no dependency install, provider login, API key or live inference step. The failure rehearsal injects a scripted process into the comparison executor and asserts that all 16 attempts retain response diagnostics, neither arm qualifies, and the decision remains incomplete. Tests use offline fixtures or retained records.
+There is no dependency install, provider login, API key or live inference step. The failure rehearsal injects a scripted process into the comparison executor and asserts that all 16 attempts retain response diagnostics, neither arm qualifies, and the decision remains incomplete. The external demonstration launches real child processes for a deterministic reference policy and injected faults. Its model-backed transport tests use a loopback mock HTTP provider. Tests use offline fixtures or retained records.
 
 The workflow has read-only repository permissions, does not persist checkout credentials, pins its checkout and Node setup actions to commit IDs, and has a ten-minute job timeout. No deployment step is included. CI is useful evidence of the checked behavior, not a comprehensive security or production-reliability claim.
 
@@ -21,6 +22,6 @@ The checker fails on missing files or mismatched bytes and runs again after the 
 
 ## Results and limits
 
-The initial hosted run passed all checks on both Windows and Linux: [run 34670355904](https://github.com/robertbradley-oss/taskwright/actions/runs/34670355904). Follow the README badge for later commits. The 145-test count is descriptive and can change as meaningful coverage is added.
+The initial hosted run passed all checks on both Windows and Linux: [run 34670355904](https://github.com/robertbradley-oss/taskwright/actions/runs/34670355904). Follow the README badge for later commits. That run used 145 tests. The external integration brings the local suite to 157; hosted verification of these new changes is pending publication.
 
 CI verifies Node execution, recorded-result reproduction, HTTP serving and the scripted failure path. It does not run a graphical browser, validate real provider behavior, measure human usability or execute the four reserved cases. Local screenshots demonstrate the Windows browser presentation separately.

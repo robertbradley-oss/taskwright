@@ -2,6 +2,7 @@ import {EventEmitter} from 'node:events';
 import {mkdir,mkdtemp,writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
+import assert from 'node:assert/strict';
 import {briefDefaults,saveBrief,freezeBrief} from '../engine/briefs.js';
 import {baseline,candidate} from '../engine/configurations.js';
 import {saveContractSuite} from '../engine/contract-suites.js';
@@ -27,5 +28,16 @@ await executeDiagnosticComparison(plan,runs,active,dir,{dependencies:{
   }
 }});
 const report=await loadDiagnosticComparison(dir,plan.id);
+assert.equal(report.rows.length,16,'All scheduled attempts must remain');
+assert.equal(report.decision,'incomplete','Scripted failures must prevent selection');
+assert.equal(report.compatible,true,'Execution controls must match');
+assert.deepEqual(report.qualified,{baseline:false,candidate:false});
+for(const row of report.rows) {
+  assert.equal(row.run.status,'error');
+  assert.equal(row.run.final,null);
+  assert.equal(row.review,null);
+  assert.equal(row.run.executionDiagnostics[0].stage,'response_json');
+  assert.match(row.run.executionDiagnostics[0].response.text,/This scripted response/);
+}
 await writeFile(path.join(dir,'rehearsal-report.json'),JSON.stringify(report,null,2),{flag:'wx'});
 console.log(JSON.stringify({kind:'Scripted process failure fixture; not agent performance evidence',runDirectory:dir,comparisonId:plan.id,decision:report.decision,attempts:report.rows.length,path:`/workflow.html?comparison=${plan.id}#evidence`},null,2));

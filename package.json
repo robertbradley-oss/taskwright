@@ -6,5 +6,5 @@
   "repository": { "type": "git", "url": "https://github.com/robertbradley-oss/taskwright.git" },
   "private": true,
   "type": "module",
-  "scripts": { "start": "node server.mjs", "test": "node --test test/*.test.js", "demo:failures": "node scripts/rehearse-comparison-failure.mjs" }
+  "scripts": { "start": "node server.mjs", "test": "node --test test/*.test.js", "check:preservation": "node scripts/check-preservation.mjs", "demo:failures": "node scripts/rehearse-comparison-failure.mjs" }
 }

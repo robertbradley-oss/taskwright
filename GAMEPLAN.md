@@ -148,7 +148,9 @@ The reviewed viewer is now published as commit `aef6e8808e0d450794df4fadca905427
 
 The published first-run experience has been rehearsed from a new GitHub clone of `6b7baef`, starting without runtime data or dependencies. Startup, all 162 tests, the three-case external demo, local report import, retained failure inspection and exact copyable export worked. The README now includes the full clone/start/generate/open sequence and explains expected demo errors. A reproduced keyboard defect is fixed locally: Skip to content preserves the current workspace and selection, with the heading visible below mobile navigation. The patched checkout passes all 162 tests and 333 preservation checks; desktop and mobile browser checks pass. See docs/EXTERNAL_VIEWER.md for the baseline, reproduction and verification limits. These onboarding fixes have not been committed or published.
 
-Next best move: review and publish these bounded onboarding fixes, then verify Windows/Linux CI. Keep further work tied to reproduced usage problems rather than adding features for size. API-key creation and live-provider testing remain on hold.
+The onboarding fixes are now published as `84921683d70738d1d9efad0140bebb16de19e02d`. [Windows and Linux CI](https://github.com/robertbradley-oss/taskwright/actions/runs/34711326984) passed all 162 tests, both offline demonstrations and before/after checks of all 333 committed protected files. Published README, workflow and game-plan blobs match the reviewed local files. The release tag, recorded experiments and reserved cases are unchanged; no hosted deployment or live-provider requests occurred.
+
+Next best move: add a small offline browser smoke check for workspace switching, skip navigation and opening a local external report, so regressions like the reproduced keyboard bug are caught automatically. Keep further work tied to reproduced usage problems rather than adding features for size. API-key creation and live-provider testing remain on hold.
 
 Future code should omit development-tool authorship credits. Keep functional integration names, licenses, historical provenance and necessary evaluation disclosures accurate.
 

@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {hash} from '../engine/scenario.js';
+import {listReviews} from '../engine/semantic.js';
+import {verifyDiagnosticRerun,summarizeDiagnosticRerun,loadDiagnosticRerun} from '../engine/diagnostic-rerun.js';
+const read=async path=>JSON.parse(await readFile(path,'utf8'));
+const root='evidence/diagnostic-rerun/';
+const plan=await read(root+'plan.json'),report=await read(root+'report.json'),seal=await read(root+'seal.json');
+verifyDiagnosticRerun(plan,await read(root+'scheduled-runs.json'));
+assert.equal(hash(report.plan),hash(plan));
+assert.equal(seal.planHash,plan.hash);
+assert.equal(seal.reportHash,hash(report));
+assert.equal(hash(summarizeDiagnosticRerun(plan,report.rows)),hash(report));
+assert.equal(hash(await loadDiagnosticRerun('data/runs',plan)),hash(report));
+for(const row of report.rows){const reviews=await listReviews('data/runs',row.runId);assert.equal(reviews.length,row.review?1:0,'Unexpected review replacement or duplicate');if(row.review)assert.equal(hash(reviews[0]),hash(row.review));}
+assert.equal(hash(await read('evidence/clarification/report.json')),plan.parentEvidence.reportHash);
+const before=await read(root+'execution-preservation-before.json');
+for(const file of before.files)assert.equal(createHash('sha256').update(await readFile(file.path)).digest('hex'),file.sha256,'Preserved file changed: '+file.path);
+console.log(JSON.stringify({decision:report.decision,attempts:report.rows.length,passes:report.rows.filter(r=>r.outcome==='pass').length,issues:report.issues,preservedFiles:before.files.length,reportHash:seal.reportHash},null,2));

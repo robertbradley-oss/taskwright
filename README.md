@@ -1,101 +1,86 @@
 # Taskwright
 
-Shape your agent. Test its work.
+**Shape your agent. Test its work.**
 
-Formerly **Trywise**. Frozen evidence and historical documents retain their original name and contents; see [rename and compatibility notes](RENAMING.md).
+A local lab for testing whether a customer-support AI agent follows explicit requirements. Define a brief, inspect its actual replies and simulated actions, and compare configurations under the same frozen contract. Every result keeps the evidence behind it, including failures and uncertainty.
 
-A local environment for evaluating customer-support AI agents. Run a fictional support task, inspect document retrieval and simulated handoffs, and see evidence-backed results with uncertainty kept visible.
+This is an AI-assisted engineering portfolio project using fictional products, customers and policies. “Training” means iterating on agent configuration; the application does not update model weights. Formerly **Trywise**; [historical records retain that name](RENAMING.md).
 
-## Private checkpoint
+[Case study](AGENT_CASE_STUDY.md) · [Demo walkthrough](PORTFOLIO_DEMO.md) · [Workflow details](WORKFLOW.md) · [Release assessment](PORTFOLIO_REVIEW.md)
 
-The private engineering checkpoint is [robertbradley-oss/taskwright](https://github.com/robertbradley-oss/taskwright). It versions source, tests, documentation and retained evidence. Local runtime data and existing ZIP archives remain in the ignored `data/` and `output/` directories. Restore commands below reconstruct the retained experiments without model calls. This checkpoint does not deploy the app or make a public release.
+![Taskwright's guided workflow showing the frozen support brief and five evaluation steps](docs/images/taskwright-overview.png)
 
-Git attributes preserve file bytes across checkouts because frozen source and evidence hashes depend on them. The rename-preservation audit targets the original workspace and its local archives; use the automated reproduction tests to verify a fresh checkout.
+## Run locally
 
-## Run the lab
+Use **Node.js 24**. From the directory containing `package.json`:
 
-Use Node.js 24. In this folder run `npm start` (`npm.cmd start` on PowerShell if needed), then open [the agent lab](http://127.0.0.1:4173/). No package installation or build is needed. Run `npm test` for the automated checks. Stop the server with Ctrl+C.
+```sh
+npm start
+```
 
-Start with **Offline replay**. Choose a supported path, wrong model, policy overpromise, missing handoff, malformed output, unknown tool/document, timeout, negated promise, or ambiguous reply. These are scripted environment checks, not new model trials. The timeout fixture uses a 100ms limit so it can be inspected quickly; ordinary runs have a 180-second cap.
+Open [Taskwright](http://127.0.0.1:4173/) on the same computer. No dependency installation, build, API key, login or restored runtime data is needed for the saved demonstration. In PowerShell, use `npm.cmd start` if script execution blocks `npm`. Stop the server with Ctrl+C.
 
-**Fresh agent** uses a locally installed, signed-in Codex CLI. It sends only the fictional task context and observed tool trace to Codex and consumes the signed-in account's allowance. It is not free inference and cannot provide a monetary cost estimate. An executable on PATH is checked at startup; authentication and service availability are verified only by attempting a run. No API key or automatic login is installed by Taskwright.
+Run the automated checks in another terminal:
 
-## Define, freeze and compare an agent brief
+```sh
+npm test
+```
 
-Open [Agent brief](http://127.0.0.1:4173/brief.html). Set the agent purpose and mandatory evidence process, explain why, inspect the requirement-to-grader mapping, save a draft and freeze the contract. This first editor uses the four existing support scenarios; arbitrary purpose text does not generate new graders.
+The release rehearsal uses 139 tests. Windows/PowerShell and local Edge are the verified environment; other platforms have not received the same browser rehearsal. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
 
-Select two versioned strategies and run a 16-trial comparison. Both receive the same frozen requirements; each has two fresh attempts on every development task, with a first AI reply review. Results separate **advice**, **actions** and **process**. All attempts count, and two qualifying configurations produce a tie. The reserved cases are excluded.
+## Start with the saved example
 
-The retained v2–v3 comparison is a tie: both passed 8/8 full-contract attempts, with all 16 first reviews completed. No v3 performance advantage is established.
+The home page guides you through **brief → run → evidence → compare → export**:
 
-Read [the brief contract](BRIEF_CONTRACT.md) for authoring boundaries, criteria and selection rules, and [the retained comparison](evidence/brief-contract/RESULTS.md) for actual results. `node scripts/restore-brief-comparison.mjs` restores this worked example without inference. Its older scores remain under their original contracts; changed task instructions or grading are not proof of agent improvement.
+1. Inspect the frozen purpose, requirements and grading map.
+2. Review two configuration snapshots and select any of 16 recorded attempts.
+3. Read the customer's ticket, source documents, actual reply and tool trace. Original task checks and the first AI reply review remain separate.
+4. Compare the results: both configurations passed 8/8 under this contract. The original decision is a **tie**, not a demonstrated improvement.
+5. Download or copy the complete report, with its original records and seal identity.
 
-## Inspect and retain a run
+The evidence library includes a separate **9/12 continuation result**. All handoff decisions and AI reply reviews passed, but three appropriate handoffs failed a document-citation field requirement. The full failed checks, replies and trace evidence remain inspectable.
 
-Choose a development scenario before starting a run. Run history survives application/server restarts. Select a run to see execution mode, status, actual elapsed time, reported tokens when available, each criterion, the final reply, and the ordered trace. Expand the frozen-input panel for source versions, hashes, instructions, and limits. **View export** provides the complete record as selectable JSON.
+The saved views read repository evidence directly and verify report hashes against their recorded seals. Viewing them creates no agent runs. **Saved evidence** means previously executed results; **offline replay** runs a scripted fixture; **fresh execution** invokes a model. These are distinct modes.
 
-**Reassess saved output** applies the current evaluator without invoking a model. Assessments are saved separately; exports retain the original grade and subsequent assessments. History labels the original grade. An evaluator correction is not agent improvement.
+## What the evidence establishes
 
-Working records are in `data/runs/`, excluded from Git and review packages. Configurations and experiment manifests are subdirectories. Explicitly retained evidence lives under `evidence/`. These records include your agent's output; keep inputs fictional. The app has no deletion UI. Existing run files are not silently regraded on startup. Interrupted runs are marked interrupted; completed outputs are preserved. Failed storage operations are execution failures. Corrupt history records cause an error rather than silently disappearing.
+| Experiment | Recorded result | Interpretation |
+| --- | --- | --- |
+| [Earlier conditional handoff](evidence/conditional-handoff/RESULTS.md) | Baseline 5/8; candidate v2 4/8 | V2 avoided prohibited handoffs but skipped mandatory policy evidence. Not selected. |
+| [Shared-brief comparison](evidence/brief-contract/RESULTS.md) | V2 8/8; v3 8/8 | Tie under new shared requirements. The contract changed, so v2's earlier 4/8 is not a causal before/after baseline. |
+| [Authority and policy regression](evidence/regression/RESULTS.md) | 12/12 | Appropriate action or restraint across four explicit conditions in these development tickets. |
+| [Clarification](evidence/clarification/RESULTS.md) and [declared rerun](evidence/diagnostic-rerun/RESULTS.md) | Original 5 passes + 1 error; separate rerun 6/6 | The incomplete original remains intact. Its discarded adapter response cannot be recovered. |
+| [Customer follow-up](evidence/continuation/RESULTS.md) | 9/12 full-contract passes | Correct behavior can coexist with an output-contract failure. The result was not rewritten. |
 
-## What evaluation establishes
+Small exposed fictional suites and AI-authored reference labels do not establish production reliability, human learning, customer demand or a general failure rate. Four additional cases remain reserved and unexecuted; their author knows the content. The same model family generated and reviewed replies. Valid quotes help verify attribution, not every semantic judgment.
 
-The current evaluator checks the final structured model/connection selection, declared policy commitment, whether evidence references were actually read, and whether the required simulated handoff occurred. Evidence IDs and declarations alone do not prove the prose is accurate.
+## Try your own configuration
 
-The original structural assessment keeps the meaning of the reply **uncertain**. **Review reply with AI** adds a separate evidence-based review of applicability, grounding, field/prose consistency, completed-action claims, and completeness. It quotes the actual claim and source or trace evidence. Quotations are validated exactly; entailment remains a model judgment. A matching completed review is reused without another model call. New reviews consume Codex allowance, have a 90-second model-call limit, and can be cancelled.
+**Create a brief** opens the existing editor. Set purpose and the policy-reading requirement, inspect the grading map, save an immutable draft and freeze it. Free-text purpose provides context; arbitrary goals are not automatically converted into graders. A separate handoff-authority workbench supports execute versus prepare-only requirements. Both are linked from the evidence library.
 
-The reviewer matched all 16 provisional authored references in a frozen development/validation check, including contradictions, unsupported claims, negated promises and unresolved source conflict. Inspect [Grader evidence](http://127.0.0.1:4173/calibration.html) or the [calibration report](evidence/semantic-calibration/RESULTS.md). These are Codex-authored labels, not independent human ground truth or proof of reliability.
+Fresh comparisons require a locally installed, signed-in Codex CLI and consume that account's allowance. The UI describes the schedule and execution limits before launch. Presence on PATH does not prove authentication or service access. No automatic login or API key setup is performed. Monetary cost and the exact provider model snapshot are unavailable.
 
-A reply-review pass cannot override a task-action failure. The new reset run truthfully described a prohibited handoff: its reply review passed, while its task correctly failed. The revision run also exposed a model-name alias error, corrected through a separate structural-5 reassessment. All originals remain intact. See [expanded coverage and findings](evidence/semantic-coverage/RESULTS.md).
+Use the [run inspector](http://127.0.0.1:4173/lab.html) for individual runs and scripted replay. Existing `/?run=…` links remain valid. New brief comparisons link back into the guided results view; the workbench retains launch and cancellation controls.
 
-## Compare instruction versions
+## Repository map
 
-Open [Compare agents](http://127.0.0.1:4173/compare.html). Review the baseline and candidate instructions, choose 1–4 trials per configuration (2 by default), and start a fresh comparison. The server reserves the entire queue and alternates AB, BA order. A manifest freezes the scenario/source hash, configuration snapshots, requested model, reasoning, CLI version, protocol, limits, and original evaluator version/source hash. Only the instructions differ. Cancellation retains the active and unstarted attempts.
+| Area | Purpose |
+| --- | --- |
+| `workflow.html`, `workflow.js`, `workflow-view.js` | Guided presentation of saved or local comparison records |
+| `workflow-evidence.mjs`, `server.mjs` | Sealed-example loading and a loopback-only HTTP/API server |
+| `engine/` | Simulated tools, bounded execution, versioned contracts, grading, comparisons and archive restoration |
+| `evidence/` | Retained plans, original results, first reviews, seals, calibration and limitations |
+| `test/` | Node tests for behavior, contracts, errors, evidence preservation and serving |
+| `data/`, `output/` | Ignored runtime records and local packages/rehearsal artifacts |
 
-Expand **Create a new candidate version** to save different instructions. Versions are append-only, carry content and parent hashes, and survive restarts. Saving a configuration makes no model call. The individual-run inspector also offers configuration selection; only runs enrolled in an experiment enter that experiment's comparison.
+[The case study](AGENT_CASE_STUDY.md) explains the architecture and tradeoffs. [The workbench reference](AGENT_DEMO.md) covers optional historical experiments and restoration commands. Restoration is unnecessary for the default guided demo; use it only to populate older workbenches or run links on a clean copy. Restorers preserve matching records and refuse conflicts.
 
-The result shows every scheduled attempt, criterion counts, uncertainty, errors, timing ranges, and usage coverage. Missing records or differing controls block aggregate comparison. Original grades remain fixed even after a separate reassessment. Inspect any trial and return to its experiment, or export the complete evidence as JSON.
+## Attribution and project boundary
 
-The first controlled experiment completed all four runs. Both arms passed the structural/action checks, and prose remained uncertain. There is no measured quality improvement. Read the [experiment report](evidence/prompt-comparison/RESULTS.md) and [demo walkthrough](AGENT_DEMO.md). To restore that saved experiment on a fresh checkout without inference, run `node scripts/restore-experiment.mjs`. It preserves matching records and refuses to overwrite differences. Also run `node scripts/restore-review-evidence.mjs` to restore the separate AI reviews, new scenario runs and grader correction without inference.
+Robert directed the product, approved the agent-evaluation pivot, set requirements and evidence-preservation constraints, and chose the portfolio scope. Codex implemented the software, authored fictional scenarios and reference labels, drafted documentation, and carried out the recorded experiments and technical checks. AI models supplied agent replies and semantic reviews. This is not presented as unaided human implementation or independent human validation.
 
-## Repeated development suite and reserved evaluation
+Taskwright uses its local Codex adapter, not the OpenAI Agents API. OpenAI's managed execution and evaluation tools overlap with this project; the [case study discusses that overlap](AGENT_CASE_STUDY.md#platform-overlap-and-the-finish-line). No unique market advantage or commercial validation is claimed.
 
-Open [Suite evidence](http://127.0.0.1:4173/suite.html) for the conditional-handoff experiment. It compares baseline v1 with candidate v2 twice on each of the four development scenarios: 16 support attempts, each followed by its first bounded AI reply review. The candidate changes only the handoff instruction. Its prompt and a conservative selection rule were frozen before the first model call. Each scenario uses ABBA order; all attempts remain in the denominator.
+The [source repository](https://github.com/robertbradley-oss/taskwright) is published under the [MIT license](LICENSE). MIT permits reuse and modification while requiring the copyright and license notice to be retained. This release provides a local demonstration; it does not deploy a hosted service. The package remains marked private to prevent accidental npm publication. Frozen contracts, configurations, scenario IDs, grades, hashes and archives remain unchanged. The four reserved cases remain unexecuted; their inclusion in the public source does not make them a secret benchmark.
 
-The suite combines the four structural checks with the five AI reply dimensions for a descriptive **checks pass** result. It keeps the original structural grade, reply verdict, failed dimensions, errors and usage separately visible. No prose pass can clear a prohibited or missing handoff. A complete tie does not select a candidate under this experiment's predeclared rule.
-
-Four additional fictional cases were saved and hashed before candidate creation. They remain outside the development picker and this runner's executions. Their author can see them; this is reservation from tuning, not an independent private benchmark. Any later evaluation should use the frozen selected version once and record that the cases have been consumed. The current runner never opens that evaluation automatically.
-
-Read [the suite case study](evidence/conditional-handoff/RESULTS.md) for the result and limitations. `node scripts/restore-suite.mjs` restores the retained run/review/configuration/experiment records without inference, refusing to overwrite differences. Viewing or exporting the suite also invokes no model.
-
-`node scripts/run-conditional-handoff.mjs` is the bounded command-line coordinator for this particular frozen plan. It resumes scheduled work and never automatically retries a failed support attempt or review. A completed suite exits without new inference. A claimed operation with no saved receipt stops for evidence recovery instead of creating a duplicate. The local server must be running; use the experiment page to cancel an active batch. Stopping only the coordinator does not cancel a server-owned batch. This is a recorded suite workflow, not a general suite-authoring UI.
-
-## Earlier baseline evidence
-
-Two fresh Codex runs completed during implementation. The first exposed an ambiguous output field; the second exposed an overly strict model-name comparison. Their raw records and a separate corrected assessment are retained in [the baseline evidence](evidence/agent-baseline/RESULTS.md). Neither is evidence of general reliability or measured improvement.
-
-The CLI adapter uses separate ephemeral read-only invocations for each action, ignores user config and project instructions, disables native shell, browsing, plugins, apps, and multi-agent tools, and permits actions only through the lab's validator. It is a stateless protocol adapter, not a trained model. New configurations explicitly request `gpt-6-astra` with low reasoning effort. Requested alias, CLI version and execution controls are recorded; the provider's exact model snapshot remains unreported. The earlier implementation-time runs used the CLI default and are not included in the controlled comparison. See [official non-interactive Codex documentation](https://learn.chatgpt.com/docs/non-interactive-mode) for the underlying CLI workflow.
-
-## Boundaries and implementation
-
-- Four selectable fictional development scenarios: model applicability, reset prerequisites, replacement eligibility, and hardware-revision instructions. Three allowed tools, 8 action steps, 7 tool calls, 180 seconds, bounded per-action text and adapter output.
-- Local Node server with same-origin and Host checks, request-size bounds, one active run within a reserved batch, and allowlisted static/API routes. This is not a production authentication or multi-user system.
-- File-based run persistence with atomic replacement and bounded Windows sharing-lock retries; separate write-once reassessment records.
-- Fresh Codex adapter reports usage when available and discards raw CLI diagnostics rather than storing account or environment details. Secret-bearing inputs and live customer data are outside scope.
-- The brief workflow compares two strategies across all four development scenarios under one frozen contract. The earlier comparison launcher and suite coordinator remain available for their original experiments. Reserved cases are separate local artifacts. No automatic instruction optimizer or production-calibrated judge exists.
-
-## Project map
-
-- [GAMEPLAN.md](GAMEPLAN.md): current outcome, scope, and next move.
-- [AGENT_WORKFLOW.md](AGENT_WORKFLOW.md): workflow contract and implementation status.
-- [Baseline evidence and verification](evidence/agent-baseline/RESULTS.md): actual results, corrections, and limits.
-- `engine/`: scenario, runner, serial queue, immutable configurations/experiments, comparison, deterministic evaluator, reassessment store, and Codex adapter.
-- `brief.html`, `brief.js`: brief authoring, requirement mapping and frozen suite comparison.
-- `lab.html`, `lab.js`, `lab.css`: run inspector; `compare.html`, `compare.js`: experiment setup; `suite.html`, `suite.js`: repeated-suite evidence; `server.mjs`: local routes.
-- `test/`: runner failures, persistence/restart, API boundaries, reassessment, semantic quote validation/calibration, scenario contracts, and historical practice checks.
-
-## Earlier prototype
-
-The original human-facing exercises remain at [Practice 01](http://127.0.0.1:4173/index.html) and [Practice 02](http://127.0.0.1:4173/model.html). [CASE_STUDY.md](CASE_STUDY.md), [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md), and [REVIEW.md](REVIEW.md) describe that historical phase. Their earlier publication recommendation was superseded by the pivot.
-
-Robert directed the product and approved the pivot; Codex implemented and tested the lab. There are no human study participants or established learning, employment, or production reliability outcomes. Publication is a separate future decision.
+The [original human-training case study](CASE_STUDY.md), [historical demo](DEMO_WALKTHROUGH.md) and `simulation/` are preserved evidence of the earlier direction. Their old counts, names and root-URL instructions describe that milestone; current practice pages are `/index.html` and `/model.html`.

@@ -8,3 +8,4 @@ header nav{display:flex;gap:22px;margin-left:auto;font-size:13px}nav [aria-curre
 #reservation{overflow-wrap:anywhere}.trial details{width:100%;min-width:0}.trial details pre{max-height:420px}
 .suite-checks{margin-top:18px;font-size:12px}.suite-checks [role=row]{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:8px;padding:8px 0;border-top:1px solid var(--line)}.suite-checks [role=columnheader]{font-weight:600}
 #brief-form textarea{min-height:105px;padding:10px;font:inherit;margin-bottom:14px}#brief-state{overflow-wrap:anywhere}#main>section+section{margin-top:32px}#mapping .criterion h3{display:block;margin:10px 0}#scope{font-size:13px}#strategy-instructions{min-height:150px}#result .trial{scroll-margin-top:20px}header nav{flex-wrap:wrap}
+.diagnostics-main{overflow-wrap:anywhere}.diagnostics-main>section+section{margin-top:32px}

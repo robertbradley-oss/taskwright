@@ -1,0 +1,11 @@
+import {EventEmitter} from 'node:events';
+import {readFile,mkdtemp,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+import {createClarificationRun,clarificationFixture} from '../engine/clarification-experiment.js';
+import {diagnosticExecutionContract,runDiagnosticAgent} from '../engine/diagnostic-execution.js';
+import {hash} from '../engine/scenario.js';
+const contract=JSON.parse(await readFile('evidence/clarification/contract.json','utf8')),run=createClarificationRun(contract,'execute-unknown',undefined,'replay'),actions=clarificationFixture('execute-unknown'),messages=[JSON.stringify(actions[0]),JSON.stringify(actions[1]),'Have you tried the required steps?'];let index=0;
+run.diagnosticExecution=diagnosticExecutionContract();
+const dir=await mkdtemp(path.join(tmpdir(),'taskwright-diagnostic-example-'));await runDiagnosticAgent(run,dir,undefined,{executable:'scripted-fixture',cliVersion:'fixture-no-cli',createScratch:async()=>'.',launch(){const child=new EventEmitter();child.stdout=new EventEmitter();child.stderr=new EventEmitter();child.stdin=new EventEmitter();child.kill=()=>{};child.stdin.end=()=>queueMicrotask(()=>{child.stdout.emit('data',Buffer.from(JSON.stringify({type:'item.completed',item:{type:'agent_message',text:messages[index++]}})+'\n'));child.emit('close',0);});return child;}});
+const value={at:new Date().toISOString(),label:'Controlled offline fixture: plain-text response rejected by the JSON protocol. No model calls.',run};await writeFile('evidence/diagnostic-rerun/fixture.json',JSON.stringify({...value,hash:hash(value)},null,2),{flag:'wx'});console.log(run.executionDiagnostics[0].code);

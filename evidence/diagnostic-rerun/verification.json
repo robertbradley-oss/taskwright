@@ -1,0 +1,33 @@
+{
+  "at": "2026-09-11T01:47:53.918Z",
+  "status": "predeclared_not_executed",
+  "planHash": "dcf0fa9bebf530ee609e1600400e682b0e9de132b8453a552318a58db5a9aad8",
+  "executionHash": "68009ffa3517fa62faab3ab67c879df8b6e0b8cc25fd0d97e4fabee875489d0a",
+  "tests": {
+    "passed": 125,
+    "failed": 0
+  },
+  "preservation": {
+    "files": 1051,
+    "changed": 0
+  },
+  "browser": {
+    "retainedMessage": true,
+    "parserDiagnostic": true,
+    "readonlyExport": true,
+    "attempts": 6,
+    "mobileWidth": 390,
+    "documentScrollWidth": 375
+  },
+  "absentExecutionArtifacts": [
+    "data/runs/diagnostic-reruns/c5f0817e-f4dd-4dba-bc19-9125e4f17a96.claim.json",
+    "evidence/diagnostic-rerun/report.json",
+    "data/runs/1cc2a38c-5e8d-4c6b-aaea-55f47841cee6.json",
+    "data/runs/d2a86f6d-140c-43d6-a078-db857296f2e7.json",
+    "data/runs/d284d21a-d085-4a64-a658-ff0515e29b0a.json",
+    "data/runs/31509986-7d21-4a8a-bd83-e16ac63926af.json",
+    "data/runs/90433043-e1b5-4cc9-b2a5-15265ea0af92.json",
+    "data/runs/b4629485-9b1e-4857-8eb0-86783ba69d68.json"
+  ],
+  "notes": "Controlled fake-process tests only. No fresh model calls. Four reserved cases remain unchanged and unexecuted."
+}

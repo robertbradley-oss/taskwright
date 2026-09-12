@@ -1,0 +1,9 @@
+{
+  "sealedAt": "2026-09-11T00:12:45.005Z",
+  "planHash": "82d761d63c62762e562fd3f07ddf93e613d85dbb4190275315b1525bdaa6dd1e",
+  "reportHash": "3fa1c9697f7f516c9d0458f5967b93e1bc4de7b4ea640219d51f498221cf78b8",
+  "calibrationHash": "321940878bf1f527ddcb742633663589b8378490691f6ac58c25be1efc4bf2aa",
+  "decision": "requirement_followed",
+  "attempts": 6,
+  "firstReviews": 6
+}

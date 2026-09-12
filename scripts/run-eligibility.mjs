@@ -1,0 +1,16 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {getConfiguration} from '../engine/configurations.js';
+import {hash} from '../engine/scenario.js';
+import {codexVersion} from '../engine/codex-adapter.js';
+import {saveRun} from '../engine/runner.js';
+import {createEligibilityPlan,executeEligibility,loadEligibility} from '../engine/eligibility-experiment.js';
+const dir='data/runs',evidence='evidence/eligibility';
+const calibration=JSON.parse(await readFile(evidence+'/selected-calibration.json','utf8')),prior=JSON.parse(await readFile('evidence/authority/report.json','utf8')),configuration=await getConfiguration(dir,'support-candidate@2');
+if(hash(configuration)!==hash(prior.plan.configuration))throw Error('Reference configuration changed');
+const live=await fetch('http://127.0.0.1:4173/api/runs');if(!live.ok)throw Error('Local lab unavailable');if((await live.json()).some(r=>['running','queued'].includes(r.status)))throw Error('Another run is active');
+await writeFile(evidence+'/execution-start.json',JSON.stringify({at:new Date().toISOString()}),{flag:'wx'});
+const {plan,runs}=createEligibilityPlan(configuration,codexVersion(),calibration);await mkdir(dir+'/eligibility-experiments',{recursive:true});await mkdir(dir+'/eligibility-contracts',{recursive:true});
+await writeFile(evidence+'/plan.json',JSON.stringify(plan,null,2),{flag:'wx'});await writeFile(`${dir}/eligibility-experiments/${plan.id}.json`,JSON.stringify(plan,null,2),{flag:'wx'});for(const contract of Object.values(plan.contracts))await writeFile(`${dir}/eligibility-contracts/${contract.id}.json`,JSON.stringify(contract,null,2),{flag:'wx'});for(const run of runs)await saveRun(dir,run);
+console.log('Frozen plan '+plan.id+'; six scheduled attempts.');const controller=new AbortController();process.on('SIGINT',()=>controller.abort());process.on('SIGTERM',()=>controller.abort());
+await executeEligibility(runs,dir,{signal:controller.signal});const report=await loadEligibility(dir,plan),seal={sealedAt:new Date().toISOString(),reportHash:hash(report),planHash:plan.hash,calibrationHash:calibration.hash};
+await writeFile(evidence+'/report.json',JSON.stringify(report,null,2),{flag:'wx'});await writeFile(evidence+'/seal.json',JSON.stringify(seal,null,2),{flag:'wx'});console.log(JSON.stringify({decision:report.decision,arms:report.arms,issues:report.issues},null,2));

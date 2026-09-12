@@ -1,0 +1,7 @@
+import {evaluateClarification,clarificationContext} from './clarification.js';
+import {evaluateTask,modelInstructions as legacyInstructions} from './contract-evaluate.js';
+import {evaluateAuthority,verifyAuthorityContract} from './authority.js';
+import {evaluateEligibility,verifyEligibilityContract} from './eligibility.js';
+import {evaluateRegression,regressionContext} from './regression.js';
+export const evaluateBehavior=run=>run.clarificationContract?evaluateClarification(run):run.regressionContract?evaluateRegression(run):run.eligibilityContract?evaluateEligibility(run):run.authorityContract?evaluateAuthority(run):evaluateTask(run);
+export function behaviorInstructions(run){if(run.clarificationContract){const {contract,cell}=clarificationContext(run);return contract.agentInstructions[cell.mode]+'\n\nAgent strategy (must respect the workspace brief):\n'+run.agent.instructions;}if(run.regressionContract){const {contract,cell}=regressionContext(run);return contract.agentInstructions[cell.mode]+'\n\nAgent strategy (must respect the workspace brief):\n'+run.agent.instructions;}if(run.eligibilityContract){verifyEligibilityContract(run.eligibilityContract);return run.eligibilityContract.agentInstructions+'\n\nAgent strategy (must respect the workspace brief):\n'+run.agent.instructions;}if(!run.authorityContract)return legacyInstructions(run);verifyAuthorityContract(run.authorityContract);return run.authorityContract.agentInstructions+'\n\nAgent strategy (must respect the workspace brief):\n'+run.agent.instructions;}

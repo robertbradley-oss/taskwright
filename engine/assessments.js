@@ -1,5 +1,5 @@
 import { mkdir,readFile,readdir,writeFile } from 'node:fs/promises';
-import { evaluateTask as evaluateRun } from './contract-evaluate.js';
+import { evaluateBehavior as evaluateRun } from './run-behavior.js';
 import { hash } from './scenario.js';
 export async function reassess(dir,run){
  if(run.status!=='completed')throw new Error('Only completed runs can be reassessed');

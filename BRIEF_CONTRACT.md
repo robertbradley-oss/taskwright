@@ -1,5 +1,7 @@
 # A support brief that controls the evaluation
 
+This document describes the original version-1, four-scenario contract. Configurable handoff authority is now available as a separately versioned workflow on one new development ticket; see [the authority contract](AUTHORITY_CONTRACT.md). Existing frozen briefs and results retain the rules below.
+
 The first brief editor is at `/brief.html`. A support-agent builder can define the purpose, choose when policy retrieval is mandatory, explain that choice, inspect the resulting grading requirements, save a draft version, and freeze it before comparing strategies. The workflow uses the four existing fictional development scenarios and three simulated tools.
 
 This is deliberately bounded authoring. Purpose is context supplied to the agent; Taskwright does not infer new grading criteria from arbitrary purpose text. Product applicability, supported claims, uncertainty handling and permitted actions are fixed requirements in this version. New documents, tools and scenario types require implementation and validation.

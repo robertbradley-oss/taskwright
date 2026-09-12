@@ -1,0 +1,2 @@
+if(process.argv.slice(2).join()!=='--execute')throw Error('This command consumes Codex allowance. Use --execute only to launch the predeclared complete batch.');
+const response=await fetch('http://127.0.0.1:4173/api/diagnostic-rerun/start',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}),value=await response.json();if(!response.ok)throw Error(value.error);console.log(JSON.stringify(value));console.log('The local server owns execution. Inspect progress or cancel at /diagnostics.html; stopping this launcher does not cancel the batch.');

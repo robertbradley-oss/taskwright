@@ -1,13 +1,14 @@
 import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile, rename, readdir } from 'node:fs/promises';
 import { scenario, instructions, limits, hash, fixtureActions, fixtures } from './scenario.js';
-import { evaluateTask as evaluateRun,modelInstructions } from './contract-evaluate.js';
+import { evaluateBehavior as evaluateRun,behaviorInstructions as modelInstructions } from './run-behavior.js';
+import {authorityScenario} from './authority.js';
 import {verifyContract} from './briefs.js';
 import { baseline, verifyConfiguration } from './configurations.js';
 import { getScenario,scenarioFixtures,actionsForScenario } from './scenarios.js';
 
 export function createRun(mode, fixture='supported', configuration=baseline,scenarioId=scenario.id,contract=null) {
-  const chosen=getScenario(scenarioId);
+  const chosen=scenarioId===authorityScenario.id?authorityScenario:getScenario(scenarioId);
   if(!['replay','codex'].includes(mode)||!Object.hasOwn(scenarioFixtures(chosen)||fixtures,fixture))throw new Error('Invalid run configuration');
   const snapshot=structuredClone(chosen);
   if(contract){verifyContract(contract);if(!contract.scenarios.some(s=>s.id===chosen.id&&s.hash===hash(chosen)))throw Error('Scenario outside contract');}

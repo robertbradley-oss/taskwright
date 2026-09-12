@@ -1,0 +1,23 @@
+{
+  "at": "2026-09-11T00:32:17.222Z",
+  "selectedAttempt": 2,
+  "selectedHash": "cd313076d233ecd0687bb5863d2e60381fde61a3a5652e4bbc5689d304e2dac6",
+  "attempts": [
+    {
+      "attempt": 1,
+      "hash": "428a9fa407578baf94a57ff364d4c9ae872baf2a040801fb31225b9f0bf4004e",
+      "matches": 7,
+      "total": 8,
+      "errors": 1
+    },
+    {
+      "attempt": 2,
+      "hash": "cd313076d233ecd0687bb5863d2e60381fde61a3a5652e4bbc5689d304e2dac6",
+      "matches": 8,
+      "total": 8,
+      "errors": 0
+    }
+  ],
+  "explanation": "Batch 1 remains failed: seven matching verdicts and one structured-response execution error. One predeclared separate full follow-up batch used the unchanged grader and matched eight of eight. Both batches remain visible; no first receipt was replaced. Fresh support trials use the complete second batch, not the failed original gate.",
+  "hash": "cd3406b95af46f75775c8279a1dd0481ff0aa2d68ed1c45cf04d4f1883992fc5"
+}

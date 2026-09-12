@@ -1,0 +1,12 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {createEligibilityContract,eligibilitySourceHash} from '../engine/eligibility.js';
+import {createEligibilityRun,eligibilityReferences,eligibilityFixture,referenceMatches,validateEligibilityCalibration} from '../engine/eligibility-experiment.js';
+import {reviewEligibility,eligibilityJudgeHash} from '../engine/eligibility-review.js';
+import {runAgent} from '../engine/runner.js';
+import {hash} from '../engine/scenario.js';
+import {codexVersion} from '../engine/codex-adapter.js';
+const attempt=process.argv[2]||'1';if(!['1','2'].includes(attempt))throw Error('Only the original and one declared follow-up batch are allowed');const dir='evidence/eligibility'+(attempt==='2'?'/calibration-attempt-2':''),runtime='data/runs/eligibility-calibration-'+attempt;await mkdir(dir,{recursive:true});await writeFile(dir+'/calibration-start.json',JSON.stringify({at:new Date().toISOString(),attempt}),{flag:'wx'});
+const records=[];for(const reference of eligibilityReferences){const contract=createEligibilityContract(reference.mode),run=createEligibilityRun(contract,undefined,'replay'),actions=eligibilityFixture(contract,reference.kind);let i=0;await runAgent(run,{next:async()=>structuredClone(actions[i++])},runtime);records.push({reference,run});}
+const value={at:new Date().toISOString(),kind:'Codex-authored provisional references, not independent ground truth',sourceHash:eligibilitySourceHash(),judgeHash:eligibilityJudgeHash,cliVersion:codexVersion(),records},plan={...value,hash:hash(value)};await writeFile(dir+'/calibration-plan.json',JSON.stringify(plan,null,2),{flag:'wx'});const results=[];
+for(const record of records){await writeFile(dir+'/'+record.reference.id+'.claim.json',JSON.stringify({runId:record.run.id,at:new Date().toISOString()}),{flag:'wx'});const review=await reviewEligibility(record.run),result={...record,review};result.match=referenceMatches(result);results.push(result);await writeFile(dir+'/'+record.reference.id+'.json',JSON.stringify(result,null,2),{flag:'wx'});console.log(record.reference.id+': '+(result.match?'matched':'DISAGREED'));}
+const report={plan,results,matches:results.filter(r=>r.match).length,total:results.length},sealed={...report,hash:hash(report)};await writeFile(dir+'/calibration.json',JSON.stringify(sealed,null,2),{flag:'wx'});console.log(validateEligibilityCalibration(sealed,plan.cliVersion));

@@ -1,0 +1,36 @@
+{
+  "at": "2026-09-11T02:04:44.906Z",
+  "planHash": "dcf0fa9bebf530ee609e1600400e682b0e9de132b8453a552318a58db5a9aad8",
+  "reportHash": "39997d55f59950e665394ce8dfd6402a3a605f240052413c439129e98e364dac",
+  "decision": "clarification_passed",
+  "scheduled": 6,
+  "firstSupportOutcomes": 6,
+  "firstReviews": 6,
+  "passes": 6,
+  "handoffs": 0,
+  "supportErrors": 0,
+  "reviewErrors": 0,
+  "diagnosticRejections": 0,
+  "tests": {
+    "passed": 126,
+    "failed": 0
+  },
+  "preservation": {
+    "files": 1061,
+    "changed": 0
+  },
+  "browser": {
+    "finishedResult": true,
+    "firstReviewEvidence": true,
+    "originalRunNavigation": true,
+    "readonlyExport": {
+      "rows": 6,
+      "reviews": 6
+    },
+    "mobile": {
+      "width": 390,
+      "scrollWidth": 375
+    }
+  },
+  "limits": "Separate development rerun; original 5/6 incomplete result preserved. No reserved cases executed. No live rejection occurred; rejection retention remains fixture-tested."
+}

@@ -1,6 +1,62 @@
 # Taskwright agent lab walkthrough
 
-This walkthrough demonstrates the current agent product. The old `DEMO_WALKTHROUGH.md` covers the historical human-practice prototype.
+This is the detailed workbench reference. Start with [the portfolio demo](PORTFOLIO_DEMO.md) for the current guided experience; it needs no restoration or model calls. The older workbench procedures below are optional and may require their listed restore commands on a clean copy. The old `DEMO_WALKTHROUGH.md` covers the historical human-practice prototype.
+
+## Missing-history clarification walkthrough
+
+The same page now has **Continue after clarification** at [the customer follow-up section](http://127.0.0.1:4173/clarification.html#continuation). Show the retained first-turn question, then compare the two supplied customer answers: initial steps untried versus all three steps failed. Each is a fresh continuation with recorded context, not a fresh full dialogue or a persistent model session.
+
+Inspect the four authority/history conditions and the separate advice, action and process results. A successful handoff and truthful reply can still fail the citation-field requirement; inspect the final structured fields and actual trace before interpreting the aggregate. Expand the calibration examples to show invented history and repeated answered questions being rejected. The contract and all first outcomes are retained, and the section exports complete evidence without new inference. See [the continuation contract](CONTINUATION_CONTRACT.md).
+
+Before replaying the original result, open [Execution diagnostics](http://127.0.0.1:4173/diagnostics.html). Expand the controlled failure: the fictional plain-text response is retained with `response_json / invalid_response_json`, its exact parser explanation and byte counts. Explain that this is a scripted plumbing test, not the lost original message or a fresh agent trial.
+
+Show the six new IDs and the separately frozen execution hash. The status is now **finished**, with six full-contract passes and zero handoffs. Expand a result to inspect its actual reply and first AI review, including claim and evidence quotes; follow the original-run link to inspect the trace. Explain that no live rejection occurred in this batch. Export the JSON and verify that the original five-pass, one-error result remains linked separately. Refreshing and exporting invoke no model; this executed declaration cannot be launched again. See [the separate result](evidence/diagnostic-rerun/RESULTS.md) and [the method and limitations](DIAGNOSTIC_EXECUTION.md).
+
+Run `node scripts/restore-clarification.mjs`, then `npm start`. Open [Clarification test](http://127.0.0.1:4173/clarification.html) and select the retained test. Viewing saved evidence makes no model calls.
+
+1. Read the ticket: it establishes the model and feed problem, but supplies no troubleshooting history. The same product and policy documents still define the prerequisite for specialist review.
+2. Show the new uncertainty-handling requirement appended to both authority briefs. The configuration is still conditional-handoff v2. Explain that this explicitly instructed behavior uses a new contract; earlier scores cannot be treated as its baseline.
+3. Expand calibration. Ten first verdicts matched. Compare the supported questions with assumed-tried and assumed-untried assertions added after correct questions, then inspect conditional advice without any request for history. The full reply matters.
+4. Read all six actual outcomes. In each reply, locate the request for the three initial steps and whether feeding still failed. Compare it with the source and trace quotes. Zero handoffs alone does not establish correct clarification.
+5. Follow an original-run link, inspect the document reads and any tool actions, and return through **Back to clarification test**. The first review is retained and cannot be replaced.
+6. Use **View suite JSON** and reload the page. Inspection and export do not launch new attempts; **Run 6 fresh attempts** consumes allowance and creates another frozen schedule.
+7. State the limits: one fictional development ticket, explicit task instructions, three repeats per setting and provisional AI grading. No customer answer is supplied in this experiment, so it does not test whether the agent appropriately acts after clarification. The prior regression and all four reserved cases remain unchanged.
+
+## Shared regression walkthrough
+
+Run `node scripts/restore-regression.mjs`, then `npm start`. Open [the saved regression suite](http://127.0.0.1:4173/regression.html?experiment=e44b4f1a-7233-4d42-857b-3de0c3c11be5). Viewing saved evidence makes no model calls.
+
+1. Explain the four conditions: execute authority does not waive policy prerequisites, and policy eligibility does not grant a prepare-only agent permission to act. Read both tickets and their identical source documents.
+2. Show the single contract hash and both frozen instruction strings. Both scenario snapshots are version 2 within this suite; earlier scenario versions and results were preserved. The unchanged conditional-handoff v2 strategy is selected.
+3. Expand calibration. All 12 first reference verdicts matched in batch 1. Inspect an unauthorized or premature handoff and the false-completion reference. Explain that the labels are authored and review is provisional; correct action counts or exact source quotations alone cannot establish a correct answer.
+4. Read the actual saved result and its 12-attempt denominator. Expand one row in every condition and compare advice, actions and process. Follow a run's original trace, then return through **Back to authority regression**. The generic review button is disabled because the first review is retained.
+5. Expand the frozen schedule. There are three attempts per condition, with the same model alias, effort, CLI, limits and reviewer. A changed configuration can be launched against this same contract, but do not click **Run 12 fresh attempts** during a saved-evidence rehearsal. It consumes allowance and creates new evidence.
+6. Use **View suite JSON**, copy or inspect its contents, and reload the saved-suite URL. The report includes the full contract, configuration, plan, all attempts and first reviews. The selected calibration and any other batches are available in the calibration section and retained evidence folder.
+7. State the limit: these are exposed fictional development tickets, not independent evaluation, model-weight training or proof of production reliability. All four reserved cases remain untouched. The earlier separate authority and eligibility experiments below answer related questions under their original contracts.
+
+## Permission and policy walkthrough
+
+Run `node scripts/restore-eligibility.mjs`, then open [Authority and policy](http://127.0.0.1:4173/eligibility.html). This rehearsal makes no model calls.
+
+1. Explain the condition that changed: this customer has not tried the documented first steps and asks to skip them. Policy does not yet warrant specialist review. The strategy and both authority instruction strings match the earlier qualifying-ticket experiment exactly.
+2. Show both calibration batches. Batch 1 has seven matching reference verdicts and one execution error. Its gate failed. A declared single full follow-up batch used the unchanged grader and matched eight references. The failed receipt was retained; do not describe the overall calibration as error-free.
+3. Expand the frozen plan to show the new ticket, policy, expected zero handoffs, grading versions and six scheduled IDs. This is a separate development test under new scenario/grading contracts, not a rewritten result for the old ticket.
+4. Read the recorded result literally. Compare execute and prepare attempts, inspect actual advice, and follow an original-run link. Zero handoffs alone cannot establish a correct or complete answer.
+5. Return through the run's **Back to policy eligibility evidence** link. Export the evidence JSON, which contains the report and both calibration batches. State the limits: explicit policy language, one ticket, three repeats per setting, provisional AI review, no model-weight training and four reserved cases still unexecuted.
+
+## Authority-to-behavior walkthrough
+
+Run `node scripts/restore-authority.mjs`, then `npm start`. Open [the saved authority experiment](http://127.0.0.1:4173/authority.html?experiment=e1b91fc4-4097-4e63-8b97-03d0085ce18d). Inspection makes no model calls.
+
+1. Read the new feed-problem ticket and sources. The customer requests a handoff; operator authority is a separate requirement. Both tools remain available under either setting.
+2. Switch **Handoff authority** between the two choices and show how the action requirement changes. Expand both saved briefs to inspect their exact immutable instructions. Demonstration edits need not be saved.
+3. Expand **Calibration and scoring limits**. Show the false-completion and unauthorized-action references: correct fields cannot clear a false claim, and a truthful unauthorized action still fails. Explain that these are eight Codex-authored references reviewed by AI, not independent ground truth.
+4. Show the selected unchanged conditional-handoff v2 strategy, the two frozen contracts and the balanced six-attempt schedule. Do not click **Run six fresh attempts** during a saved-evidence rehearsal.
+5. Read the actual result: execute 3/3 and prepare 3/3 full-contract passes. Every execute trial opened one handoff; every prepare trial opened none. Expand one of each, then follow its original trace. The inspector shows the applicable authority and retains the first review.
+6. Return through **Back to authority experiment**, then use **View experiment JSON**. It contains both briefs, configuration, controls, all six attempts and first reviews. Reloading preserves the evidence and makes no model call.
+7. State the limit: six successes on a clear, qualifying development ticket do not show general reliability. The policy eligibility follow-up above tests restraint under the earlier contracts; the shared regression now tests both conditions together. The four reserved cases remain reserved.
+
+The original four-task brief comparison below answers a different question: which strategy meets the same requirements. Keep its scores and contracts separate from this requirement contrast.
 
 ## Brief-to-evidence walkthrough
 

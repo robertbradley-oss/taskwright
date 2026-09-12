@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-11T00:26:28.643Z",
+  "reason": "Original premature-execution reference review returned an execution error: no valid structured response. Preserve all first-batch results. Permit exactly one separate complete eight-reference calibration batch, unchanged grader, with no third attempt. Fresh support trials remain gated on complete compatible matching evidence.",
+  "maximumBatches": 2,
+  "judgeHash": "f9cbbb40ecea15efda1c1ed3c50e7a1a917ed230508a556f9e694b9ce4618cbf",
+  "first": "calibration.json",
+  "followup": "calibration-attempt-2/calibration.json",
+  "hash": "4ada482e232f309e360152654af4f334c8d051f6d9df604cc51b6299c2e20614"
+}

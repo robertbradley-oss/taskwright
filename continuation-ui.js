@@ -1,0 +1,22 @@
+import {renderReview} from './review-ui.js';
+import {renderDiagnostics} from './diagnostic-ui.js';
+const root=document.querySelector('#continuation'),el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};let state,timer,busy=false;
+const request=async(url,options)=>{const r=await fetch(url,options),v=await r.json();if(!r.ok)throw Error(v.error);return v;};
+const notice=root.querySelector('[role=status]'),body=root.querySelector('[data-body]'),start=root.querySelector('[data-start]'),cancel=root.querySelector('[data-cancel]');
+function error(e){notice.textContent=e.message;}
+async function refresh(){clearTimeout(timer);state=await request('/api/continuation');const opened=new Set([...body.querySelectorAll('details[open]')].map(d=>d.dataset.key));body.replaceChildren(el('p','Status: '+state.status.replaceAll('_',' ')));
+ if(state.plan){const plan=state.plan,d=el('details');d.dataset.key='contract';d.open=opened.has(d.dataset.key);d.append(el('summary','Frozen continuation contract, seeds and schedule'),el('p',plan.contract.scope),el('p',plan.rule),el('pre',JSON.stringify(plan,null,2)));body.append(d);
+  body.append(el('p',`${state.references.length}/12 first calibration reviews retained${state.calibration?'; '+state.calibration.matches+'/12 matched':''}.`));const cal=el('details');cal.dataset.key='calibration';cal.open=opened.has(cal.dataset.key);cal.append(el('summary','Inspect calibration examples and first judgments'));for(const r of state.references){const item=el('details');item.dataset.key=r.reference.id;item.open=opened.has(item.dataset.key);item.append(el('summary',r.reference.id+' · '+(r.match?'matched':'did not match')),el('p',r.run.final.reply));renderReview(item,r.review);cal.append(item);}body.append(cal);
+ }
+ if(state.report){const r=state.report;body.append(el('h3',r.decision.replaceAll('_',' ')),el('p',`${r.rows.filter(r=>r.outcome==='pass').length}/12 full-contract passes. The four reserved cases remain excluded.`));
+  for(const mode of ['execute','prepare'])for(const history of ['untried','failed']){const rows=r.rows.filter(r=>r.mode===mode&&r.history===history);body.append(el('p',`${mode} / ${history}: ${rows.filter(r=>r.outcome==='pass').length}/3 passes; expected ${rows[0].expected} handoff(s) per attempt.`));}
+  if(r.issues.length)body.append(el('pre',r.issues.join('\n')));
+  for(const row of r.rows){const d=el('details');d.dataset.key=row.runId;d.open=opened.has(d.dataset.key);d.append(el('summary',`${row.mode} / ${row.history} · trial ${row.trial} · ${row.outcome}`));if(row.run){for(const turn of row.run.continuation.conversation)d.append(el('strong',turn.role==='assistant'?'Retained agent question':'Customer'),el('p',turn.content));d.append(el('strong','Fresh continuation reply'),el('p',row.run.final?.reply||row.run.error||row.run.status),el('p',`Advice: ${row.advice}. Actions: ${row.actions}. Process: ${row.process}. Successful handoffs: ${row.handoffs}.`));for(const criterion of row.run.evaluation?.criteria||[])if(criterion.outcome==='fail')d.append(el('h4','Failed task check: '+criterion.title),el('p',criterion.evidence));const link=el('a','Inspect continuation run and trace');link.href='/?run='+row.runId;d.append(link);const parent=el('a','Inspect retained first turn');parent.href='/?run='+row.parentId;d.append(el('p',''),parent);renderDiagnostics(d,row.run.executionDiagnostics);}if(row.review)renderReview(d,row.review);body.append(d);}
+ }
+ start.disabled=busy||state.status!=='predeclared';cancel.disabled=state.status!=='running';if(state.status==='running')timer=setTimeout(()=>refresh().catch(error),3000);
+}
+start.onclick=async()=>{busy=true;start.disabled=true;try{await request('/api/continuation/start',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});notice.textContent='First calibration batch started. Continuations run only if it passes.';await refresh();}catch(e){error(e);}finally{busy=false;start.disabled=state?.status!=='predeclared';}};
+cancel.onclick=async()=>{try{await request('/api/continuation/cancel',{method:'POST'});await refresh();}catch(e){error(e);}};
+root.querySelector('[data-refresh]').onclick=()=>refresh().catch(error);
+root.querySelector('[data-export]').onclick=()=>{const panel=root.querySelector('[data-export-panel]'),area=panel.querySelector('textarea');panel.hidden=false;area.value=JSON.stringify(state,null,2);area.focus();area.select();};
+refresh().catch(error);

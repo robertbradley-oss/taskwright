@@ -1,0 +1,10 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {hash} from '../engine/scenario.js';
+import {codexVersion} from '../engine/codex-adapter.js';
+import {createDiagnosticRerun} from '../engine/diagnostic-rerun.js';
+const read=async p=>JSON.parse(await readFile(p,'utf8'));
+const original=await read('evidence/clarification/report.json'),seal=await read('evidence/clarification/seal.json');if(hash(original)!==seal.reportHash)throw Error('Original evidence changed');
+const {plan,runs}=createDiagnosticRerun(original,await read('evidence/clarification/selected-calibration.json'),codexVersion());
+await writeFile('evidence/diagnostic-rerun/scheduled-runs.json',JSON.stringify(runs,null,2),{flag:'wx'});
+await writeFile('evidence/diagnostic-rerun/plan.json',JSON.stringify(plan,null,2),{flag:'wx'});
+console.log(JSON.stringify({status:'predeclared_not_executed',id:plan.id,planHash:plan.hash,scheduled:runs.length,executionHash:plan.diagnosticExecution.hash}));

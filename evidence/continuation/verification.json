@@ -1,0 +1,49 @@
+{
+  "at": "2026-09-11T02:51:55.566Z",
+  "planHash": "87c86269c9d93488ae3563fc76092e3fae2c700883696552dc118cbb97e8d1cc",
+  "reportHash": "e2614699bce47acbc192f4f5e714009d1f9da0ce640fd5f5e29a7b8c8259ebe4",
+  "decision": "continuation_failed",
+  "calibration": {
+    "matched": 12,
+    "total": 12,
+    "batches": 1
+  },
+  "scheduled": 12,
+  "firstReviews": 12,
+  "fullPasses": 9,
+  "replyPasses": 12,
+  "actionPasses": 12,
+  "sourceFailures": [
+    "893fc772-4000-4212-84f4-990703a98e4d",
+    "2c7b3a2b-edac-4d71-84d4-922ea5b82c44",
+    "ac3fc093-cc80-4689-8a4d-09f82b3df520"
+  ],
+  "executionErrors": 0,
+  "diagnosticRejections": 0,
+  "tests": {
+    "passed": 135,
+    "failed": 0
+  },
+  "preservation": {
+    "files": 1086,
+    "changed": 0
+  },
+  "browser": {
+    "existingWorkflow": true,
+    "inlineSourceFailure": true,
+    "firstReviewEvidence": true,
+    "readonlyExport": true,
+    "originalRunNavigation": true,
+    "returnNavigation": true,
+    "frozenReviewAndGradeDisabled": true,
+    "mobile": {
+      "width": 390,
+      "scrollWidth": 375
+    }
+  },
+  "api": {
+    "replacementReviewStatus": 409,
+    "olderReassessmentStatus": 409
+  },
+  "limits": "Seeded second turns under explicit requirements. Prior results and reserved cases unchanged. No publication or push."
+}

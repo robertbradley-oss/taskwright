@@ -1,0 +1,5 @@
+{
+  "at": "2026-09-11T00:55:40.397Z",
+  "maximumBatches": 2,
+  "rule": "Review all 12 predeclared authored references once per batch, at most two reviews concurrently. Batch 2 is permitted only if batch 1 has execution errors and every completed review matches its authored label with valid evidence and controls. No semantic disagreement can be retried under this contract. Both whole batches and every first receipt remain retained. All 12 of the selected batch must pass before support trials. These are authored provisional labels, not independent ground truth."
+}

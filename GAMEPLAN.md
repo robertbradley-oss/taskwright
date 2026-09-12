@@ -154,7 +154,9 @@ The browser smoke suite is implemented locally with a pinned Playwright developm
 
 The browser suite is now published as `5d47ab9ba1ca711735d6368d5721e74099ffce2d`. Its [first hosted run](https://github.com/robertbradley-oss/taskwright/actions/runs/34712382660) passed on Windows and Linux without reruns or code corrections. Each job installed Chromium and passed six browser checks, 162 Node tests, both offline demos and before/after preservation checks. Published workflow, configuration, lockfile and test blobs match the reviewed local files. Failure-artifact upload was skipped because both jobs passed; its hosted failure path remains unverified. The original release tag and experimental records remain unchanged.
 
-Next best move: package the current verified milestone as a new tagged release, with concise notes covering the external-agent integration, report viewer, onboarding fixes and browser CI. Preserve v0.1.0 and keep further work tied to reproduced usage problems rather than adding features for size. API-key creation and live-provider testing remain on hold.
+The v0.2.0 milestone packages the external-agent integration, report viewer, polished interface, onboarding fixes and browser CI as a new source release. Package metadata and lockfile identify 0.2.0; the package remains private to prevent npm publication. See docs/RELEASE_v0.2.0.md and the [GitHub release](https://github.com/robertbradley-oss/taskwright/releases/tag/v0.2.0) for scope, setup and verification. The newer README cleanup is retained. The original v0.1.0 tag, experimental records and four reserved cases are preserved.
+
+Next best move: use v0.2.0 as the stable baseline and choose the next change from a concrete agent task or reproducible usage problem. Avoid another feature expansion solely to enlarge the project. API-key creation and live-provider testing remain on hold.
 
 Future code should omit development-tool authorship credits. Keep functional integration names, licenses, historical provenance and necessary evaluation disclosures accurate.
 

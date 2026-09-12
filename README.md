@@ -90,8 +90,6 @@ Use the [run inspector](http://127.0.0.1:4173/lab.html) for individual runs and 
 
 ## Development and project boundary
 
-Developed with AI assistance. Robert directed the project, set its requirements and evidence-preservation constraints, and chose the portfolio scope. The case study explains those decisions; historical experiment records retain detailed development and evaluation provenance.
-
 Taskwright uses its local Codex adapter, not the OpenAI Agents API. OpenAI's managed execution and evaluation tools overlap with this project; the [case study discusses that overlap](AGENT_CASE_STUDY.md#platform-overlap-and-the-finish-line). No unique market advantage or commercial validation is claimed.
 
 The [source repository](https://github.com/robertbradley-oss/taskwright) is published under the [MIT license](LICENSE). MIT permits reuse and modification while requiring the copyright and license notice to be retained. This release provides a local demonstration; it does not deploy a hosted service. The package remains marked private to prevent accidental npm publication. Frozen contracts, configurations, scenario IDs, grades, hashes and archives remain unchanged. The four reserved cases remain unexecuted; their inclusion in the public source does not make them a secret benchmark.

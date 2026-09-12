@@ -1,5 +1,7 @@
 # Taskwright
 
+[![Verify on Windows and Linux](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml/badge.svg)](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml)
+
 **Shape your agent. Test its work.**
 
 A local lab for testing whether a customer-support AI agent follows explicit requirements. Define a brief, inspect its actual replies and simulated actions, and compare configurations under the same frozen contract. Every result keeps the evidence behind it, including failures and uncertainty.
@@ -8,7 +10,18 @@ This portfolio project uses fictional products, customers and policies. “Train
 
 [Case study](AGENT_CASE_STUDY.md) · [Demo walkthrough](PORTFOLIO_DEMO.md) · [Failure-diagnostics rehearsal](COMPARISON_DIAGNOSTICS.md) · [Workflow details](WORKFLOW.md) · [Release assessment](PORTFOLIO_REVIEW.md)
 
-![Taskwright's guided workflow showing the frozen support brief and five evaluation steps](docs/images/taskwright-overview.png)
+![Taskwright's current purple-and-white evidence view with separate source documents, customer reply and contract checks](docs/images/taskwright-interface-v2.png)
+
+**See the point in 30 seconds:** an agent opens the right support handoff and passes its AI reply review, but puts the handoff receipt in a document-only citation field. Taskwright retains the failed contract check. The original experiment remains **9/12**, not 12/12.
+
+<details>
+<summary>Watch the 27-second evidence walkthrough (animated browser captures)</summary>
+
+![Four real browser captures: the evidence view, the retained failure, the invalid citation field, and the failed check alongside the passing AI review](docs/images/taskwright-evidence-walkthrough.gif)
+
+</details>
+
+[Read the short walkthrough and view still images](docs/QUICK_DEMO.md). These are saved model results in the actual app; viewing them makes no model calls.
 
 ## Run locally
 
@@ -26,7 +39,7 @@ Run the automated checks in another terminal:
 npm test
 ```
 
-The current suite has 145 passing tests; the original release rehearsal used 139. See [UI and diagnostics update](PUBLICATION_NOTES.md) for the current changes and verification. Windows/PowerShell is the verified local environment; other platforms have not received the same browser rehearsal. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
+The current suite has 145 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses a complete failed comparison without a provider. Both operating-system jobs passed when this workflow was introduced; the badge links to current results. See [CI scope and local commands](docs/VERIFICATION.md). Browser rehearsal was performed locally on Windows; Linux CI does not establish Linux browser compatibility. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
 
 ## Start with the saved example
 

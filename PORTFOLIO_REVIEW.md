@@ -4,7 +4,7 @@ The release candidate centers on [the guided demonstration](PORTFOLIO_DEMO.md) a
 
 ## Rehearsal scope
 
-**Assessment: reviewed for publication as a public portfolio source repository under MIT.** The saved experience and its claims are demonstrable without another model experiment. This is readiness for presenting the bounded local project, not a production deployment or independent validation of its grading.
+**Assessment: published as a public portfolio source repository under MIT.** The saved experience and its claims are demonstrable without another model experiment. This is a bounded local project, not a production deployment or independent validation of its grading.
 
 On September 11, 2026, Codex created a separate local Git repository from the current non-ignored working files and cloned it with `git clone --no-local` to a new checkout. All copied files matched their source SHA-256 hashes. This included local work newer than the existing private checkpoint; it was not a test of the currently pushed remote commit. The original working repository was not committed or pushed.
 
@@ -44,6 +44,14 @@ On September 11, 2026, Robert authorized choosing visibility and licensing and p
 Before publication, all 443 files matched the reviewed package and all 1,167 protected files matched the preservation snapshot. The publication changes add licensing, repository metadata and current release documentation; the application and historical evidence are unchanged. All 139 tests passed again. A targeted credential-pattern check found no matches in the source candidate or original checkpoint, and the Git file list excludes runtime data, local output, environment files and key files. This is a limited release check, not a comprehensive security audit.
 
 The four reserved cases remain unexecuted. Additional scenarios, a favorable model result, external integration and independent human usability evidence are not requirements for this portfolio release, but their absence limits the claims it can make.
+
+## Publication verification
+
+The repository is public, its default branch is `main`, and GitHub recognizes the MIT license. An unauthenticated GitHub API request returned HTTP 200 with those settings. A new public clone contained no runtime data or local output, and all 444 files in the initial published snapshot matched the local source byte for byte.
+
+That clone's first test run passed 138/139 tests: the server test randomly chose port 51594, which Windows had excluded from use, and failed to bind with `EACCES`. Both server tests now ask the OS for an available loopback port instead of guessing one. The helper releases the probe before starting the child, so it avoids excluded ranges but is not an atomic port reservation. This is a test-harness correction; no application code, grader or experimental evidence changed.
+
+After fetching the correction from GitHub, all 139 tests passed in the public checkout on Node v24.19.0 / Windows, including the saved demo with no provider executable. No fresh model calls were made. No hosted CI workflow is configured; these are local tests of publicly fetched source. The prior private checkpoint and the first publication commit remain in Git history. Release `v0.1.0` identifies the completed portfolio snapshot.
 
 ## Portfolio boundary
 

@@ -74,6 +74,11 @@ async function load() {
     if (!$('recovery-link')) { const link=document.createElement('a');link.id='recovery-link';link.href='/';link.textContent='Open the sealed worked example';$('load-state').append(' ',link); }
   } finally {loading=false;}
 }
+document.querySelector('.skip').addEventListener('click', event => {
+  event.preventDefault();
+  $('main').focus({preventScroll:true});
+  window.scrollTo(0, 0);
+});
 $('retry').onclick=load;
 window.addEventListener('hashchange',()=>render(true));
 $('stage').addEventListener('click',event=>{

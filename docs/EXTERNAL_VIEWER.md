@@ -37,3 +37,16 @@ Windows browser checks used an isolated local server with the in-app browser:
 | Navigation | Saved comparison renders; Back restores the external selection; reload clears the report |
 
 No browser console errors were observed in these flows. This is local functional and visual verification, not testing with independent users. The published UI commit `aef6e8808e0d450794df4fadca905427a20267ce` passed [Windows and Linux CI](https://github.com/robertbradley-oss/taskwright/actions/runs/34710500948): all 162 tests, both offline demonstrations and before/after preservation checks. Linux browser behavior remains unverified; CI runs Node checks, not a browser. The existing frozen evidence, original report grades and four reserved cases are unchanged; live-provider testing remains on hold.
+
+## Clean-checkout onboarding rehearsal
+
+On September 12, 2026, a new clone from the public GitHub repository checked out `6b7baef67c79cbed29e5f667e1ca68ecb24fd8e7`. Before starting, it contained no `data/`, `output/` or `node_modules/`. Node 24.19.0 and Git were already installed on Windows; this was not an operating-system or prerequisite-installation test.
+
+Following the README, `npm.cmd start` served the saved example on port 4173 without installation, restoration or credentials. In a second terminal, all 162 tests passed, `npm.cmd run demo:external` produced the three expected outcomes, and all 333 preservation checks passed. The generated report opened through the browser's local file picker. The viewer exposed the reply, retained 10-byte malformed response and denied handoff after two document reads with zero completed handoffs. View JSON matched the generated file exactly.
+
+Two onboarding fixes followed this rehearsal:
+
+- The README now includes cloning and entering the project folder, keeping the server running in its terminal, and the complete generate-and-open sequence. It explains the Windows JSON path escaping and why the injected failures and uncertain grade are expected.
+- Activating the original skip link from an external report changed the route to `#main`, hid that report and showed the saved comparison. The link now moves focus to the main content without changing the route. Scrolling returns to the top so the mobile sticky navigation does not cover the heading.
+
+The changed README and workflow files were copied into the rehearsal checkout for verification; subsequent checks cover this local fix, not the unchanged published commit. Browser verification preserved `#external`, the imported report and its selected blocked-action run after keyboard activation, and preserved `#evidence` in the saved comparison. Desktop dark at 1280px and mobile light at 390px had no page-wide horizontal overflow; the mobile heading remained visible below navigation. No browser warnings or errors were observed. These are local checks, not independent user testing or new model evaluations.

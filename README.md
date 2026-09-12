@@ -25,13 +25,17 @@ This portfolio project uses fictional products, customers and policies. “Train
 
 ## Run locally
 
-Use **Node.js 24**. From the directory containing `package.json`:
+Use **Node.js 24** and Git. In a terminal, clone the repository into a new folder and start the app:
 
 ```sh
+git clone https://github.com/robertbradley-oss/taskwright.git
+cd taskwright
 npm start
 ```
 
-Open [Taskwright](http://127.0.0.1:4173/) on the same computer. No dependency installation, build, API key, login or restored runtime data is needed for the saved demonstration. In PowerShell, use `npm.cmd start` if script execution blocks `npm`. Stop the server with Ctrl+C.
+If you already have a copy, open a terminal in its folder (the one containing `package.json`) and run `npm start`.
+
+Open [Taskwright](http://127.0.0.1:4173/) on the same computer. No dependency installation, build, API key, login or restored runtime data is needed for the saved demonstration. Keep this terminal running while using the app. In PowerShell, use `npm.cmd` instead of `npm` in any command below if script execution blocks `npm`. Stop the server with Ctrl+C.
 
 Run the automated checks in another terminal:
 
@@ -59,7 +63,21 @@ The saved views read repository evidence directly and verify report hashes again
 
 Open **External agents** from the home page, then **Open offline example**. Explore replies, document reads and blocked actions in the app, or open your own local report without uploading it. [Viewer walkthrough](docs/EXTERNAL_AGENTS.md#view-the-results-in-taskwright).
 
-`npm run demo:external` runs an independent program through a versioned JSON process contract. Inspect a successful document-reading loop, retained invalid output, and a denied handoff after valid retrieval. The demo uses real child processes with deterministic behavior and injected faults; it makes no model calls. An optional model-backed example is tested against a mock HTTP provider, with live-provider validation still pending. [Contract, walkthrough and integration guide](docs/EXTERNAL_AGENTS.md).
+To generate and open a new report:
+
+1. Leave the server running. Open a second terminal in the same project folder.
+2. Run:
+
+   ```sh
+   npm run demo:external
+   ```
+
+3. The command prints a `report` path under `output/external-agent/<run-folder>/report.json`. In Taskwright, choose **External agents**, expand **Open another report** if needed, and use **Local report file** to select that file. On Windows, the printed JSON escapes backslashes as `\\`; navigate to the folder in the file picker, or use single backslashes when pasting the path.
+4. Inspect **Reply produced**, **Response rejected**, and **Action blocked**. Open a check or failure detail to see the recorded evidence. **View JSON** exposes the original report for copying.
+
+The two `error` statuses are deliberate demo cases: malformed JSON and an unauthorized handoff. They are expected when the command succeeds; they do not mean setup failed. The completed reply retains an `uncertain` grade because structural checks do not establish reply correctness.
+
+This runs an independent program through a versioned JSON process contract, using real child processes with deterministic behavior and injected faults; it makes no model calls. An optional model-backed example is tested against a mock HTTP provider, with live-provider validation still pending. [Contract, walkthrough and integration guide](docs/EXTERNAL_AGENTS.md).
 
 ## What the evidence establishes
 

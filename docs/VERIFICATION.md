@@ -7,10 +7,13 @@ npm run check:preservation
 npm test
 npm run demo:failures
 npm run demo:external
+npm ci
+npx playwright install --with-deps chromium
+npm run test:browser
 npm run check:preservation
 ```
 
-There is no dependency install, provider login, API key or live inference step. The failure rehearsal injects a scripted process into the comparison executor and asserts that all 16 attempts retain response diagnostics, neither arm qualifies, and the decision remains incomplete. The external demonstration launches real child processes for a deterministic reference policy and injected faults. Its model-backed transport tests use a loopback mock HTTP provider. Tests use offline fixtures or retained records.
+The browser setup installs locked development dependencies, Chromium and its system libraries. Installation requires network access; test execution uses local fixtures and retained records, without a provider login, API key or live inference. The application and Node suite still run without dependency installation. The failure rehearsal injects a scripted process into the comparison executor and asserts that all 16 attempts retain response diagnostics, neither arm qualifies, and the decision remains incomplete. The external demonstration launches real child processes for a deterministic reference policy and injected faults. Its model-backed transport tests use a loopback mock HTTP provider.
 
 The workflow has read-only repository permissions, does not persist checkout credentials, pins its checkout and Node setup actions to commit IDs, and has a ten-minute job timeout. No deployment step is included. CI is useful evidence of the checked behavior, not a comprehensive security or production-reliability claim.
 
@@ -24,4 +27,20 @@ The checker fails on missing files or mismatched bytes and runs again after the 
 
 The initial hosted run passed all checks on both Windows and Linux: [run 34670355904](https://github.com/robertbradley-oss/taskwright/actions/runs/34670355904). Follow the README badge for later commits. That run used 145 tests. The external integration commit `471135abcb499a28965955d3fcbfdc04a2597ae0` passed all 157 tests, both offline demonstrations and preservation checks on both operating systems: [run 34675446477](https://github.com/robertbradley-oss/taskwright/actions/runs/34675446477).
 
-CI verifies Node execution, recorded-result reproduction, HTTP serving and the scripted failure path. It does not run a graphical browser, validate real provider behavior, measure human usability or execute the four reserved cases. Local screenshots demonstrate the Windows browser presentation separately.
+The historical CI runs above verify Node execution, recorded-result reproduction, HTTP serving and scripted failure paths. They predate the browser checks below. Neither suite validates real provider behavior, measures human usability or executes the four reserved cases.
+
+## Browser smoke checks
+
+`npm run test:browser` uses the pinned `@playwright/test` development dependency and Chromium. Three scenarios run at both 1280px desktop/dark and 390px mobile/light settings, for six checks:
+
+- Navigate the saved comparison and external example, select a run by keyboard, preserve the route and focus when skipping navigation, keep headings clear of sticky navigation, and restore selection with Back.
+- Open a local file containing distinctive text and literal markup, check its unverified provenance, preserve it across workspace switching, and verify copyable and downloaded JSON match the original exactly. Import/export must make no network requests, and reload must clear the report.
+- Replace a visible result with an invalid file, verify the previous result is hidden and an error appears, then recover by opening the included example.
+
+The tests launch their own loopback server with an OS-selected port, empty temporary runtime directory and a minimal environment with no provider credentials or executable search path. They never reuse an existing server. The browser blocks and fails on non-GET or off-origin requests; browser errors and created agent runs also fail the check. The local import is an explicitly modified test copy of the bundled demo, not new agent-performance evidence. Committed records are read only.
+
+One worker and zero retries keep the run small and prevent a passing retry from concealing a failure. Assertions wait for observable state instead of using fixed sleeps. On failure, Playwright saves a screenshot, trace and report under `output/playwright/`; CI uploads these as `browser-failure-<os>` for seven days. To inspect a local report, run `npx playwright show-report output/playwright/report`. Do not put private customer data in these test fixtures.
+
+The workflow is configured to run this Chromium suite on Windows and Linux, with preservation checked afterward even if an earlier step fails. This is bounded interaction coverage, not a visual snapshot suite, a complete accessibility audit, an independent usability study, or Firefox/WebKit testing. The mobile project changes viewport size; it does not certify a physical phone or mobile browser.
+
+Local validation on Windows with Node 24.19.0: all six browser checks passed, then all 18 executions passed with `--repeat-each=3` after reinstalling from the lockfile with `npm ci`. All 162 Node tests and preservation checks passed. A temporary negative control removed the skip-link handler, and the navigation test failed because `#evidence` changed to `#main`; the original application bytes were restored before the passing repeated run. A failure trace and screenshot were produced. Hosted browser results and CI artifact upload remain unverified until this change is published and CI executes it.

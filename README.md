@@ -43,7 +43,17 @@ Run the automated checks in another terminal:
 npm test
 ```
 
-The current suite has 162 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses a complete failed comparison without a provider. Both operating-system jobs passed when this workflow was introduced; the badge links to current results. See [CI scope and local commands](docs/VERIFICATION.md). Browser rehearsal was performed locally on Windows; Linux CI does not establish Linux browser compatibility. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
+The Node suite has 162 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses complete offline failure paths. The workflow also defines six Chromium browser smoke checks for navigation and local report opening. The badge links to current results; see [CI scope and local commands](docs/VERIFICATION.md) for verified runs and limits. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
+
+Browser checks have an optional development dependency and a browser download. These are unnecessary for `npm start` or `npm test`:
+
+```sh
+npm ci
+npx playwright install chromium
+npm run test:browser
+```
+
+On Linux, use `npx playwright install --with-deps chromium` if Chromium's system libraries are missing. The suite starts and stops its own isolated server; no running app or provider account is needed. See [browser coverage and failure artifacts](docs/VERIFICATION.md#browser-smoke-checks).
 
 ## Start with the saved example
 

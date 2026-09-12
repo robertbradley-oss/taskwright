@@ -3,8 +3,22 @@
   "version": "0.1.0",
   "description": "A local agent evaluation portfolio with explicit contracts and inspectable evidence",
   "license": "MIT",
-  "repository": { "type": "git", "url": "https://github.com/robertbradley-oss/taskwright.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertbradley-oss/taskwright.git"
+  },
   "private": true,
   "type": "module",
-  "scripts": { "start": "node server.mjs", "test": "node --test test/*.test.js", "check:preservation": "node scripts/check-preservation.mjs", "demo:failures": "node scripts/rehearse-comparison-failure.mjs", "demo:external": "node scripts/run-external-agent.mjs", "run:external:model": "node scripts/run-external-agent.mjs model" }
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/*.test.js",
+    "test:browser": "playwright test",
+    "check:preservation": "node scripts/check-preservation.mjs",
+    "demo:failures": "node scripts/rehearse-comparison-failure.mjs",
+    "demo:external": "node scripts/run-external-agent.mjs",
+    "run:external:model": "node scripts/run-external-agent.mjs model"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
 }

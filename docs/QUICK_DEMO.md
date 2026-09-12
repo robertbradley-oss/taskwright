@@ -18,6 +18,8 @@ The original evidence check names the required documents, the successful reads, 
 
 ## Try it yourself
 
+**[Open the public demo](https://robertbradley-oss.github.io/taskwright/)** to follow the ticket, reply, actions and failed requirement without setup. The steps below use the equivalent local page.
+
 1. Run `npm start`, then open `http://127.0.0.1:4173/demo.html`.
 2. Read the supplied situation and the actual reply, then choose **Check what it actually did**.
 3. Open the recorded handoff event, then choose **Reveal the failed requirement**. Compare the document IDs with the handoff receipt.

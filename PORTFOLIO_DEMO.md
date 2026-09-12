@@ -1,6 +1,6 @@
 # Taskwright portfolio demo
 
-For a visitor's first look, open `/demo.html` after `npm start`. It leads directly from the ticket and reply to the actual simulated actions and the retained citation failure. [Static hosting preparation](docs/PUBLIC_DEMO.md) requires no execution server. The longer comparison walkthrough below remains available for a deeper presentation.
+For a visitor's first look, open [the public demo](https://robertbradley-oss.github.io/taskwright/) with no setup, or `/demo.html` after `npm start`. It leads directly from the ticket and reply to the actual simulated actions and the retained citation failure. [Static hosting details](docs/PUBLIC_DEMO.md). The longer comparison walkthrough below remains available locally for a deeper presentation.
 
 Use the guided saved example for the primary demonstration. This is an approximately 6–8 minute presenter outline, not a measured presentation duration. The browser rehearsal record is in [PORTFOLIO_REVIEW.md](PORTFOLIO_REVIEW.md).
 

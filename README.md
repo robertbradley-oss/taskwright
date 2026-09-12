@@ -4,7 +4,9 @@
 
 A local lab for testing whether a customer-support AI agent follows explicit requirements. Define a brief, inspect its actual replies and simulated actions, and compare configurations under the same frozen contract. Every result keeps the evidence behind it, including failures and uncertainty.
 
-**Start with a good reply that failed:** run `npm start`, then open [the focused demo](http://127.0.0.1:4173/demo.html). Follow one customer ticket through the actual reply, three recorded tool results, and the exact citation-field failure. No API key or model call is needed. [Prepare the read-only static site](docs/PUBLIC_DEMO.md) with `npm run build:demo`; no hosted URL is verified for this change.
+**[Try the demo →](https://robertbradley-oss.github.io/taskwright/)** No setup, login or API key. Follow one customer ticket through the actual reply, three recorded tool results, and the exact requirement that still failed. This read-only site presents saved model evidence and makes no model calls.
+
+For the full local application, follow the setup below. Its focused demo is at `/demo.html`. [Build and hosting details](docs/PUBLIC_DEMO.md).
 
 This portfolio project uses fictional products, customers and policies. “Training” means iterating on agent configuration; the application does not update model weights. Formerly **Trywise**; [historical records retain that name](RENAMING.md).
 
@@ -126,6 +128,6 @@ Use the [run inspector](http://127.0.0.1:4173/lab.html) for individual runs and 
 
 Existing browser comparisons use the local Codex adapter. A separate process adapter now evaluates standalone agents, with an optional Chat Completions example; neither path uses the OpenAI Agents API. OpenAI's managed execution and evaluation tools overlap with this project; the [case study discusses that overlap](AGENT_CASE_STUDY.md#platform-overlap-and-the-finish-line). No unique market advantage or commercial validation is claimed.
 
-The [source repository](https://github.com/robertbradley-oss/taskwright) is published under the [MIT license](LICENSE). MIT permits reuse and modification while requiring the copyright and license notice to be retained. This release provides a local demonstration; it does not deploy a hosted service. The package remains marked private to prevent accidental npm publication. Frozen contracts, configurations, scenario IDs, grades, hashes and archives remain unchanged. The four reserved cases remain unexecuted; their inclusion in the public source does not make them a secret benchmark.
+The [source repository](https://github.com/robertbradley-oss/taskwright) is published under the [MIT license](LICENSE). MIT permits reuse and modification while requiring the copyright and license notice to be retained. The focused read-only demo is hosted on GitHub Pages; the execution workbenches remain local. The package remains marked private to prevent accidental npm publication. Frozen contracts, configurations, scenario IDs, grades, hashes and archives remain unchanged. The four reserved cases remain unexecuted; their inclusion in the public source does not make them a secret benchmark.
 
 The [original human-training case study](CASE_STUDY.md), [historical demo](DEMO_WALKTHROUGH.md) and `simulation/` are preserved evidence of the earlier direction. Their old counts, names and root-URL instructions describe that milestone; current practice pages are `/index.html` and `/model.html`.

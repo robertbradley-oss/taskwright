@@ -20,7 +20,7 @@ Fictional tasks and provisional reference labels were AI-authored, and separate 
 
 ## The usable slice
 
-The focused `/demo.html` entry now puts the continuation failure first: ticket, frozen requirement, actual reply, recorded tool results and the receipt/document mismatch. A build-time renderer verifies the saved seal and produces a static version with native disclosures and original report download. It ships no execution API or browser JavaScript. This is a prepared public-demo artifact; a hosted URL has not been verified. See [build and verification details](docs/PUBLIC_DEMO.md).
+The [public demo](https://robertbradley-oss.github.io/taskwright/) puts the continuation failure first: ticket, frozen requirement, actual reply, recorded tool results and the receipt/document mismatch. A build-time renderer verifies the saved seal and produces a static version with native disclosures and original report download. It ships no execution API or browser JavaScript. The live desktop and mobile journey and original download bytes have been verified. See [build and verification details](docs/PUBLIC_DEMO.md).
 
 The default guided experience loads a sealed comparison directly from repository evidence. A visitor can read the brief, examine both strategies, select any scheduled attempt, connect its reply to source text and tool events, compare outcomes and export the full report. No credentials, model call or restoration of local runtime records is required.
 

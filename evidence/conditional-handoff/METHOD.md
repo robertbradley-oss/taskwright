@@ -2,7 +2,7 @@
 
 The reservation, candidate and selection rule were written before model execution. `reservation.json` records four new fictional cases and their content hash. `plan.json` records the candidate, baseline, controls, scenario hashes, order and decision rule. The candidate's creation timestamp follows reservation. The support adapter cannot read local files: it receives only the current development ticket, catalog, instructions and observed trace through an ephemeral process with native tools disabled. Reserved case content does not enter development model calls, the development picker, or the public suite API.
 
-The reservation is an author-visible local artifact. Codex wrote the new cases and implementation. This is not a claim that the author has never seen them, that labels are independent, or that the cases are private from someone with filesystem access. Do not edit them to accommodate development failures. Using them later consumes their reserved status; any subsequent tuning makes them exposed examples.
+The reservation is an author-visible local artifact. This is not a claim that the author has never seen them, that labels are independent, or that the cases are private from someone with filesystem access. Do not edit them to accommodate development failures. Using them later consumes their reserved status; any subsequent tuning makes them exposed examples.
 
 ## Hypothesis and intervention
 
@@ -32,4 +32,4 @@ The judge prompt was calibrated on 16 provisional authored examples in the earli
 
 The final report includes every attempt, original grade, first review, frozen plan and derived decision. The separate decision file hashes that exact report. `archive.json` adds the original experiment manifests; restoration verifies hashes, recomputes the decision and preflights existing files before adding missing records. It makes no model calls and refuses differing existing records.
 
-Robert chose the product direction, approved the AI-agent pivot and requested this repeated comparison. Codex authored the fictional cases, candidate, implementation, tests, analysis and documentation. The installed Codex CLI performed the fresh support and review calls. No real customer, human study participant, or production support operation is represented.
+Robert chose the product direction, approved the AI-agent pivot and requested this repeated comparison. The installed Codex CLI performed the fresh support and review calls. No real customer, human study participant, or production support operation is represented.

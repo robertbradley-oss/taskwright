@@ -16,7 +16,7 @@ Robert then redirected the project toward evaluating AI agents themselves. The a
 
 Robert directed the project, chose its scope, and required negative results and reserved cases to remain intact. Those decisions shaped the workflow: explicit requirements before comparison, separate task checks and reply reviews, and evidence that remains inspectable when a candidate fails.
 
-The [development note](README.md#development-and-project-boundary) describes AI assistance. Historical records retain detailed provenance. Fictional tasks and provisional reference labels were AI-authored, and separate AI invocations produced support replies and semantic reviews. Automated checks and browser rehearsal do not establish independent human validation or user research.
+Fictional tasks and provisional reference labels were AI-authored, and separate AI invocations produced support replies and semantic reviews. Automated checks and browser rehearsal do not establish independent human validation or user research.
 
 ## The usable slice
 

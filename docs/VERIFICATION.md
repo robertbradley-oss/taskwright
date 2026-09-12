@@ -16,9 +16,9 @@ The workflow has read-only repository permissions, does not persist checkout cre
 
 ## What preservation covers
 
-[`checks/preserved-files.json`](../checks/preserved-files.json) retains the existing SHA-256 values for 333 protected files that are committed to Git. It is a subset of the original 1,167-file local snapshot: historical evidence, engine code, archived material and historical documents. Local runtime files are absent from a public checkout and are excluded explicitly. The old snapshot and historical artifacts are not rewritten.
+[`checks/preserved-files.json`](../checks/preserved-files.json) retains SHA-256 values for 333 protected files committed to Git, including a recorded documentation-only editorial revision on September 12, 2026. The revision lists the previous and current hashes for each edited document; experimental records, seals and engine code retain their original hashes. It is a subset of the original 1,167-file local snapshot: historical evidence, engine code, archived material and historical documents. Local runtime files are absent from a public checkout and are excluded explicitly. The original historical snapshots and experimental artifacts are not rewritten.
 
-The checker fails on missing files or mismatched bytes and runs again after the test and rehearsal steps. The manifest is a reviewable baseline, not an immutable external authority: changing both the manifest and its files would require code review to detect. Do not regenerate it merely to make a failure pass. New versioned modules can be added alongside frozen code.
+The checker fails on missing files or mismatched bytes and runs again after the test and rehearsal steps. The manifest is a reviewable baseline, not an immutable external authority: changing both the manifest and its files would require code review to detect. Do not regenerate it merely to make a failure pass. Any authorized editorial revision must identify the exact documents and preserve the previous hashes. New versioned modules can be added alongside frozen code.
 
 ## Results and limits
 

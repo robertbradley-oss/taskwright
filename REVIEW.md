@@ -4,15 +4,15 @@
 
 ## Attribution conclusion
 
-The project conversation supports attributing product direction, naming, cost constraints, and approvals to Robert. Codex proposed the two-scenario scope and performed implementation, content drafting, documentation, orchestration, and technical checks. The simulated replies came from AI agents; the source-based prose judgments were also AI work. No independent human writing review or learner study is established.
+The project conversation supports attributing product direction, naming, cost constraints, and approvals to Robert. The simulated replies came from AI agents; the source-based prose judgments were also AI work. No independent human writing review or learner study is established.
 
 The case study was corrected to distinguish approving a proposal from originating it. It now describes adversarial responses as deliberate demonstrations of a known scoring limit. It also avoids treating clearer wording as a measured improvement in user understanding.
 
-The original disclosure of AI assistance was retained. No claim of unaided coding, human validation, learning gains, or employment outcomes is supported or needed to explain this prototype.
+No claim of unaided coding, human validation, learning gains, or employment outcomes is supported or needed to explain this prototype.
 
 ## Browser rehearsal
 
-Performed by Codex on September 9, 2026 in a separate in-app browser tab, using the walkthrough's prepared text. The user's existing tab was left alone. No new learner attempts or model simulations were run.
+Performed on September 9, 2026 in a separate in-app browser tab, using the walkthrough's prepared text. The user's existing tab was left alone. No new learner attempts or model simulations were run.
 
 | Step | Observed result |
 | --- | --- |

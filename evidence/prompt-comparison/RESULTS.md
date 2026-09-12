@@ -31,7 +31,7 @@ The [complete experiment export](experiment.json) contains the manifest, frozen 
 
 All four runs read `usb` and `policy`, recorded a handoff, and returned `Vale L4 USB`, `usb`, and `none` in the structured fields. Each used four model turns: two reads, the handoff, and a final answer. The first baseline reply explicitly rejected a USB Wi-Fi adapter and described the wired option. The first candidate reply made the same distinctions with different wording. The complete wording is retained in the export.
 
-Codex's source-based inspection found no obvious contradiction in these four replies. That inspection is an AI review, not a calibrated semantic grade or independent human assessment. The app correctly retains an uncertain overall outcome for each.
+AI source-based inspection found no obvious contradiction in these four replies. That inspection is an AI review, not a calibrated semantic grade or independent human assessment. The app correctly retains an uncertain overall outcome for each.
 
 ## What this does and does not establish
 
@@ -55,4 +55,4 @@ For a no-inference demo, run `node scripts/restore-experiment.mjs`, then `npm st
 
 Calibrate semantic evaluation against a versioned reference set containing correct paraphrases, wrong-model advice, unsupported promises, negated promises, contradictions between fields and prose, unsupported action claims, and ambiguity. Display the judge's evidence and disagreements rather than hiding them in one score. Then use that calibrated evaluation on additional development scenarios and reserve separate evaluation cases before further prompt tuning.
 
-Robert set the product direction and authorized the experiment. Codex implemented the system, authored the candidate, executed the checks, and wrote this analysis. No independent human study was conducted. Publication remains deferred.
+Robert set the product direction and authorized the experiment. No independent human study was conducted. Publication remains deferred.

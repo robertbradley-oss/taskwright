@@ -13,4 +13,4 @@ for(const file of manifest.files) {
   const actual=createHash('sha256').update(await readFile(new URL(file.path,root))).digest('hex');
   assert.equal(actual,file.sha256,'Protected file changed: '+file.path);
 }
-console.log(`${manifest.files.length} committed protected files match the original preservation snapshot.`);
+console.log(`${manifest.files.length} committed protected files match the recorded preservation baseline.`);

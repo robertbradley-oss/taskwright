@@ -8,7 +8,7 @@ The implemented deliverable is a local brief editor, requirement-to-grader mappi
 
 In the earlier experiment, v2 made the correct handoff decisions but omitted policy evidence on four advice-only attempts. Those were process failures, even though its replies passed AI review. The new workflow makes that requirement explicit before judging or tuning an agent.
 
-The pilot brief requires reading and referencing applicable product guidance and policy before every reply, and reading both before a handoff. Its rationale is that policy establishes action scope and permitted commitments. This is a Codex-authored prototype choice under Robert's approved direction, not a claim about a real support organization's policy.
+The pilot brief requires reading and referencing applicable product guidance and policy before every reply, and reading both before a handoff. Its rationale is that policy establishes action scope and permitted commitments. This is a prototype choice under Robert's approved direction, not a claim about a real support organization's policy.
 
 Both strategies receive the same frozen task requirements before their own instructions. Advice, actions and process have separate results. A process failure cannot be relabeled as a factual error, and fluent advice cannot clear a prohibited action.
 
@@ -73,4 +73,4 @@ Retain v2 with contract v1 as the simpler reference setup; this is an engineerin
 
 Make handoff authority the next editable behavior in the brief, then use a new development ticket to test whether the requested authority changes the agent's action appropriately. Define and calibrate the matching grader before execution, version the contract and scenario scope, and compare configurations fairly within each frozen contract. Keep the four reserved cases reserved. This extends user-directed behavior rather than adding more prompt instructions to an already all-pass development set.
 
-Robert directed the product and authorized this workflow. Codex implemented it, authored the prototype brief rationale and v3 strategy, ran the comparison, and wrote this analysis. Publication remains a separate decision.
+Robert directed the product and authorized this workflow. Publication remains a separate decision.

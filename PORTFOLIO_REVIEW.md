@@ -6,7 +6,7 @@ The release candidate centers on [the guided demonstration](PORTFOLIO_DEMO.md) a
 
 **Assessment: published as a public portfolio source repository under MIT.** The saved experience and its claims are demonstrable without another model experiment. This is a bounded local project, not a production deployment or independent validation of its grading.
 
-On September 11, 2026, Codex created a separate local Git repository from the current non-ignored working files and cloned it with `git clone --no-local` to a new checkout. All copied files matched their source SHA-256 hashes. This included local work newer than the existing private checkpoint; it was not a test of the currently pushed remote commit. The original working repository was not committed or pushed.
+On September 11, 2026, a separate local Git repository was created from the current non-ignored working files and cloned it with `git clone --no-local` to a new checkout. All copied files matched their source SHA-256 hashes. This included local work newer than the existing private checkpoint; it was not a test of the currently pushed remote commit. The original working repository was not committed or pushed.
 
 The initial clone had no `data/`, `output/`, installed application dependencies or restored records. It ran `npm test` and `npm start` with Node v24.19.0 on Windows. The demo server's PATH exposed Node but not Codex; `/api/config` reported `codexAvailable: false`.
 

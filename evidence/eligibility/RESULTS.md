@@ -33,7 +33,7 @@ The first eight-reference calibration matched seven expected verdicts. The execu
 
 One separately declared full follow-up batch used the unchanged prompt, source hash, model and runtime. It matched all eight references, including the premature-handoff example. The earlier receipt and entire first batch remain intact. Across both batches there were **15 matching verdicts and one execution error in 16 reference reviews**. This was a bounded full-batch follow-up, not an overwritten first result or an unlimited retry-until-pass loop.
 
-The supported references, premature actions, false completion claim, invented response time, missing initial steps and missing approval condition were Codex-authored provisional labels. Codex also implemented and analyzed the experiment; Robert supplied the product direction and requested this test. There is no independent human ground truth. The complete selection history is in `calibration-followup-plan.json` and `calibration-selection.json`, and both batches are visible in the app. The selected calibration hash is `cd313076d233ecd0687bb5863d2e60381fde61a3a5652e4bbc5689d304e2dac6`.
+The supported references, premature actions, false completion claim, invented response time, missing initial steps and missing approval condition were Codex-authored provisional labels. Robert supplied the product direction and requested this test. There is no independent human ground truth. The complete selection history is in `calibration-followup-plan.json` and `calibration-selection.json`, and both batches are visible in the app. The selected calibration hash is `cd313076d233ecd0687bb5863d2e60381fde61a3a5652e4bbc5689d304e2dac6`.
 
 ## Reproduction, limits and next move
 

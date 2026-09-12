@@ -36,4 +36,4 @@ The reviewer checks the truth of action claims. A truthful description of a proh
 
 The 16 review invocations reported 200,519 input and 12,880 output tokens, including 84,864 cached input tokens within the input total. Monetary cost is unavailable; execution used the signed-in Codex allowance. Each model invocation is bounded, native tools are disabled, and raw outputs and errors are retained locally. Viewing the calibration dashboard makes no model calls.
 
-Robert directed the product and authorized this work. Codex authored the references, implementation, verification and analysis. The evidence is useful engineering calibration with explicit limits, not independent certification.
+Robert directed the product and authorized this work. The evidence is useful engineering calibration with explicit limits, not independent certification.

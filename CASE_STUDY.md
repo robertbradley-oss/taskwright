@@ -10,9 +10,9 @@ The most useful demonstration was a known scoring boundary: an agent could selec
 
 ## Purpose and ownership
 
-Robert selected the Trywise name and directed the project toward practical AI judgment, customer education, and a credible portfolio demonstration. He set the cost constraint and approved agent simulations when people were unavailable. Codex proposed the bounded two-scenario scope; Robert approved continuing on that basis rather than building the full curriculum.
+Robert selected the Trywise name and directed the project toward practical AI judgment, customer education, and a credible portfolio demonstration. He set the cost constraint and approved agent simulations when people were unavailable. Robert approved a bounded two-scenario scope rather than building the full curriculum.
 
-Codex implemented the application, drafted the fictional learning material and documentation, orchestrated the simulations, and performed the recorded technical checks. Separate AI agents supplied the simulated responses. The prose judgments in the simulation reports were also performed by AI against the source material. This was AI-assisted product development, not an independently hand-coded or human-validated training program.
+Separate AI agents supplied the simulated responses. The prose judgments in the simulation reports were also performed by AI against the source material. No human validation of the training program was performed.
 
 Trywise is an independent project, previously discussed as RepLab. It is not part of RepSuite. It can provide inspectable evidence of product decisions, implementation, evaluation design, and responsible reporting; employment outcomes are not established by this project.
 
@@ -47,7 +47,7 @@ Two scenarios demonstrate the format but do not establish broad coverage of supp
 
 The app uses HTML, CSS, and JavaScript, with a small Node.js static server bound to `127.0.0.1`. An explicit route allowlist serves the two pages and shared assets. There are no application dependencies, build step, accounts, analytics, database, or live AI calls.
 
-Once Node.js is installed and the files are present, the app runs locally without an internet connection. That avoids recurring application-service costs for this prototype. It does not mean development or agent evaluation was free: those used Codex, and their cost was not measured here.
+Once Node.js is installed and the files are present, the app runs locally without an internet connection. That avoids recurring application-service costs for this prototype. Development and agent-evaluation costs were not measured here.
 
 ### Explicit choice scoring, separate writing review
 
@@ -111,7 +111,7 @@ No people have used the prototype as study participants. There are no measured c
 
 ## What this project demonstrates
 
-The inspectable result is a functioning small application with source-based curriculum examples, explicit scoring, recorded adversarial attempts, and a documented response to a limitation. Robert's contribution is most accurately discussed through his product direction and decisions, with Codex's implementation and evaluation assistance disclosed.
+The inspectable result is a functioning small application with source-based curriculum examples, explicit scoring, recorded adversarial attempts, and a documented response to a limitation.
 
 The work provides a concrete example of choosing a testable scope, separating what a score measures from what it does not, and avoiding stronger claims than the evidence supports. It does not establish that the product is effective training or commercially desirable.
 

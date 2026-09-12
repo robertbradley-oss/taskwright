@@ -16,7 +16,7 @@ The second result was originally failed because “Vale L4 USB” did not exactl
 
 ## What remains uncertain
 
-Source-based inspection by Codex found the replies consistent with the provided guidance, but the app has no calibrated semantic evaluator. It does not infer that a valid citation or declaration proves a reply. The aggregate outcome after reassessment is uncertain, not a claim of full correctness or production readiness.
+AI source-based inspection found the replies consistent with the provided guidance, but the app has no calibrated semantic evaluator. It does not infer that a valid citation or declaration proves a reply. The aggregate outcome after reassessment is uncertain, not a claim of full correctness or production readiness.
 
 The CLI default model was not independently reported. The second record includes the observed CLI version and isolation configuration; the first predates that metadata addition. The wrapper changed between runs, so neither the elapsed times nor token counts support an agent-performance comparison. CLI token totals include context overhead from multiple stateless invocations. Cost is unavailable; these runs consumed Codex account usage.
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "source": "Committed-file subset of the original 1167-file release preservation snapshot; local runtime files are excluded.",
+  "source": "Committed-file subset of the original 1167-file release preservation snapshot, with the explicitly recorded documentation-only editorial revision; local runtime files are excluded.",
   "baselineCommit": "0991222883c0a5ba0c6b01c750bf2175e0fc98c6",
   "files": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "path": "evidence/agent-baseline/RESULTS.md",
-      "sha256": "619007125994539f3948e233c21092188ed300e7b8ac3e3af5fe474c8c2dfce5"
+      "sha256": "0a55cb9f716452498ddb0e12fa4a27d724c9c0862117f22e74d099c6d862d5ba"
     },
     {
       "path": "evidence/authority/calibration-plan.json",
@@ -105,7 +105,7 @@
     },
     {
       "path": "evidence/authority/RESULTS.md",
-      "sha256": "c8944af74b265986d67984ff0a17463838928031ae28fb6132dca5699a6887db"
+      "sha256": "9ad07603488c3f72e666feab0a233b81a216909be477ea1fb08c35d321022c0a"
     },
     {
       "path": "evidence/authority/seal.json",
@@ -133,7 +133,7 @@
     },
     {
       "path": "evidence/brief-contract/RESULTS.md",
-      "sha256": "98b778a8330301e0be99edd1539e9998fb62578d15bdfc7cc9464acaa534f7b2"
+      "sha256": "32cba56eb309347a34e342be652ae25b38596094e0feab97c283091e8f151622"
     },
     {
       "path": "evidence/brief-contract/seal.json",
@@ -401,7 +401,7 @@
     },
     {
       "path": "evidence/conditional-handoff/METHOD.md",
-      "sha256": "dcf1c701379183369874e60578edd43c54ec1b7085c8c49a7d7233ed03fd9d47"
+      "sha256": "13c5e76ef7b3673599f107cd432af52fabeefa788fd751bdab99e07241a296a7"
     },
     {
       "path": "evidence/conditional-handoff/plan.json",
@@ -425,7 +425,7 @@
     },
     {
       "path": "evidence/conditional-handoff/RESULTS.md",
-      "sha256": "926176bc8e9fc5eaab81ace493aa2d6d9e2612474c586a009019299b55985894"
+      "sha256": "bedb51524f87e4a98a98962295e60b63714cd264310da4bcf1a5b71217ca9737"
     },
     {
       "path": "evidence/conditional-handoff/startup-recovery.json",
@@ -537,7 +537,7 @@
     },
     {
       "path": "evidence/continuation/RESULTS.md",
-      "sha256": "aba2122dbc172ecfff9c197813db43bcc721d25ab5ce9bfc241e14c79e574cda"
+      "sha256": "b4b12daefb9a3859fce0e1c537393264c14d23a0bac777d87ad9a8069a2afd5c"
     },
     {
       "path": "evidence/continuation/scheduled-runs.json",
@@ -589,7 +589,7 @@
     },
     {
       "path": "evidence/diagnostic-rerun/RESULTS.md",
-      "sha256": "5830a5b424f53665b6585c0fefac4b661ed120c15fdf599ff5c9b7289e74e3fb"
+      "sha256": "416f86c02a789dd892e1a431bf129d6b94c802e2fe0ef27e88c266cd8d4eb6e7"
     },
     {
       "path": "evidence/diagnostic-rerun/scheduled-runs.json",
@@ -785,7 +785,7 @@
     },
     {
       "path": "evidence/eligibility/RESULTS.md",
-      "sha256": "caa52bea64cd67d6640d0dc4f5f7931ad9e1f69518b858923131d6b234d87bbc"
+      "sha256": "d3b1b9bc2ce4633c41b6d4a0dd6f46ba719aa5e3cd95f16479a795e61c75da5a"
     },
     {
       "path": "evidence/eligibility/seal.json",
@@ -801,7 +801,7 @@
     },
     {
       "path": "evidence/prompt-comparison/RESULTS.md",
-      "sha256": "6ea8a6dcbe3a92c3f7446ff5b7cabc9820c5314de4e46bd042e7acb16ceb4a80"
+      "sha256": "156180631d61dd2a10c4e9ed66684c92185a5ce54cbbf9ce0084c428760efc6b"
     },
     {
       "path": "evidence/regression/calibration-1/execute-qualified-supported.claim.json",
@@ -985,7 +985,7 @@
     },
     {
       "path": "evidence/semantic-calibration/RESULTS.md",
-      "sha256": "10126d763852ed7311d74a18c8f3610f04d055638bec6d715034b549ac526ae8"
+      "sha256": "57f131c4ed2b2ed7884ad31935ea35befdcc6f739cc098c0d5155bdcc519e849"
     },
     {
       "path": "evidence/semantic-calibration/v1.json",
@@ -1301,15 +1301,15 @@
     },
     {
       "path": "CASE_STUDY.md",
-      "sha256": "fb34348c65c8c33007bb83744e743ed05468a4159ce1dd3647390b8a33830f88"
+      "sha256": "ace517b5a5f1bc4bbe9dad0f4d99ad65b0d96db8358f3769b50192fa70537b06"
     },
     {
       "path": "DEMO_WALKTHROUGH.md",
-      "sha256": "a1bf3f1911a69fff859d82750343b421099e48daebaa757224c5bfa1262c9fb4"
+      "sha256": "bdb202fa9ad41c2fd510a0c13bd401e6fc97236ae9a9d176a204acd6a0615943"
     },
     {
       "path": "REVIEW.md",
-      "sha256": "d75f662490bbf9d7a31613be425217ef8828cb12d7cc6f8090a60ef6a4941ffa"
+      "sha256": "1abbad068ccc755ce4dc69083c7fc452fb0577f340f81acd6113d0001fc3547a"
     },
     {
       "path": "FACILITATOR.md",
@@ -1317,7 +1317,7 @@
     },
     {
       "path": "BRIEF_CONTRACT.md",
-      "sha256": "28e2325b8a5cc90200c5309174f17705a7615308026c2e899ad3188acf5ef9a9"
+      "sha256": "50027e31c4e4864a4c97d02e24ef30bf3e55cdb7671e2b5a5319c3e9a0ee7555"
     },
     {
       "path": "AUTHORITY_CONTRACT.md",
@@ -1333,7 +1333,90 @@
     },
     {
       "path": "CONTINUATION_CONTRACT.md",
-      "sha256": "038da02a1bb41a3b91793c938e0007cde1a274cfb4962630e8c1c98614a0c7b5"
+      "sha256": "822139b8f82693fdaa95318ef972c9eb6f3d83197e770948f5411ca6a62d6fb2"
+    }
+  ],
+  "editorialRevisions": [
+    {
+      "date": "2026-09-12",
+      "scope": "User-requested removal of implementation attribution from explanatory prose. Experimental inputs, outputs, grades, seals, code and original historical snapshots are unchanged.",
+      "files": [
+        {
+          "path": "evidence/agent-baseline/RESULTS.md",
+          "previousSha256": "619007125994539f3948e233c21092188ed300e7b8ac3e3af5fe474c8c2dfce5",
+          "sha256": "0a55cb9f716452498ddb0e12fa4a27d724c9c0862117f22e74d099c6d862d5ba"
+        },
+        {
+          "path": "evidence/authority/RESULTS.md",
+          "previousSha256": "c8944af74b265986d67984ff0a17463838928031ae28fb6132dca5699a6887db",
+          "sha256": "9ad07603488c3f72e666feab0a233b81a216909be477ea1fb08c35d321022c0a"
+        },
+        {
+          "path": "evidence/brief-contract/RESULTS.md",
+          "previousSha256": "98b778a8330301e0be99edd1539e9998fb62578d15bdfc7cc9464acaa534f7b2",
+          "sha256": "32cba56eb309347a34e342be652ae25b38596094e0feab97c283091e8f151622"
+        },
+        {
+          "path": "evidence/conditional-handoff/METHOD.md",
+          "previousSha256": "dcf1c701379183369874e60578edd43c54ec1b7085c8c49a7d7233ed03fd9d47",
+          "sha256": "13c5e76ef7b3673599f107cd432af52fabeefa788fd751bdab99e07241a296a7"
+        },
+        {
+          "path": "evidence/conditional-handoff/RESULTS.md",
+          "previousSha256": "926176bc8e9fc5eaab81ace493aa2d6d9e2612474c586a009019299b55985894",
+          "sha256": "bedb51524f87e4a98a98962295e60b63714cd264310da4bcf1a5b71217ca9737"
+        },
+        {
+          "path": "evidence/continuation/RESULTS.md",
+          "previousSha256": "aba2122dbc172ecfff9c197813db43bcc721d25ab5ce9bfc241e14c79e574cda",
+          "sha256": "b4b12daefb9a3859fce0e1c537393264c14d23a0bac777d87ad9a8069a2afd5c"
+        },
+        {
+          "path": "evidence/diagnostic-rerun/RESULTS.md",
+          "previousSha256": "5830a5b424f53665b6585c0fefac4b661ed120c15fdf599ff5c9b7289e74e3fb",
+          "sha256": "416f86c02a789dd892e1a431bf129d6b94c802e2fe0ef27e88c266cd8d4eb6e7"
+        },
+        {
+          "path": "evidence/eligibility/RESULTS.md",
+          "previousSha256": "caa52bea64cd67d6640d0dc4f5f7931ad9e1f69518b858923131d6b234d87bbc",
+          "sha256": "d3b1b9bc2ce4633c41b6d4a0dd6f46ba719aa5e3cd95f16479a795e61c75da5a"
+        },
+        {
+          "path": "evidence/prompt-comparison/RESULTS.md",
+          "previousSha256": "6ea8a6dcbe3a92c3f7446ff5b7cabc9820c5314de4e46bd042e7acb16ceb4a80",
+          "sha256": "156180631d61dd2a10c4e9ed66684c92185a5ce54cbbf9ce0084c428760efc6b"
+        },
+        {
+          "path": "evidence/semantic-calibration/RESULTS.md",
+          "previousSha256": "10126d763852ed7311d74a18c8f3610f04d055638bec6d715034b549ac526ae8",
+          "sha256": "57f131c4ed2b2ed7884ad31935ea35befdcc6f739cc098c0d5155bdcc519e849"
+        },
+        {
+          "path": "CASE_STUDY.md",
+          "previousSha256": "fb34348c65c8c33007bb83744e743ed05468a4159ce1dd3647390b8a33830f88",
+          "sha256": "ace517b5a5f1bc4bbe9dad0f4d99ad65b0d96db8358f3769b50192fa70537b06"
+        },
+        {
+          "path": "DEMO_WALKTHROUGH.md",
+          "previousSha256": "a1bf3f1911a69fff859d82750343b421099e48daebaa757224c5bfa1262c9fb4",
+          "sha256": "bdb202fa9ad41c2fd510a0c13bd401e6fc97236ae9a9d176a204acd6a0615943"
+        },
+        {
+          "path": "REVIEW.md",
+          "previousSha256": "d75f662490bbf9d7a31613be425217ef8828cb12d7cc6f8090a60ef6a4941ffa",
+          "sha256": "1abbad068ccc755ce4dc69083c7fc452fb0577f340f81acd6113d0001fc3547a"
+        },
+        {
+          "path": "BRIEF_CONTRACT.md",
+          "previousSha256": "28e2325b8a5cc90200c5309174f17705a7615308026c2e899ad3188acf5ef9a9",
+          "sha256": "50027e31c4e4864a4c97d02e24ef30bf3e55cdb7671e2b5a5319c3e9a0ee7555"
+        },
+        {
+          "path": "CONTINUATION_CONTRACT.md",
+          "previousSha256": "038da02a1bb41a3b91793c938e0007cde1a274cfb4962630e8c1c98614a0c7b5",
+          "sha256": "822139b8f82693fdaa95318ef972c9eb6f3d83197e770948f5411ca6a62d6fb2"
+        }
+      ]
     }
   ]
 }

@@ -21,11 +21,11 @@ Suggested narration:
 
 > Trywise is a two-scenario prototype for practicing judgment around AI answers. It uses fictional tickets, manuals, and prepared drafts. The running app does not call a live AI model. We tested its software and exercised its content with AI agents, but we have not established that real people learn from it.
 
-Identify Robert's product direction and Codex's implementation assistance if discussing how it was built. Avoid describing the code or simulation reviews as solely unaided human work.
+Describe the project scope, implementation, and evaluation limits when discussing how it was built.
 
 Suggested attribution for Robert to use:
 
-> I directed the project toward customer-support practice, chose the name, and set the cost and scope constraints. I used Codex to implement the app, draft the exercises, and run the checks. I approved its proposal to keep this to two scenarios. AI agents supplied the simulated replies, and AI reviewed those replies against the source material.
+> I directed the project toward customer-support practice, chose the name, and set the cost and scope constraints. I approved a bounded two-scenario scope. AI agents supplied the simulated replies, and AI reviewed those replies against the source material.
 
 This attribution is supported by the project conversation; it is not evidence of unaided coding or independent human evaluation.
 

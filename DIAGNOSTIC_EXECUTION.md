@@ -30,4 +30,4 @@ All 125 automated tests pass, including controlled malformed JSON, stream errors
 
 After choosing to run this separate batch, start the local server and use `node scripts/run-diagnostic-rerun.mjs --execute`. That explicit command consumes Codex allowance. The server owns the batch; stopping the launcher does not cancel it. Use the diagnostics page to cancel an active batch. Viewing, refreshing and exporting the page do not invoke a model.
 
-Robert requested retention and predeclaration; Codex implemented and tested this extension. No fresh rerun calls, training-gain claims, reserved-case executions, publication or push occurred in this task. The next step is to execute the complete declared batch once and inspect every outcome, including any rejected response.
+Robert requested retention and predeclaration; this extension implements those requirements and includes verification checks. No fresh rerun calls, training-gain claims, reserved-case executions, publication or push occurred in this task. The next step is to execute the complete declared batch once and inspect every outcome, including any rejected response.

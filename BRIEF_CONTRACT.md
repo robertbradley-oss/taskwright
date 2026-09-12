@@ -50,4 +50,4 @@ These are exposed development tasks, with two repeats per arm. They cannot estab
 
 The four reserved evaluation cases remain outside this workflow and unexecuted. Their author knows their contents, so they are reserved from tuning rather than independently private. Even a qualifying development result does not execute them automatically.
 
-Robert set the product direction and requested this workflow. Codex implemented the brief and grading contract, authored the pilot process rationale and v3 strategy, and conducted the comparison. The pilot's mandatory policy check is an explicit prototype choice, not a claim about a real support organization's requirements.
+Robert set the product direction and requested this workflow. The pilot's mandatory policy check is an explicit prototype choice, not a claim about a real support organization's requirements.

@@ -22,6 +22,6 @@ The checker fails on missing files or mismatched bytes and runs again after the 
 
 ## Results and limits
 
-The initial hosted run passed all checks on both Windows and Linux: [run 34670355904](https://github.com/robertbradley-oss/taskwright/actions/runs/34670355904). Follow the README badge for later commits. That run used 145 tests. The external integration brings the local suite to 157; hosted verification of these new changes is pending publication.
+The initial hosted run passed all checks on both Windows and Linux: [run 34670355904](https://github.com/robertbradley-oss/taskwright/actions/runs/34670355904). Follow the README badge for later commits. That run used 145 tests. The external integration commit `471135abcb499a28965955d3fcbfdc04a2597ae0` passed all 157 tests, both offline demonstrations and preservation checks on both operating systems: [run 34675446477](https://github.com/robertbradley-oss/taskwright/actions/runs/34675446477).
 
 CI verifies Node execution, recorded-result reproduction, HTTP serving and the scripted failure path. It does not run a graphical browser, validate real provider behavior, measure human usability or execute the four reserved cases. Local screenshots demonstrate the Windows browser presentation separately.

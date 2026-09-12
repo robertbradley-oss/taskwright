@@ -11,6 +11,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
+    "build:demo": "node scripts/build-public-demo.mjs",
     "test": "node --test test/*.test.js",
     "test:browser": "playwright test",
     "check:preservation": "node scripts/check-preservation.mjs",

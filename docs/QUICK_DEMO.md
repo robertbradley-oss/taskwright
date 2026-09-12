@@ -18,9 +18,11 @@ The original evidence check names the required documents, the successful reads, 
 
 ## Try it yourself
 
-1. Run `npm start`, then open `http://127.0.0.1:4173/`.
-2. In the evidence library, select **Inspect the retained failure**.
-3. Expand **Structured output fields** and compare `evidence_ids` with **Valid, retrieved evidence**.
-4. Inspect the first AI reply review, then export all 12 continuation attempts.
+1. Run `npm start`, then open `http://127.0.0.1:4173/demo.html`.
+2. Read the supplied situation and the actual reply, then choose **Check what it actually did**.
+3. Open the recorded handoff event, then choose **Reveal the failed requirement**. Compare the document IDs with the handoff receipt.
+4. Under **Full evidence**, inspect the original checks and first AI reply review, then download the complete saved evidence package.
+
+The same focused presentation can be built as a static site with `npm run build:demo`. See [hosting preparation and current publication status](PUBLIC_DEMO.md). The images above retain the earlier evidence-library view, which is still available from the local home page.
 
 The displayed run is `893fc772-4000-4212-84f4-990703a98e4d`, from the [original continuation report](../evidence/continuation/report.json). Captures were taken after the purple/white/black UI update. All shown inputs are fictional; replies and grades are retained experimental records. No model call was made to capture this walkthrough. This result does not establish a general agent failure rate or independent validation of the AI grader.

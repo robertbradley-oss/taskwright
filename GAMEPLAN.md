@@ -118,6 +118,8 @@ All 135 tests pass, and the sealed result reproduces from saved records with all
 
 ## Next Move
 
+September 12, 2026: the focused visitor demo at `/demo.html` makes the retained continuation failure the immediate example. A verified build emits a read-only static site at `output/public-demo/` without execution APIs. Original evidence and grades remain unchanged. Local Node/browser/preservation checks pass; hosting configuration and a verified public URL remain outstanding. See docs/PUBLIC_DEMO.md. This prepares the current authorized portfolio improvement without expanding the evaluation suite.
+
 The guided workflow consolidation is complete. The home page now connects the frozen brief, all scheduled runs, source and reply evidence, configuration comparison and export. The worked example and separate continuation failure read sealed committed reports without credentials or runtime restoration. Existing authoring and bounded execution remain in their workbench, with a return link into the guided comparison view. Earlier workbenches and original run URLs remain accessible. See WORKFLOW.md.
 
 All 139 tests pass. Desktop and 390px mobile rehearsal verified the five stages, selection and reload, keyboard navigation, first-review/source inspection, error recovery, comparison return, original run links, JSON copy and actual download. The downloaded comparison matches its original seal; all 1,149 pre-existing protected files remain byte-identical. No fresh model trials, reserved-case execution, push or publication occurred.

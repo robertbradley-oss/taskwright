@@ -14,6 +14,9 @@ async function skipWithoutNavigating(page) {
 
 test('saved comparison and external example keep navigation and keyboard focus', async ({page}) => {
   await page.goto('/');
+  await page.getByRole('link', {name: 'Start here: a good reply that failed →'}).click();
+  await expect(page.getByRole('heading', {name: 'A good reply. A failed requirement.'})).toBeVisible();
+  await page.getByRole('link', {name: 'Explore the saved comparison →'}).click();
   await expect(page.getByRole('heading', {name: 'Start with an explicit brief.'})).toBeVisible();
   await page.getByRole('link', {name: '03 Evidence'}).click();
   await expect(page.getByRole('heading', {name: 'Connect the reply to its evidence.'})).toBeVisible();

@@ -4,6 +4,8 @@
 
 A local lab for testing whether a customer-support AI agent follows explicit requirements. Define a brief, inspect its actual replies and simulated actions, and compare configurations under the same frozen contract. Every result keeps the evidence behind it, including failures and uncertainty.
 
+**Start with a good reply that failed:** run `npm start`, then open [the focused demo](http://127.0.0.1:4173/demo.html). Follow one customer ticket through the actual reply, three recorded tool results, and the exact citation-field failure. No API key or model call is needed. [Prepare the read-only static site](docs/PUBLIC_DEMO.md) with `npm run build:demo`; no hosted URL is verified for this change.
+
 This portfolio project uses fictional products, customers and policies. “Training” means iterating on agent configuration; the application does not update model weights. Formerly **Trywise**; [historical records retain that name](RENAMING.md).
 
 [Case study](AGENT_CASE_STUDY.md) · [Demo walkthrough](PORTFOLIO_DEMO.md) · [Failure-diagnostics rehearsal](COMPARISON_DIAGNOSTICS.md) · [Workflow details](WORKFLOW.md) · [Release assessment](PORTFOLIO_REVIEW.md)
@@ -41,7 +43,7 @@ Run the automated checks in another terminal:
 npm test
 ```
 
-The Node suite has 162 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses complete offline failure paths. The workflow also defines six Chromium browser smoke checks for navigation and local report opening. The badge links to current results; see [CI scope and local commands](docs/VERIFICATION.md) for verified runs and limits. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
+The Node suite has 163 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses complete offline failure paths. The workflow also defines eight Chromium browser smoke checks for navigation and local report opening. The badge links to current results; see [CI scope and local commands](docs/VERIFICATION.md) for verified runs and limits. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
 
 Browser checks have an optional development dependency and a browser download. These are unnecessary for `npm start` or `npm test`:
 

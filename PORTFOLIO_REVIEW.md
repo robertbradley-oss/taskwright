@@ -1,5 +1,13 @@
 # Taskwright portfolio release assessment
 
+## Focused public-demo preparation · September 12, 2026
+
+The new `/demo.html` entry presents the saved citation failure directly and links back to the existing comparison. The static build packages the same story without a server or execution APIs. It retains the exact report/seal bytes, all 12 outcomes, original failed checks and separate first AI reviews. The build rejects unexpected output files before preparing a hosting directory.
+
+Local verification passed 163 Node tests, eight Chromium browser checks (desktop dark and mobile light), and all 333 committed evidence-preservation checks. The new journey was exercised under a hosting subdirectory, including keyboard entry, action disclosure, grade-specific failure count, exact report download and reload. Screenshots were inspected at 1280×800 and 390×844. No model calls, reserved-case executions or evidence edits occurred. An initial browser-test selector counted the history word “failed”; restricting the assertion to the outcome column corrected the test without changing any result.
+
+This change is prepared locally, not deployed or pushed. The repository's Pages API returned 404, so no configured Pages site or public demo URL was verified. [Hosting instructions and boundary](docs/PUBLIC_DEMO.md) identify the static artifact to publish. Earlier release records below retain their historical scope.
+
 The release candidate centers on [the guided demonstration](PORTFOLIO_DEMO.md) and [the current case study](AGENT_CASE_STUDY.md). Historical human-training documents remain unchanged and are linked as earlier evidence.
 
 ## Rehearsal scope

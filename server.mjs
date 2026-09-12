@@ -1,5 +1,6 @@
 import {clarificationCalibration} from './engine/clarification-calibration.js';
 import {savedWorkflowEvidence} from './workflow-evidence.mjs';
+import {renderPublicDemo} from './public-demo.mjs';
 import {verifyContinuationPlan,executeContinuation,continuationRecords,summarizeContinuation} from './engine/continuation-experiment.js';
 import {createClarificationPlan,saveClarificationPlan,listClarificationPlans,readClarificationPlan,loadClarification,executeClarification} from './engine/clarification-experiment.js';
 import http from 'node:http';
@@ -29,6 +30,7 @@ import { reviewRun,saveReview,listReviews,judgeHash } from './engine/semantic.js
 const dir=process.env.TASKWRIGHT_RUN_DIR||process.env.TRYWISE_RUN_DIR||fileURLToPath(new URL('./data/runs',import.meta.url));
 const port=Number(process.env.PORT||4173);const active=new Map();await recoverRuns(dir);
 const files={'/':['lab.html','text/html'],'/lab.js':['lab.js','text/javascript'],'/lab.css':['lab.css','text/css'],'/compare.html':['compare.html','text/html'],'/compare.js':['compare.js','text/javascript'],'/index.html':['index.html','text/html'],'/model.html':['model.html','text/html'],'/style.css':['style.css','text/css'],'/app.js':['app.js','text/javascript'],'/scoring.js':['scoring.js','text/javascript']};
+files['/public-demo.css']=['public-demo.css','text/css'];
 Object.assign(files,{'/review-ui.js':['review-ui.js','text/javascript'],'/calibration.html':['calibration.html','text/html'],'/calibration.js':['calibration.js','text/javascript']});
 Object.assign(files,{'/suite.html':['suite.html','text/html'],'/suite.js':['suite.js','text/javascript']});
 Object.assign(files,{'/brief.html':['brief.html','text/html'],'/brief.js':['brief.js','text/javascript']});
@@ -62,6 +64,10 @@ const server=http.createServer(async(req,res)=>{
  if(req.headers.origin&&req.headers.origin!=='http://'+req.headers.host)return json(res,403,{error:'Same-origin requests only'});
  const pathname=new URL(req.url,'http://localhost').pathname;
  try{
+  if(req.method==='GET'&&pathname==='/demo.html'){
+   const html=renderPublicDemo(await savedWorkflowEvidence('continuation'));
+   res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'self'; script-src 'none'; object-src 'none'; base-uri 'none'"});return res.end(html);
+  }
   if(req.method==='GET'&&['/api/workflow/comparison','/api/workflow/continuation'].includes(pathname))return json(res,200,await savedWorkflowEvidence(pathname.split('/').pop()));
   if(req.method==='GET'&&pathname==='/api/continuation'){
    const root=fileURLToPath(new URL('./evidence/continuation/',import.meta.url)),plan=await optionalJSON(root+'plan.json'),claim=await optionalJSON(root+'start-claim.json'),saved=await optionalJSON(root+'report.json'),calibration=await optionalJSON(root+'calibration.json'),running=plan?.schedule.some(s=>active.has(s.runId));

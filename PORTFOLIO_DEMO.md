@@ -13,9 +13,9 @@ Use the guided saved example for the primary demonstration. This is an approxima
 
 Open with:
 
-> Taskwright tests whether a support agent meets an explicit brief. I directed this project with Codex implementing the software and assisting with scenario design and evaluation. Everything here uses fictional support material. I’ll show recorded model runs and the evidence behind their grades, without making new model calls.
+> Taskwright tests whether a support agent meets an explicit brief. I directed the project around clear requirements, fair comparisons and preserving failed results. Everything here uses fictional support material. I’ll show recorded model runs and the evidence behind their grades, without making new model calls.
 
-State the outcome: the main comparison is a tie. The interesting work is how the system determines and explains that result, including what it cannot establish.
+State the outcome: the main comparison is a tie. The interesting work is how the system determines and explains that result, including what it cannot establish. The README includes a brief development note; the grading discussion below explains the AI-authored references and AI reviews that affect interpretation.
 
 ## 2. Brief: define what counts
 
@@ -43,6 +43,8 @@ On **03 Evidence**:
 Explain:
 
 > The task checks establish specific facts about fields and actions. The separate AI review interprets the reply against evidence. Neither layer silently replaces the other, and the AI judge is not independent human ground truth.
+
+The calibration references were AI-authored. Agreement with those labels is a limited check, not independent validation of the grader.
 
 ## 5. Compare: accept the tie
 

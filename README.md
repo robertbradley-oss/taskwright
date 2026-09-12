@@ -4,7 +4,7 @@
 
 A local lab for testing whether a customer-support AI agent follows explicit requirements. Define a brief, inspect its actual replies and simulated actions, and compare configurations under the same frozen contract. Every result keeps the evidence behind it, including failures and uncertainty.
 
-This is an AI-assisted engineering portfolio project using fictional products, customers and policies. “Training” means iterating on agent configuration; the application does not update model weights. Formerly **Trywise**; [historical records retain that name](RENAMING.md).
+This portfolio project uses fictional products, customers and policies. “Training” means iterating on agent configuration; the application does not update model weights. Formerly **Trywise**; [historical records retain that name](RENAMING.md).
 
 [Case study](AGENT_CASE_STUDY.md) · [Demo walkthrough](PORTFOLIO_DEMO.md) · [Workflow details](WORKFLOW.md) · [Release assessment](PORTFOLIO_REVIEW.md)
 
@@ -75,9 +75,9 @@ Use the [run inspector](http://127.0.0.1:4173/lab.html) for individual runs and 
 
 [The case study](AGENT_CASE_STUDY.md) explains the architecture and tradeoffs. [The workbench reference](AGENT_DEMO.md) covers optional historical experiments and restoration commands. Restoration is unnecessary for the default guided demo; use it only to populate older workbenches or run links on a clean copy. Restorers preserve matching records and refuse conflicts.
 
-## Attribution and project boundary
+## Development and project boundary
 
-Robert directed the product, approved the agent-evaluation pivot, set requirements and evidence-preservation constraints, and chose the portfolio scope. Codex implemented the software, authored fictional scenarios and reference labels, drafted documentation, and carried out the recorded experiments and technical checks. AI models supplied agent replies and semantic reviews. This is not presented as unaided human implementation or independent human validation.
+Developed with AI assistance. Robert directed the project, set its requirements and evidence-preservation constraints, and chose the portfolio scope. The case study explains those decisions; historical experiment records retain detailed development and evaluation provenance.
 
 Taskwright uses its local Codex adapter, not the OpenAI Agents API. OpenAI's managed execution and evaluation tools overlap with this project; the [case study discusses that overlap](AGENT_CASE_STUDY.md#platform-overlap-and-the-finish-line). No unique market advantage or commercial validation is claimed.
 

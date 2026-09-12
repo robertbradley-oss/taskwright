@@ -12,11 +12,11 @@ The project began with two exercises for people learning to verify AI answers. A
 
 Robert then redirected the project toward evaluating AI agents themselves. The agent now receives a ticket and controlled tools, retrieves sources and produces its own reply. The question became whether its actual work meets a user's explicit requirements. Human learner validation ceased to be a prerequisite for the experiment; human product-usability and customer-demand evidence remained absent.
 
-## Who did the work
+## Project direction
 
-Robert chose the product direction and name, approved the pivot and successive experiments, required preservation of negative results and reserved cases, and set the final portfolio objective. Codex proposed and implemented the technical design, wrote the code, authored fictional tasks and provisional grading references, drafted documentation, and executed the recorded verification and experiments. Separate AI invocations produced support replies and semantic reviews.
+Robert directed the project, chose its scope, and required negative results and reserved cases to remain intact. Those decisions shaped the workflow: explicit requirements before comparison, separate task checks and reply reviews, and evidence that remains inspectable when a candidate fails.
 
-That attribution matters when presenting the repository. Robert directed an AI-assisted engineering project; the repository supplies the decisions and evidence to discuss. The record does not support claiming sole unaided implementation, independently human-rated labels, or user research that did not happen. Automated browser rehearsal is not evidence that Robert has delivered a timed spoken presentation.
+The [development note](README.md#development-and-project-boundary) describes AI assistance. Historical records retain detailed provenance. Fictional tasks and provisional reference labels were AI-authored, and separate AI invocations produced support replies and semantic reviews. Automated checks and browser rehearsal do not establish independent human validation or user research.
 
 ## The usable slice
 
@@ -64,7 +64,7 @@ The system separates three questions:
 
 The original structural grade leaves prose uncertain. A separate first AI review checks claims against the ticket, sources and trace, with quoted evidence. Exact-quote validation can reject invented citations; it does not prove every interpretation is right. A passing review cannot override a prohibited handoff or a required-process failure.
 
-The initial semantic calibration matched all 16 provisional Codex-authored reference outcomes. These included contradictions, unsupported promises, negation and unresolved source conflict. Later contracts have their own calibration records. Labels were authored with AI and the same model family generated and reviewed replies; this is limited calibration, not independent ground truth. [Calibration evidence](evidence/semantic-calibration/RESULTS.md)
+The initial semantic calibration matched all 16 provisional AI-authored reference outcomes. These included contradictions, unsupported promises, negation and unresolved source conflict. Later contracts have their own calibration records. The same model family generated and reviewed replies; this is limited calibration, not independent ground truth. [Calibration evidence](evidence/semantic-calibration/RESULTS.md)
 
 ## What the experiments found
 

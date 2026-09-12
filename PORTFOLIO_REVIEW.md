@@ -31,7 +31,7 @@ Verification is scoped to Windows, Node 24 and isolated Edge. This was an automa
 
 ## Attribution and interpretation
 
-Robert's product direction and decisions, Codex's implementation/scenario/documentation work, AI-generated agent replies and AI semantic reviews are stated in the README, case study and presenter script. No unaided implementation or independent human validation is claimed.
+The current portfolio copy foregrounds the project and Robert's direction, with a brief AI-assistance development note in the README. AI-authored reference labels, AI-generated agent replies and AI semantic reviews remain explicit because they affect interpretation. Historical records retain detailed development and evaluation provenance. The revised copy does not claim unaided implementation or independent human validation.
 
 The guided comparison keeps its original tie; the earlier candidate remains not selected; the continuation retains 9/12. Source citations explain why these are different contracts and cannot form a causal improvement series. The original 5/6 clarification result, its missing rejected response and the separate 6/6 rerun remain distinct.
 

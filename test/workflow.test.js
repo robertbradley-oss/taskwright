@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { availableLoopbackPort } from './support/port.js';
 import assert from 'node:assert/strict';
 import {readFile,mkdtemp,readdir} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
@@ -51,7 +52,7 @@ test('evidence renders missing attempts and escapes untrusted model and source t
 });
 
 test('home and saved workflow work with empty runtime storage and no provider executable',async t=>{
-  const dir=await mkdtemp(path.join(tmpdir(),'taskwright-workflow-')),port=45000+Math.floor(Math.random()*9000);
+  const dir=await mkdtemp(path.join(tmpdir(),'taskwright-workflow-')),port=await availableLoopbackPort();
   const child=spawn(process.execPath,['server.mjs'],{env:{...process.env,PATH:'',PORT:String(port),TASKWRIGHT_RUN_DIR:dir},windowsHide:true,stdio:['ignore','pipe','pipe']});
   t.after(()=>child.kill());
   await Promise.race([once(child.stdout,'data'),once(child,'exit').then(()=>{throw Error('Server failed to start');})]);

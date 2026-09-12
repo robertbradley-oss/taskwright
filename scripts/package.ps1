@@ -7,7 +7,7 @@ New-Item -ItemType Directory -Path $packageRoot -Force | Out-Null
 
 # Explicit inclusion keeps Git metadata and unrelated local files out of the ZIP.
 $files = @(
-  '.gitattributes', 'LICENSE', 'AGENT_CASE_STUDY.md', 'PORTFOLIO_DEMO.md', 'PORTFOLIO_REVIEW.md',
+  '.gitattributes', 'LICENSE', 'test/support/port.js', 'AGENT_CASE_STUDY.md', 'PORTFOLIO_DEMO.md', 'PORTFOLIO_REVIEW.md',
   'docs/images/taskwright-overview.png', 'docs/images/taskwright-failure.png',
   'scripts/check-brief-invariants.mjs',
   'evidence/conditional-handoff/report.dcc4d8b2-4ccb-4cc9-9e69-cbe210dd8dc4.tmp',

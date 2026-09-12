@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { once } from 'node:events';
 import { request } from 'node:http';
+import { availableLoopbackPort } from './support/port.js';
 import {randomUUID} from 'node:crypto';
 import {readRun,createRun,runAgent,replayAdapter} from '../engine/runner.js';
 import {hash} from '../engine/scenario.js';
@@ -19,7 +20,7 @@ import {createRegressionRun,regressionFixture} from '../engine/regression-experi
 import {createClarificationContract} from '../engine/clarification.js';
 import {createClarificationRun,clarificationFixture} from '../engine/clarification-experiment.js';
 test('local API rejects foreign callers and preserves runs across server restart',async t=>{
- const dir=await mkdtemp(path.join(tmpdir(),'taskwright-api-'));const port=43000+Math.floor(Math.random()*10000);const base=`http://127.0.0.1:${port}`;let child;
+ const dir=await mkdtemp(path.join(tmpdir(),'taskwright-api-'));const port=await availableLoopbackPort();const base=`http://127.0.0.1:${port}`;let child;
  const start=async(legacy=false)=>{let startupError='';child=spawn(process.execPath,['server.mjs'],{env:{...process.env,PATH:'',PORT:String(port),TASKWRIGHT_RUN_DIR:legacy?'':dir,TRYWISE_RUN_DIR:legacy?dir:path.join(dir,'legacy-unused')},windowsHide:true,stdio:['ignore','pipe','pipe']});child.stderr.on('data',chunk=>startupError+=chunk.toString());await Promise.race([once(child.stdout,'data'),once(child,'exit').then(([code])=>{throw Error('Server exited before listening ('+code+'): '+startupError);})]);};
  const stop=async()=>{const p=once(child,'exit');child.kill();await p;};t.after(()=>child?.kill());await start();
  assert.equal((await fetch(base+'/')).status,200);

@@ -6,7 +6,7 @@ A local lab for testing whether a customer-support AI agent follows explicit req
 
 This portfolio project uses fictional products, customers and policies. “Training” means iterating on agent configuration; the application does not update model weights. Formerly **Trywise**; [historical records retain that name](RENAMING.md).
 
-[Case study](AGENT_CASE_STUDY.md) · [Demo walkthrough](PORTFOLIO_DEMO.md) · [Workflow details](WORKFLOW.md) · [Release assessment](PORTFOLIO_REVIEW.md)
+[Case study](AGENT_CASE_STUDY.md) · [Demo walkthrough](PORTFOLIO_DEMO.md) · [Failure-diagnostics rehearsal](COMPARISON_DIAGNOSTICS.md) · [Workflow details](WORKFLOW.md) · [Release assessment](PORTFOLIO_REVIEW.md)
 
 ![Taskwright's guided workflow showing the frozen support brief and five evaluation steps](docs/images/taskwright-overview.png)
 
@@ -26,7 +26,7 @@ Run the automated checks in another terminal:
 npm test
 ```
 
-The release rehearsal uses 139 tests. Windows/PowerShell and local Edge are the verified environment; other platforms have not received the same browser rehearsal. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
+The current suite has 145 passing tests; the original release rehearsal used 139. See [UI and diagnostics update](PUBLICATION_NOTES.md) for the current changes and verification. Windows/PowerShell is the verified local environment; other platforms have not received the same browser rehearsal. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
 
 ## Start with the saved example
 

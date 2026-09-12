@@ -20,6 +20,8 @@ The evidence library also opens a failed continuation attempt inline, with its s
 
 The existing comparison form handles prerequisites, immutable snapshots, bounded execution and cancellation. A saved comparison links back into `/workflow.html?comparison=<id>#compare`, using its actual local records rather than the sealed example. Running results are labeled provisional and can be refreshed. This guided view does not launch or cancel work; those controls remain in the workbench.
 
+New shared-contract comparisons use a separately versioned execution path that retains rejected support and review responses with bounded failure diagnostics. See [Comparison diagnostics](COMPARISON_DIAGNOSTICS.md) for implementation details, limits and an offline rehearsal. Earlier records keep their original execution identity.
+
 `/lab.html` opens the individual-run inspector. Existing `/?run=<id>` links retain their original behavior. Historical practice URLs and all earlier workbenches remain available. Unknown or unavailable comparisons show an explicit error with retry and a separate link to the worked example; they never silently substitute a different result.
 
 ## Verification for this milestone

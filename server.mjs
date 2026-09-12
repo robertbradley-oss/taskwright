@@ -17,7 +17,8 @@ import {authorityDefaults,authorityScenario,saveAuthorityContract,readAuthorityC
 import {authorityCalibration} from './engine/authority-calibration.js';
 import {createAuthorityExperiment,saveAuthorityPlan,listAuthorityPlans,readAuthorityPlan,loadAuthority,executeAuthority} from './engine/authority-experiment.js';
 import {briefDefaults,listBriefs,saveBrief,freezeBrief,listContracts,readContract,requirements,taskInstructions} from './engine/briefs.js';
-import {createContractSuite,saveContractSuite,listContractSuites,readContractSuite,loadContractSuite,executeContractSuite} from './engine/contract-suites.js';
+import {saveContractSuite,listContractSuites,readContractSuite} from './engine/contract-suites.js';
+import {createDiagnosticComparison,executeDiagnosticComparison,loadDiagnosticComparison} from './engine/comparison-execution.js';
 import { reassess,assessments } from './engine/assessments.js';
 import { baseline,configKey,listConfigurations,getConfiguration,saveCandidate } from './engine/configurations.js';
 import { createExperiment,saveExperiment,listExperiments,readExperiment,loadComparison } from './engine/experiments.js';
@@ -38,6 +39,9 @@ Object.assign(files,{'/regression.html':['regression.html','text/html'],'/regres
 Object.assign(files,{'/diagnostics.html':['diagnostics.html','text/html'],'/diagnostics.js':['diagnostics.js','text/javascript'],'/diagnostic-ui.js':['diagnostic-ui.js','text/javascript']});
 Object.assign(files,{'/continuation-ui.js':['continuation-ui.js','text/javascript']});
 Object.assign(files,{'/workflow.html':['workflow.html','text/html'],'/workflow.js':['workflow.js','text/javascript'],'/workflow-view.js':['workflow-view.js','text/javascript'],'/workflow.css':['workflow.css','text/css'],'/lab.html':['lab.html','text/html']});
+// Self-hosted Inter (SIL OFL 1.1, see fonts/Inter-LICENSE.txt). Served from the
+// same origin because the page ships default-src 'self'; no webfont CDN is reachable.
+Object.assign(files,{'/fonts/InterVariable.woff2':['fonts/InterVariable.woff2','font/woff2'],'/favicon.svg':['favicon.svg','image/svg+xml']});
 async function optionalJSON(path){try{return JSON.parse(await readFile(path,'utf8'));}catch(e){if(e.code==='ENOENT')return null;throw e;}}
 const diagnosticFile=name=>new URL('./evidence/diagnostic-rerun/'+name+'.json',import.meta.url);
 async function eligibilityEvidence(name){try{return JSON.parse(await readFile(new URL('./evidence/eligibility/'+name+'.json',import.meta.url),'utf8'));}catch(e){if(e.code==='ENOENT')return null;throw e;}}
@@ -144,7 +148,7 @@ const server=http.createServer(async(req,res)=>{
   if(req.method==='GET'&&pathname==='/api/contract-suites')return json(res,200,await listContractSuites(dir));
   if(req.method==='GET'&&/^\/api\/contract-suites\/[0-9a-f-]{36}$/.test(pathname)){
    const id=pathname.split('/').pop(),plan=await readContractSuite(dir,id),running=plan.experiments.some(e=>e.schedule.some(s=>active.has(s.runId)));
-   return json(res,200,await loadContractSuite(dir,id,running));
+   return json(res,200,await loadDiagnosticComparison(dir,id,running));
   }
   if(req.method==='POST'&&/^\/api\/contract-suites\/[0-9a-f-]{36}\/cancel$/.test(pathname)){
    const plan=await readContractSuite(dir,pathname.split('/')[3]);for(const e of plan.experiments)for(const s of e.schedule)active.get(s.runId)?.abort();return json(res,200,{cancelRequested:true});
@@ -153,9 +157,9 @@ const server=http.createServer(async(req,res)=>{
    if(req.headers['content-type']!=='application/json')return json(res,415,{error:'JSON required'});
    const data=await body(req),contract=await readContract(dir,data.contract),a=await getConfiguration(dir,data.baseline),b=await getConfiguration(dir,data.candidate);
    if(active.size)return json(res,409,{error:'Wait for or cancel the current execution.'});
-   const {plan,runs}=createContractSuite(contract,a,b,codexVersion());for(const r of runs)active.set(r.id,new AbortController());
+   const {plan,runs}=createDiagnosticComparison(contract,a,b,codexVersion());for(const r of runs)active.set(r.id,new AbortController());
    try{await saveContractSuite(dir,plan,runs);}catch(e){for(const r of runs)active.delete(r.id);throw e;}
-   void executeContractSuite(runs,active,dir).catch(error=>console.error('Suite stopped after storage failure:',error.code||'unavailable'));
+   void executeDiagnosticComparison(plan,runs,active,dir).catch(error=>console.error('Suite stopped:',error.message)).finally(()=>{for(const r of runs)active.delete(r.id);});
    return json(res,202,{id:plan.id});
   }
   if(req.method==='GET'&&pathname==='/api/config')return json(res,200,{scenario,fixtures,scenarios:scenarios.map(s=>({...s,fixtures:scenarioFixtures(s)||fixtures})),codexAvailable:!!findCodex(),configurations:await listConfigurations(dir)});
@@ -203,7 +207,8 @@ const server=http.createServer(async(req,res)=>{
   if(req.method==='POST'&&/^\/api\/runs\/[0-9a-f-]{36}\/cancel$/.test(pathname)){const id=pathname.split('/')[3];active.get(id)?.abort();return json(res,200,{cancelRequested:active.has(id)});}
   if(req.method!=='GET')return json(res,405,{error:'Method not allowed'});
   const file=pathname==='/'&&!new URL(req.url,'http://localhost').searchParams.has('run')?['workflow.html','text/html']:files[pathname];if(!file)return json(res,404,{error:'Not found'});
-  res.writeHead(200,{'Content-Type':`${file[1]}; charset=utf-8`,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"});res.end(await readFile(new URL(file[0],import.meta.url)));
+  const binary=file[1].startsWith('font/');
+  res.writeHead(200,{'Content-Type':binary?file[1]:`${file[1]}; charset=utf-8`,'Cache-Control':binary?'public, max-age=31536000, immutable':'no-store','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"});res.end(await readFile(new URL(file[0],import.meta.url)));
  }catch(error){json(res,error.code==='ENOENT'?404:400,{error:error.code==='ENOENT'?'Run not found':'Invalid request or unavailable storage'});}
 });
 server.listen(port,'127.0.0.1',()=>console.log(`Taskwright agent lab: http://127.0.0.1:${port}`));

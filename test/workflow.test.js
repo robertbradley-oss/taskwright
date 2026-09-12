@@ -64,7 +64,11 @@ test('home and saved workflow work with empty runtime storage and no provider ex
     const response=await fetch(base+'/api/workflow/'+name);assert.equal(response.status,200);
     const value=await response.json();assert.equal(hash(value.report),value.seal.reportHash);
   }
-  for(const file of ['workflow.html','workflow.js','workflow.css','workflow-view.js'])assert.equal((await fetch(base+'/'+file)).status,200);
+  for(const file of ['workflow.html','workflow.js','workflow.css','workflow-view.js','external-view.js','external-report.js','external.css','external-demo.json'])assert.equal((await fetch(base+'/'+file)).status,200);
+  const external=await fetch(base+'/external-demo.json');
+  assert.match(external.headers.get('content-security-policy'), /default-src 'self'/);
+  assert.equal(await external.text(),await readFile(new URL('../examples/external-agent/demo-report.json',import.meta.url),'utf8'));
+  assert.equal((await fetch(base+'/examples/external-agent/agent.mjs')).status,404);
   assert.equal((await fetch(base+'/api/workflow/reserved')).status,404);
   assert.equal((await fetch(base+'/api/workflow/comparison',{method:'POST'})).status,405);
   assert.deepEqual(await(await fetch(base+'/api/runs')).json(),[]);

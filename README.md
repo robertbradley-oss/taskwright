@@ -39,7 +39,7 @@ Run the automated checks in another terminal:
 npm test
 ```
 
-The current suite has 157 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses a complete failed comparison without a provider. Both operating-system jobs passed when this workflow was introduced; the badge links to current results. See [CI scope and local commands](docs/VERIFICATION.md). Browser rehearsal was performed locally on Windows; Linux CI does not establish Linux browser compatibility. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
+The current suite has 162 tests; the original release rehearsal used 139. [GitHub Actions](https://github.com/robertbradley-oss/taskwright/actions/workflows/verify.yml) runs them on Windows and Linux, verifies 333 committed protected files before and after execution, and rehearses a complete failed comparison without a provider. Both operating-system jobs passed when this workflow was introduced; the badge links to current results. See [CI scope and local commands](docs/VERIFICATION.md). Browser rehearsal was performed locally on Windows; Linux CI does not establish Linux browser compatibility. If port 4173 is occupied, reuse your existing Taskwright instance or set `PORT` for a separate instance. Do not terminate an unrelated process. Links in the walkthrough use the default port.
 
 ## Start with the saved example
 
@@ -56,6 +56,8 @@ The evidence library includes a separate **9/12 continuation result**. All hando
 The saved views read repository evidence directly and verify report hashes against their recorded seals. Viewing them creates no agent runs. **Saved evidence** means previously executed results; **offline replay** runs a scripted fixture; **fresh execution** invokes a model. These are distinct modes.
 
 ## Evaluate an external agent
+
+Open **External agents** from the home page, then **Open offline example**. Explore replies, document reads and blocked actions in the app, or open your own local report without uploading it. [Viewer walkthrough](docs/EXTERNAL_AGENTS.md#view-the-results-in-taskwright).
 
 `npm run demo:external` runs an independent program through a versioned JSON process contract. Inspect a successful document-reading loop, retained invalid output, and a denied handoff after valid retrieval. The demo uses real child processes with deterministic behavior and injected faults; it makes no model calls. An optional model-backed example is tested against a mock HTTP provider, with live-provider validation still pending. [Contract, walkthrough and integration guide](docs/EXTERNAL_AGENTS.md).
 

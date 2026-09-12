@@ -1,3 +1,4 @@
+import {externalRoute} from './external-view.js';
 import {esc,pretty,renderStage,runEvidence} from './workflow-view.js';
 const $ = id => document.getElementById(id);
 const steps = ['brief','run','evidence','compare','export'];
@@ -10,7 +11,7 @@ async function api(path) {
   return value;
 }
 function render(focus = false) {
-  if (!report) return;
+  if (externalRoute(focus) || !report) return;
   const hash = location.hash.slice(1), index = steps.indexOf(hash);
   if (focus && index < 0) return;
   step = index < 0 ? 'brief' : hash;

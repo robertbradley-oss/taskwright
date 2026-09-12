@@ -39,6 +39,7 @@ Object.assign(files,{'/regression.html':['regression.html','text/html'],'/regres
 Object.assign(files,{'/diagnostics.html':['diagnostics.html','text/html'],'/diagnostics.js':['diagnostics.js','text/javascript'],'/diagnostic-ui.js':['diagnostic-ui.js','text/javascript']});
 Object.assign(files,{'/continuation-ui.js':['continuation-ui.js','text/javascript']});
 Object.assign(files,{'/workflow.html':['workflow.html','text/html'],'/workflow.js':['workflow.js','text/javascript'],'/workflow-view.js':['workflow-view.js','text/javascript'],'/workflow.css':['workflow.css','text/css'],'/lab.html':['lab.html','text/html']});
+Object.assign(files,{'/external-view.js':['external-view.js','text/javascript'],'/external-report.js':['external-report.js','text/javascript'],'/external.css':['external.css','text/css'],'/external-demo.json':['examples/external-agent/demo-report.json','application/json']});
 // Self-hosted Inter (SIL OFL 1.1, see fonts/Inter-LICENSE.txt). Served from the
 // same origin because the page ships default-src 'self'; no webfont CDN is reachable.
 Object.assign(files,{'/fonts/InterVariable.woff2':['fonts/InterVariable.woff2','font/woff2'],'/favicon.svg':['favicon.svg','image/svg+xml']});

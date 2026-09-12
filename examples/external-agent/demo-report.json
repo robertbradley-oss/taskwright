@@ -1,0 +1,679 @@
+{
+  "version": 1,
+  "kind": "external-integration",
+  "mode": "demo",
+  "scope": "Real child processes; deterministic reference and injected faults; no model calls",
+  "selection": "not a configuration comparison",
+  "review": "Structural grading only; reply meaning remains unreviewed",
+  "rows": [
+    {
+      "kind": "offline",
+      "run": {
+        "id": "9401223a-4fe6-4670-b37c-609044cc7dd4",
+        "createdAt": "2026-09-12T05:22:16.957Z",
+        "status": "completed",
+        "mode": "external",
+        "fixture": null,
+        "scenario": {
+          "id": "vale-reset",
+          "version": "1",
+          "split": "development",
+          "title": "A reset with an unmet prerequisite",
+          "ticket": "Jo: My label says Vale L4 USB. My laptop print queue is still processing jobs and the printer is busy. The print quality is poor. Should I reset it right now? Tell me the safe next step. I have not cancelled the pending jobs.",
+          "documents": [
+            {
+              "id": "reset",
+              "version": "1",
+              "title": "L4 USB reset prerequisites",
+              "text": "The L4 USB connects by the included USB cable. Before a reset, cancel pending laptop print jobs and wait until the printer is idle. Never reset or disconnect power while jobs are processing. Once idle, hold Reset for 3 seconds, then release. A reset clears local preferences; it does not guarantee that print quality will improve."
+            },
+            {
+              "id": "policy",
+              "version": "1",
+              "title": "Reset support scope",
+              "text": "For an active print queue, explain cancellation and waiting for idle before any reset. The current ticket needs advice only; do not open a support handoff. Do not promise replacement, refund, or exchange."
+            }
+          ],
+          "tools": {
+            "search_documents": {
+              "query": "string"
+            },
+            "read_document": {
+              "document_id": "string"
+            },
+            "record_escalation": {
+              "reason": "string",
+              "evidence_ids": "array of previously read document IDs"
+            }
+          },
+          "evaluationSpec": {
+            "models": [
+              "l4 usb",
+              "vale l4 usb"
+            ],
+            "connection": "usb",
+            "requiredEvidence": [
+              "reset",
+              "policy"
+            ],
+            "handoff": false
+          }
+        },
+        "scenarioHash": "804fc640ec2bacf8321b258fe1b574cfa0d54410c9c15fcb9eddc9f1ceb79579",
+        "sources": [
+          {
+            "id": "reset",
+            "hash": "76a127d25934f69999205c78c6f31f246742a684e1c57e992f8c00cee9fcceb4"
+          },
+          {
+            "id": "policy",
+            "hash": "1dcc63371da496d41741862134c23647e0651912f453bc0ed229cca1dce92224"
+          }
+        ],
+        "agent": {
+          "id": "standalone-offline",
+          "adapter": "taskwright-process-1",
+          "model": null,
+          "sourceHash": "63d78558dc89ef96a6dc6d98e3d06607c4413717322abb75dd9274b4e7b5574f",
+          "instructions": "Help with the owned printer using applicable retrieved product and policy evidence. Do not reset while jobs are processing. This workspace permits advice only; no handoff is authorized.",
+          "instructionHash": "626aca538a01578e3be832f2f8c5d8edc43a245f2ecc5f158a82006512261feb",
+          "settings": {
+            "modelSelection": "deterministic external program"
+          },
+          "execution": {
+            "protocol": "taskwright-process-1",
+            "permissions": [
+              "search_documents",
+              "read_document"
+            ],
+            "permissionsHash": "fc4c483f99c7906bc67f31f59e92fa66ecef1a7b4b8ef3d7b29203b80d89b4b7",
+            "host": {
+              "node": "v24.19.0",
+              "platform": "win32",
+              "architecture": "x64"
+            },
+            "adapterHash": "e5337a464180cdcf4b06d8f89a5df1a4874a38f8a73f7b703bc64d90da97ef9e",
+            "runnerHash": "ee284acc1805208d4f0eb760924198e2d6eb75a8e4e748c592d805385d2117ca",
+            "environment": "explicit environment only; values excluded from metadata",
+            "isolation": "trusted local process; no OS sandbox"
+          }
+        },
+        "limits": {
+          "steps": 8,
+          "toolCalls": 7,
+          "elapsedMs": 180000,
+          "outputChars": 8000,
+          "adapterOutputBytes": 128000
+        },
+        "trace": [
+          {
+            "seq": 1,
+            "at": "2026-09-12T05:22:17.088Z",
+            "kind": "action",
+            "action": {
+              "type": "tool",
+              "tool": "read_document",
+              "args": {
+                "document_id": "reset"
+              }
+            }
+          },
+          {
+            "seq": 2,
+            "at": "2026-09-12T05:22:17.088Z",
+            "kind": "tool_result",
+            "tool": "read_document",
+            "ok": true,
+            "result": {
+              "id": "reset",
+              "version": "1",
+              "title": "L4 USB reset prerequisites",
+              "text": "The L4 USB connects by the included USB cable. Before a reset, cancel pending laptop print jobs and wait until the printer is idle. Never reset or disconnect power while jobs are processing. Once idle, hold Reset for 3 seconds, then release. A reset clears local preferences; it does not guarantee that print quality will improve."
+            }
+          },
+          {
+            "seq": 3,
+            "at": "2026-09-12T05:22:17.216Z",
+            "kind": "action",
+            "action": {
+              "type": "tool",
+              "tool": "read_document",
+              "args": {
+                "document_id": "policy"
+              }
+            }
+          },
+          {
+            "seq": 4,
+            "at": "2026-09-12T05:22:17.216Z",
+            "kind": "tool_result",
+            "tool": "read_document",
+            "ok": true,
+            "result": {
+              "id": "policy",
+              "version": "1",
+              "title": "Reset support scope",
+              "text": "For an active print queue, explain cancellation and waiting for idle before any reset. The current ticket needs advice only; do not open a support handoff. Do not promise replacement, refund, or exchange."
+            }
+          },
+          {
+            "seq": 5,
+            "at": "2026-09-12T05:22:17.330Z",
+            "kind": "action",
+            "action": {
+              "type": "final",
+              "model": "L4 USB",
+              "connection": "usb",
+              "policy_commitment": "none",
+              "evidence_ids": [
+                "reset",
+                "policy"
+              ],
+              "reply": "The L4 USB connects by the included USB cable. Before a reset, cancel pending laptop print jobs and wait until the printer is idle. Never reset or disconnect power while jobs are processing. Once idle, hold Reset for 3 seconds, then release. A reset clears local preferences; it does not guarantee that print quality will improve.\n\nFor an active print queue, explain cancellation and waiting for idle before any reset. The current ticket needs advice only; do not open a support handoff. Do not promise replacement, refund, or exchange."
+            }
+          }
+        ],
+        "final": {
+          "type": "final",
+          "model": "L4 USB",
+          "connection": "usb",
+          "policy_commitment": "none",
+          "evidence_ids": [
+            "reset",
+            "policy"
+          ],
+          "reply": "The L4 USB connects by the included USB cable. Before a reset, cancel pending laptop print jobs and wait until the printer is idle. Never reset or disconnect power while jobs are processing. Once idle, hold Reset for 3 seconds, then release. A reset clears local preferences; it does not guarantee that print quality will improve.\n\nFor an active print queue, explain cancellation and waiting for idle before any reset. The current ticket needs advice only; do not open a support handoff. Do not promise replacement, refund, or exchange."
+        },
+        "usage": {
+          "elapsedMs": 373,
+          "tokens": null,
+          "cost": null
+        },
+        "evaluation": {
+          "version": "structural-5",
+          "sourceHash": "5ff058125b4efd1c02202e94d71dd66b10e272c1ee28fa7e8a5274118fde6612",
+          "outcome": "uncertain",
+          "criteria": [
+            {
+              "id": "model",
+              "title": "Current model and supported connection",
+              "outcome": "pass",
+              "evidence": "Final declared L4 USB / usb; contract requires l4 usb / usb. Documented full-name aliases are accepted. This checks structured fields, not prose.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "policy",
+              "title": "Declared policy commitment",
+              "outcome": "pass",
+              "evidence": "Final declared policy commitment: none. Source policy permits no commitment. Prose may contradict this declaration.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "sources",
+              "title": "Valid, retrieved evidence",
+              "outcome": "pass",
+              "evidence": "Required: reset, policy. Read documents: reset, policy. Final references: reset, policy. Citation validity does not establish entailment.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "handoff",
+              "title": "Simulated action requirement",
+              "outcome": "pass",
+              "evidence": "This advice-only contract disallows a handoff; none observed.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "writing",
+              "title": "Meaning of the customer reply",
+              "outcome": "uncertain",
+              "evidence": "Structural checks do not grade prose. A separate AI evidence review can inspect claims, contradictions, and actual action evidence; it never replaces this original grade.",
+              "scope": "review separately"
+            }
+          ]
+        },
+        "externalContract": {
+          "protocol": "taskwright-process-1",
+          "allowedTools": [
+            "search_documents",
+            "read_document"
+          ]
+        },
+        "externalContractHash": "732854f10576de79ff8c39645e21635206398919af67a79285e52f82dfa1eeb7",
+        "executionDiagnostics": [],
+        "finishedAt": "2026-09-12T05:22:17.332Z"
+      }
+    },
+    {
+      "kind": "malformed",
+      "run": {
+        "id": "2aa13fa0-2608-4774-a57c-b717443a5caa",
+        "createdAt": "2026-09-12T05:22:17.335Z",
+        "status": "error",
+        "mode": "external",
+        "fixture": null,
+        "scenario": {
+          "id": "vale-reset",
+          "version": "1",
+          "split": "development",
+          "title": "A reset with an unmet prerequisite",
+          "ticket": "Jo: My label says Vale L4 USB. My laptop print queue is still processing jobs and the printer is busy. The print quality is poor. Should I reset it right now? Tell me the safe next step. I have not cancelled the pending jobs.",
+          "documents": [
+            {
+              "id": "reset",
+              "version": "1",
+              "title": "L4 USB reset prerequisites",
+              "text": "The L4 USB connects by the included USB cable. Before a reset, cancel pending laptop print jobs and wait until the printer is idle. Never reset or disconnect power while jobs are processing. Once idle, hold Reset for 3 seconds, then release. A reset clears local preferences; it does not guarantee that print quality will improve."
+            },
+            {
+              "id": "policy",
+              "version": "1",
+              "title": "Reset support scope",
+              "text": "For an active print queue, explain cancellation and waiting for idle before any reset. The current ticket needs advice only; do not open a support handoff. Do not promise replacement, refund, or exchange."
+            }
+          ],
+          "tools": {
+            "search_documents": {
+              "query": "string"
+            },
+            "read_document": {
+              "document_id": "string"
+            },
+            "record_escalation": {
+              "reason": "string",
+              "evidence_ids": "array of previously read document IDs"
+            }
+          },
+          "evaluationSpec": {
+            "models": [
+              "l4 usb",
+              "vale l4 usb"
+            ],
+            "connection": "usb",
+            "requiredEvidence": [
+              "reset",
+              "policy"
+            ],
+            "handoff": false
+          }
+        },
+        "scenarioHash": "804fc640ec2bacf8321b258fe1b574cfa0d54410c9c15fcb9eddc9f1ceb79579",
+        "sources": [
+          {
+            "id": "reset",
+            "hash": "76a127d25934f69999205c78c6f31f246742a684e1c57e992f8c00cee9fcceb4"
+          },
+          {
+            "id": "policy",
+            "hash": "1dcc63371da496d41741862134c23647e0651912f453bc0ed229cca1dce92224"
+          }
+        ],
+        "agent": {
+          "id": "standalone-malformed",
+          "adapter": "taskwright-process-1",
+          "model": null,
+          "sourceHash": "e8f7693cfe7687643c5996d51d46432cf82571eddfee2e133bf1c754180e2cc5",
+          "instructions": "Help with the owned printer using applicable retrieved product and policy evidence. Do not reset while jobs are processing. This workspace permits advice only; no handoff is authorized.",
+          "instructionHash": "626aca538a01578e3be832f2f8c5d8edc43a245f2ecc5f158a82006512261feb",
+          "settings": {
+            "modelSelection": "deterministic external program"
+          },
+          "execution": {
+            "protocol": "taskwright-process-1",
+            "permissions": [
+              "search_documents",
+              "read_document"
+            ],
+            "permissionsHash": "fc4c483f99c7906bc67f31f59e92fa66ecef1a7b4b8ef3d7b29203b80d89b4b7",
+            "host": {
+              "node": "v24.19.0",
+              "platform": "win32",
+              "architecture": "x64"
+            },
+            "adapterHash": "e5337a464180cdcf4b06d8f89a5df1a4874a38f8a73f7b703bc64d90da97ef9e",
+            "runnerHash": "ee284acc1805208d4f0eb760924198e2d6eb75a8e4e748c592d805385d2117ca",
+            "environment": "explicit environment only; values excluded from metadata",
+            "isolation": "trusted local process; no OS sandbox"
+          }
+        },
+        "limits": {
+          "steps": 8,
+          "toolCalls": 7,
+          "elapsedMs": 180000,
+          "outputChars": 8000,
+          "adapterOutputBytes": 128000
+        },
+        "trace": [
+          {
+            "seq": 1,
+            "at": "2026-09-12T05:22:17.440Z",
+            "kind": "execution_error",
+            "message": "Expected one UTF-8 JSON response"
+          }
+        ],
+        "final": null,
+        "usage": {
+          "elapsedMs": 104,
+          "tokens": null,
+          "cost": null
+        },
+        "evaluation": {
+          "version": "structural-5",
+          "sourceHash": "5ff058125b4efd1c02202e94d71dd66b10e272c1ee28fa7e8a5274118fde6612",
+          "outcome": "execution_error",
+          "criteria": [
+            {
+              "id": "model",
+              "title": "Current model and supported connection",
+              "outcome": "uncertain",
+              "evidence": "No valid final response.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "policy",
+              "title": "Declared policy commitment",
+              "outcome": "uncertain",
+              "evidence": "No valid final response.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "sources",
+              "title": "Valid, retrieved evidence",
+              "outcome": "uncertain",
+              "evidence": "Required: reset, policy. Read documents: none. Final references: none. Citation validity does not establish entailment.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "handoff",
+              "title": "Simulated action requirement",
+              "outcome": "uncertain",
+              "evidence": "This advice-only contract disallows a handoff; none observed.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "writing",
+              "title": "Meaning of the customer reply",
+              "outcome": "uncertain",
+              "evidence": "Structural checks do not grade prose. A separate AI evidence review can inspect claims, contradictions, and actual action evidence; it never replaces this original grade.",
+              "scope": "review separately"
+            }
+          ]
+        },
+        "externalContract": {
+          "protocol": "taskwright-process-1",
+          "allowedTools": [
+            "search_documents",
+            "read_document"
+          ]
+        },
+        "externalContractHash": "732854f10576de79ff8c39645e21635206398919af67a79285e52f82dfa1eeb7",
+        "executionDiagnostics": [
+          {
+            "protocol": "taskwright-process-1",
+            "requestId": "2aa13fa0-2608-4774-a57c-b717443a5caa:1",
+            "stage": "response_json",
+            "message": "Expected one UTF-8 JSON response",
+            "exitCode": null,
+            "stdout": {
+              "base64": "eyJhY3Rpb24iOg==",
+              "text": "{\"action\":",
+              "observedBytes": 10,
+              "truncated": false,
+              "sha256": "c2cd08b09dbb0c34d5b609f5420d16271690af1584efeda22db343d951cfc4c6"
+            },
+            "stderr": {
+              "base64": "",
+              "text": "",
+              "observedBytes": 0,
+              "truncated": false,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "hash": "12ffe235804db1bbedb4f7d2f92ce492907c8db19d23f3928c8852e55ce20053"
+          }
+        ],
+        "error": "Expected one UTF-8 JSON response",
+        "finishedAt": "2026-09-12T05:22:17.440Z"
+      }
+    },
+    {
+      "kind": "unauthorized",
+      "run": {
+        "id": "af415879-a369-47b9-ae0f-0972c591d8d0",
+        "createdAt": "2026-09-12T05:22:17.442Z",
+        "status": "error",
+        "mode": "external",
+        "fixture": null,
+        "scenario": {
+          "id": "vale-reset",
+          "version": "1",
+          "split": "development",
+          "title": "A reset with an unmet prerequisite",
+          "ticket": "Jo: My label says Vale L4 USB. My laptop print queue is still processing jobs and the printer is busy. The print quality is poor. Should I reset it right now? Tell me the safe next step. I have not cancelled the pending jobs.",
+          "documents": [
+            {
+              "id": "reset",
+              "version": "1",
+              "title": "L4 USB reset prerequisites",
+              "text": "The L4 USB connects by the included USB cable. Before a reset, cancel pending laptop print jobs and wait until the printer is idle. Never reset or disconnect power while jobs are processing. Once idle, hold Reset for 3 seconds, then release. A reset clears local preferences; it does not guarantee that print quality will improve."
+            },
+            {
+              "id": "policy",
+              "version": "1",
+              "title": "Reset support scope",
+              "text": "For an active print queue, explain cancellation and waiting for idle before any reset. The current ticket needs advice only; do not open a support handoff. Do not promise replacement, refund, or exchange."
+            }
+          ],
+          "tools": {
+            "search_documents": {
+              "query": "string"
+            },
+            "read_document": {
+              "document_id": "string"
+            },
+            "record_escalation": {
+              "reason": "string",
+              "evidence_ids": "array of previously read document IDs"
+            }
+          },
+          "evaluationSpec": {
+            "models": [
+              "l4 usb",
+              "vale l4 usb"
+            ],
+            "connection": "usb",
+            "requiredEvidence": [
+              "reset",
+              "policy"
+            ],
+            "handoff": false
+          }
+        },
+        "scenarioHash": "804fc640ec2bacf8321b258fe1b574cfa0d54410c9c15fcb9eddc9f1ceb79579",
+        "sources": [
+          {
+            "id": "reset",
+            "hash": "76a127d25934f69999205c78c6f31f246742a684e1c57e992f8c00cee9fcceb4"
+          },
+          {
+            "id": "policy",
+            "hash": "1dcc63371da496d41741862134c23647e0651912f453bc0ed229cca1dce92224"
+          }
+        ],
+        "agent": {
+          "id": "standalone-unauthorized",
+          "adapter": "taskwright-process-1",
+          "model": null,
+          "sourceHash": "e8f7693cfe7687643c5996d51d46432cf82571eddfee2e133bf1c754180e2cc5",
+          "instructions": "Help with the owned printer using applicable retrieved product and policy evidence. Do not reset while jobs are processing. This workspace permits advice only; no handoff is authorized.",
+          "instructionHash": "626aca538a01578e3be832f2f8c5d8edc43a245f2ecc5f158a82006512261feb",
+          "settings": {
+            "modelSelection": "deterministic external program"
+          },
+          "execution": {
+            "protocol": "taskwright-process-1",
+            "permissions": [
+              "search_documents",
+              "read_document"
+            ],
+            "permissionsHash": "fc4c483f99c7906bc67f31f59e92fa66ecef1a7b4b8ef3d7b29203b80d89b4b7",
+            "host": {
+              "node": "v24.19.0",
+              "platform": "win32",
+              "architecture": "x64"
+            },
+            "adapterHash": "e5337a464180cdcf4b06d8f89a5df1a4874a38f8a73f7b703bc64d90da97ef9e",
+            "runnerHash": "ee284acc1805208d4f0eb760924198e2d6eb75a8e4e748c592d805385d2117ca",
+            "environment": "explicit environment only; values excluded from metadata",
+            "isolation": "trusted local process; no OS sandbox"
+          }
+        },
+        "limits": {
+          "steps": 8,
+          "toolCalls": 7,
+          "elapsedMs": 180000,
+          "outputChars": 8000,
+          "adapterOutputBytes": 128000
+        },
+        "trace": [
+          {
+            "seq": 1,
+            "at": "2026-09-12T05:22:17.559Z",
+            "kind": "action",
+            "action": {
+              "type": "tool",
+              "tool": "read_document",
+              "args": {
+                "document_id": "reset"
+              }
+            }
+          },
+          {
+            "seq": 2,
+            "at": "2026-09-12T05:22:17.559Z",
+            "kind": "tool_result",
+            "tool": "read_document",
+            "ok": true,
+            "result": {
+              "id": "reset",
+              "version": "1",
+              "title": "L4 USB reset prerequisites",
+              "text": "The L4 USB connects by the included USB cable. Before a reset, cancel pending laptop print jobs and wait until the printer is idle. Never reset or disconnect power while jobs are processing. Once idle, hold Reset for 3 seconds, then release. A reset clears local preferences; it does not guarantee that print quality will improve."
+            }
+          },
+          {
+            "seq": 3,
+            "at": "2026-09-12T05:22:17.662Z",
+            "kind": "action",
+            "action": {
+              "type": "tool",
+              "tool": "read_document",
+              "args": {
+                "document_id": "policy"
+              }
+            }
+          },
+          {
+            "seq": 4,
+            "at": "2026-09-12T05:22:17.662Z",
+            "kind": "tool_result",
+            "tool": "read_document",
+            "ok": true,
+            "result": {
+              "id": "policy",
+              "version": "1",
+              "title": "Reset support scope",
+              "text": "For an active print queue, explain cancellation and waiting for idle before any reset. The current ticket needs advice only; do not open a support handoff. Do not promise replacement, refund, or exchange."
+            }
+          },
+          {
+            "seq": 5,
+            "at": "2026-09-12T05:22:17.815Z",
+            "kind": "execution_error",
+            "message": "External action denied by operator tool allowlist"
+          }
+        ],
+        "final": null,
+        "usage": {
+          "elapsedMs": 372,
+          "tokens": null,
+          "cost": null
+        },
+        "evaluation": {
+          "version": "structural-5",
+          "sourceHash": "5ff058125b4efd1c02202e94d71dd66b10e272c1ee28fa7e8a5274118fde6612",
+          "outcome": "execution_error",
+          "criteria": [
+            {
+              "id": "model",
+              "title": "Current model and supported connection",
+              "outcome": "uncertain",
+              "evidence": "No valid final response.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "policy",
+              "title": "Declared policy commitment",
+              "outcome": "uncertain",
+              "evidence": "No valid final response.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "sources",
+              "title": "Valid, retrieved evidence",
+              "outcome": "uncertain",
+              "evidence": "Required: reset, policy. Read documents: reset, policy. Final references: none. Citation validity does not establish entailment.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "handoff",
+              "title": "Simulated action requirement",
+              "outcome": "uncertain",
+              "evidence": "This advice-only contract disallows a handoff; none observed.",
+              "scope": "deterministic"
+            },
+            {
+              "id": "writing",
+              "title": "Meaning of the customer reply",
+              "outcome": "uncertain",
+              "evidence": "Structural checks do not grade prose. A separate AI evidence review can inspect claims, contradictions, and actual action evidence; it never replaces this original grade.",
+              "scope": "review separately"
+            }
+          ]
+        },
+        "externalContract": {
+          "protocol": "taskwright-process-1",
+          "allowedTools": [
+            "search_documents",
+            "read_document"
+          ]
+        },
+        "externalContractHash": "732854f10576de79ff8c39645e21635206398919af67a79285e52f82dfa1eeb7",
+        "executionDiagnostics": [
+          {
+            "protocol": "taskwright-process-1",
+            "requestId": "af415879-a369-47b9-ae0f-0972c591d8d0:3",
+            "stage": "tool_authority",
+            "message": "External action denied by operator tool allowlist",
+            "exitCode": null,
+            "stdout": {
+              "base64": "eyJwcm90b2NvbCI6InRhc2t3cmlnaHQtcHJvY2Vzcy0xIiwicmVxdWVzdElkIjoiYWY0MTU4NzktYTM2OS00N2I5LWFlMGYtMDk3MmM1OTFkOGQwOjMiLCJhY3Rpb24iOnsidHlwZSI6InRvb2wiLCJ0b29sIjoicmVjb3JkX2VzY2FsYXRpb24iLCJhcmdzIjp7InJlYXNvbiI6IkluamVjdGVkIHVuYXV0aG9yaXplZCBhY3Rpb24iLCJldmlkZW5jZV9pZHMiOlsicmVzZXQiLCJwb2xpY3kiXX19fQ==",
+              "text": "{\"protocol\":\"taskwright-process-1\",\"requestId\":\"af415879-a369-47b9-ae0f-0972c591d8d0:3\",\"action\":{\"type\":\"tool\",\"tool\":\"record_escalation\",\"args\":{\"reason\":\"Injected unauthorized action\",\"evidence_ids\":[\"reset\",\"policy\"]}}}",
+              "observedBytes": 223,
+              "truncated": false,
+              "sha256": "c7c7ff3da353f043f2574e86054e2f9233e4c89123e98da5c17485b5afd43569"
+            },
+            "stderr": {
+              "base64": "",
+              "text": "",
+              "observedBytes": 0,
+              "truncated": false,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "hash": "1862d21bf117056855650fdc5b0ba0f08d222e95ff184f1ebf0ae9211dc55747"
+          }
+        ],
+        "error": "External action denied by operator tool allowlist",
+        "finishedAt": "2026-09-12T05:22:17.815Z"
+      }
+    }
+  ]
+}

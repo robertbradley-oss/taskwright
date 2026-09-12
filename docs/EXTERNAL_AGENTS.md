@@ -2,7 +2,7 @@
 
 Taskwright can evaluate a standalone program through `taskwright-process-1`. The program decides what to do; Taskwright owns the fictional documents, simulated tool execution, permissions, trace, persistence and existing structural grader. The example imports no Taskwright code and works when copied into a separate directory.
 
-This is a CLI integration, separate from the browser's frozen comparisons. It does not migrate old runs, invoke reserved cases, fine-tune a model or establish a configuration improvement.
+The execution integration is a CLI; its reports can now be viewed from the home page's External agents workspace. It remains separate from the browser's frozen comparisons. It does not migrate old runs, invoke reserved cases, fine-tune a model or establish a configuration improvement.
 
 ## One-minute offline demonstration
 
@@ -21,6 +21,21 @@ The command launches real child processes and writes a new `output/external-agen
 | `unauthorized` | The fault agent reads both valid documents, then requests a handoff despite the operator's advice-only allowlist. Stage `tool_authority` retains the rejected request; the successful trace contains no handoff. |
 
 The last case uses valid previously read evidence, so the refusal demonstrates the permission boundary rather than a missing-document error. The whole batch fails its assertions if any expected result changes. These are a deterministic reference policy and injected faults, **not observed model failures or a new model benchmark**.
+
+## View the results in Taskwright
+
+Start the app with `npm start`, open [External agents](http://127.0.0.1:4173/#external), and choose **Open offline example**. The included report is a retained execution of the three-case CLI demonstration. Viewing it launches no processes or model calls.
+
+1. Choose **Reply produced**, **Response rejected**, or **Action blocked**.
+2. Read the customer request, recorded reply and activity counts.
+3. Expand a stored check, retrieved document or failure diagnostic to see its evidence. The denied handoff appears in failure diagnostics, not as a completed tool effect.
+4. Use **Download report** or **View JSON** to export the original JSON without regrading it.
+
+To view a newly generated result, expand **Open another report** and select the `report.json` path printed by the CLI. Files are read in browser memory, never uploaded or executed. Reload clears the opened report. Leaving this workspace and returning within the same page preserves the selected run.
+
+The viewer accepts external-integration reports of version 1, up to 2 MB and 16 runs. It rejects invalid structures, duplicate run IDs, excessive nesting and oversized files; a failed import clears the previous result. Imported provenance, recorded grades and claims of model execution are **not independently verified**. The viewer displays stored checks and does not rerun the evaluator, authenticate hashes, or infer reply quality from a completed process.
+
+The bundled [demo report](../examples/external-agent/demo-report.json) is byte-preserved from the local publication rehearsal; its SHA-256 is pinned in the viewer test. It is deterministic execution evidence, not a model benchmark. See [viewer verification](EXTERNAL_VIEWER.md).
 
 ## Wire contract
 
@@ -109,7 +124,7 @@ The run uses the public reset ticket and advice-only permissions, with at most e
 - Failure diagnostics are saved outside the agent-visible trace. The existing runner saves the original structural evaluation and all successful simulated effects. Completed runs cannot be resumed through `runExternal`.
 - Only explicitly provided environment values are passed to the child. The shipped CLI passes model credentials only in model mode and does not put their values in prompts or execution metadata. Its model example suppresses provider error bodies. Arbitrary external programs can print secrets; retained diagnostics are not a universal secret scrubber.
 - This is a **trusted local executable integration, not an OS sandbox**. The child can use its operating-system permissions and network access. Killing the direct child does not guarantee termination of spawned descendants or reversal of remote requests. Use separate isolation for untrusted programs; do not give one real customer tools or credentials on the strength of the simulated allowlist.
-- New reports are local JSON artifacts, not enrolled in frozen comparison selection or automatically loaded into the browser. Semantic review remains separate and unexecuted. The original contracts, evidence and four reserved cases remain unchanged.
+- New reports are local JSON artifacts, not enrolled in frozen comparison selection. They can be opened explicitly in the browser viewer. Semantic review remains separate and unexecuted. The original contracts, evidence and four reserved cases remain unchanged.
 
 ## Automated regression checks
 
